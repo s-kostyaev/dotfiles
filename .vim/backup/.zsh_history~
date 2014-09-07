@@ -1,0 +1,262 @@
+find -i ку�рс /
+man find
+find -iname *ку�рс*
+find -iname / *ку�рс*
+find / *ку�рс*
+find / ку�рс
+cd /windows
+grep -l Ѓ�у�рс
+locate -i *jap*
+cd Users/Feofan/Videos/Pron/New/
+mplayer xvn\ \(uncensored\)/The_Youngster_Nene___pt._2.wmv
+sudo apt-get install launchy
+sudo apt-cache search launchy
+sudo apt-cache search launcher
+arecord & sleep 1 | aplay
+killall arecord
+killall -9 arecord
+xdg-mime
+man xdg-mime
+man xdg-open
+man lesspipe
+lesspipe backup_home_configs.tar 
+lessfile backup_home_configs.tar 
+apt-cache search inferno
+echo *
+man traceroute6
+cd /usr/bin
+less gnome-autogen.sh
+zenity  --title="Select a file to remove" --file-selection
+vim /windows/Users/Feofan/Documents/linux/axiom_tex/compile.sh
+/windows/Users/Feofan/Documents/linux/axiom_tex/compile.sh
+./compile.sh
+echo `.`
+echo .
+echo '.'
+echo $.
+echo `$.`
+echo %0
+echo $0
+echo $1
+echo $2
+echo $PATH
+wish
+stat backup_home_configs.tar
+xdg-open backup_home_configs.tar
+ zenity --notification  --window-icon=update.png  --text  "System\
+              update necessary
+ zenity --notification  --text  "System update necessary"
+ zenity --notification  --text  "System update necessary" --autokill
+ zenity --notification  --text  "System update necessary" --auto-kill
+ zenity --notification  --text  "System update necessary" --autoclose
+ zenity --notification  --text  "System update necessary" --auto-close
+       find $HOME -name '*.ps' | zenity --progress --pulsate
+       find $HOME -name '*.tar' | zenity --progress --pulsate
+man global
+man grep
+cat .zsh_history
+cd /windows/Users/Feofan/Documents/linux/axiom_tex/
+grep -f -i ку�рс
+grep -f * -i ку�рс
+grep -f *.* -i ку�рс
+grep -i -f * ку�рс
+grep -i -f *.* ку�рс
+grep -i -f * -e ку�рс
+grep -i  -e ку�рс
+man fgrep
+grep -i -l -e ку�рс
+apt-cache search config
+apt-cache search compiz
+sudo apt-get install compiz-plugins
+apt-cache search compiz | grep plugin
+sudo apt-get install compiz-plugins-extra
+mv soft.xspf /windows/Users/Feofan/Music
+man zshoptions
+man zshall
+vifm /usr/local
+man bash
+man name
+cat .zsh_history | grep man
+vifm .zshrc
+man file
+find /windows/Users/Feofan/Music/soft.xspf
+find ./../../windows/Users/Feofan/Music/soft.xspf
+find /../../windows/Users/Feofan/Music/soft.xspf
+find /../windows/Users/Feofan/Music/soft.xspf
+locate /windows/Users/Feofan/Music/soft.xspf
+man loc
+man locate
+pwd
+man pwd
+man cd
+man xelatex
+man xetex
+vifm /w/U/F
+vifm /windows/Users/Feofan/Documents/linux/axiom_tex
+cp *.sh ./old
+ls ./old/
+ls ./old/*.sh
+./compile.sh мой_ку�рсовой.tex
+vim compile.sh
+mv compile.sh axiom_tex-compile.sh
+cp axiom_tex-compile.sh /usr/local/bin
+sudo cp axiom_tex-compile.sh /usr/local/bin
+chmod 755 /usr/local/bin/axiom_tex-compile.sh
+sudo chmod 755 /usr/local/bin/axiom_tex-compile.sh
+sudo chmod 755 axiom_tex-compile.sh
+mkdir scripts-done
+mv axiom_tex-compile.sh ./scripts-done
+vim enter.sh
+mv enter.sh axiom_tex-enter.sh
+chmod 755 axiom_tex-enter.sh
+sudo chmod 755 axiom_tex-enter.sh
+cp axiom_tex-enter.sh ./scripts-done
+sudo mv axiom_tex-enter.sh /usr/local/bin
+mv content.tex content.tex.current
+cp content.tex.current content.tex.backup
+cp ./old/content.tex.sample content.tex
+xdg-open new3d.eps
+xdg-open sample.eps
+apt-cache search eps
+cat мой_ку�рсовой.tex
+basename amd-fx-8150.shtml
+man amd-fx-8150.shtml
+man basename
+basename amd-fx-8150.shtml .shtml
+echo `basename amd-fx-8150.shtml .shtml`.new
+locate *.dat
+rm *.dat
+axiom -nox
+mc
+sudo mc
+sudo -i
+cd /windows/Users/Feofan/Documents/linux/axiom_tex
+echo dgdf; dgdfg
+echo "dgdf; dgdfg"
+echo "dgdf; dgdfg" | axiom_tex-enter.sh
+vim rawinput
+cat rawinput
+ls *.dat
+cat rawout
+cp axiom_tex ~
+man cp
+man chmod
+cat *.dat
+ls -l *.eps
+sudo axiom_tex-compile.sh мой_ку�рсовой.tex
+sudo chmod -R /windows/Users/Feofan
+sudo chmod 777 -R /windows/Users/Feofan
+sudo nautilus
+sudo chmod -R 777 axiom_tex
+man chown
+sudo chown feofan *
+sudo chown feofan *.*
+sudo chown feofan */*.*
+ls *.eps
+rm *.eps
+vim startaxiom.sh
+mv startaxiom.sh axiom_tex-start.sh
+cp axiom_tex-start.sh scripts-done
+sudo cmod 755 axiom_tex-start.sh
+sudo chmod 755 axiom_tex-start.sh
+mv axiom_tex-start.sh /usr/local/bin
+sudo mv axiom_tex-start.sh /usr/local/bin
+cd ~/Ѓ�оку�менту�
+vim closeaxiom.sh
+sudo chmod 755 closeaxiom.sh
+mv closeaxiom.sh axiom_tex-close.sh
+cp axiom_tex-close.sh scripts-done
+mv axiom_tex-close.sh /usr/local/bin
+sudo mv axiom_tex-close.sh /usr/local/bin
+vim sendaxiom.sh
+mv sendaxiom.sh axiom_tex-send.sh
+sudo chmod 755 axiom_tex-send.sh
+cp axiom_tex-send.sh scripts-done
+sudo mv axiom_tex-send.sh /usr/local/bin
+vim plotaxiom.sh
+mv plotaxiom.sh axiom_tex-plot.sh
+sudo chmod 755 axiom_tex-plot.sh
+cp axiom_tex-plot.sh scripts-done
+sudo mv axiom_tex-plot.sh /usr/local/bin
+vom content.tex
+vim content.tex
+sudo vim /usr/local/bin/axiom_tex-start.sh
+axiom_tex-compile.sh мой_ку�рсовой.tex  
+ls *.sh
+ls /usr/local/bin/axiom_tex-*
+man notify-send
+apt-cache search adobe
+apt-cache search adobe | grep courier
+apt-cache search courier
+axiom
+man Rosetta.dvi
+locate Rosetta.dvi
+locate rosetta.dvi
+xdg-open `locate rosetta.dvi`
+apt-cache search axiom
+man axiom
+locate axiom-tex
+cat/var/lib/dpkg/info/axiom-tex.list
+cat /var/lib/dpkg/info/axiom-tex.list
+vim /usr/share/texmf/tex/plain/misc/axiom.sty
+zenity --calendar
+man zenity
+vim axiom_tex.sty
+cd Ѓ�оку�менту�
+vim maxiplot.sty
+gvim мой_ку�рсовой.tex
+locate latex
+locate latex | grep sty
+vifm
+cd /usr/share/texmf-texlive/tex/plain
+sudo mkdir axiom-tex
+sudo mkdir axiom_tex
+cd ~/Ѓ�оку�менту�/axiom_tex
+cp axiom_tex.sty /usr/share/texmf-texlive/tex/plain/axiom_tex/
+sudo cp axiom_tex.sty /usr/share/texmf-texlive/tex/plain/axiom_tex/
+man latex
+texhash
+mktexlsr
+sudo texhash
+ping 192.168.1.1
+ping tom.ru
+route -n
+ping tomsk.ru
+cat /etc/resolv.conf
+ifconfig
+gvim axiom_tex.sty
+locate *.sty
+find /usr/ *.sty
+cd scripts-done
+chmod 755 *
+mv scripts-done axiom_tex
+cd ..
+ls -l
+mv axiom_tex.sty ./axiom_tex/axiom_tex
+cd axiom_tex
+cd Ѓ�оку�менту�/axiom_tex
+vim мой_ку�рсовой.tex
+axiom_tex-compile.sh мой_ку�рсовой.tex
+finch
+cd ~/.ssh
+mkdir key_backup
+cp id_rsa* key_backup
+cd ~
+bc
+man git
+man git-show
+git config --global github.token ea5e6328af09cc765d2a8b6479a142c6
+cp key_backup/* .
+ls
+locate *git*
+export SSH_AUTH_SOCK=0
+rm id*
+ssh-keygen -t rsa -C "feofankss@gmail.com"
+cat id_rsa.pub
+ssh -T git@github.com
+cat .zsh_history | wc -l
+pptpsetup
+man pptpsetup
+ping vneha.ru
+vim .zshrc
+ping ie.tusur.ru

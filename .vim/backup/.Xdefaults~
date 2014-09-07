@@ -1,0 +1,10 @@
+#URxvt*perl-ext: tabbed
+URxvt.font: xft:Terminus:pixelsize=17
+URxvt.boldFont: xft:Terminus:pixelsize=17
+URxvt*saveLines: 3200
+#URxvt*scrollBar_right:false
+
+#URxvt.tabbed.tab-bg: 4
+
+URxvt*background: black
+URxvt*foreground: #D0D0D0

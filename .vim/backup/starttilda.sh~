@@ -1,0 +1,4 @@
+#!/bin/zsh
+if pidof tilda; then echo ok; else sleep 5 && if pidof tilda; then echo ok; else tilda & sleep 0.5 && tilda & sleep 1 && tilda &; fi; fi
+#until pidof tilda | awk '{print $6}'; do echo wait for restart tilda; done && while pidof tilda; do killall -9 tilda; done && tilda & 
+#until pidof tilda | awk '{print $2}'; do tilda && sleep 0.1; done && until pidof tilda | awk '{print $4}'; do tilda && sleep 0.1; done && until pidof tilda | awk '{print $6}'; do tildaa && sleep 0.1; done 

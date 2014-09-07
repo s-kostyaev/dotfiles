@@ -1,0 +1,5 @@
+sbcl --eval "(progn
+;              (ql:quickload \"ltk\")
+               (compile-file \"hello-world2\")
+               (load \"hello-world2\")
+               (save-lisp-and-die \"hello-world2.core\"))"

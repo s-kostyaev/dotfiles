@@ -1,0 +1,3 @@
+#!/bin/sh
+kdesu highgraph
+wine '/windows/Program Files (x86)/Half-Life 2 Ultimate Edition 6/Engine2/hl2.exe' -opengl -game episodic && kdesu lowgraph

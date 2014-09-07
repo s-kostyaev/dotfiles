@@ -1,0 +1,5 @@
+ 
+ telnet_port 4444
+ gdb_port 3333
+ source /usr/share/openocd/scripts/interface/jlink.cfg
+ source /usr/share/openocd/scripts/target/stm32f1x_stlink.cfg

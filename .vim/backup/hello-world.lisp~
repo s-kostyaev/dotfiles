@@ -1,0 +1,17 @@
+(defpackage :hello-world
+    (:use :common-lisp :ltk)
+      (:export #:main))
+
+(in-package :hello-world)
+
+(defun main ()
+    (setf *debug-tk* nil)
+      (with-ltk ()
+            (let ((b (make-instance
+                          'button
+                            :text "Hello World!"
+                            :command (lambda ()
+                                        (do-msg "Bye!") ; "Hello World!")
+;                                         (format t "Здравствуй, мир.")
+                                                (setf *exit-mainloop* t)))))
+                            (pack b))))

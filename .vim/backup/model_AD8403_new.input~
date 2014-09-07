@@ -1,0 +1,67 @@
+--Ri1==(Rk/Rk0)*(r1+a/255*R1)
+--Ri2==(Rk/Rk0)*(r2+b/255*R2)
+--Ri3==(Rk/Rk0)*(r3+c/255*R3)
+--Rc1==Ri3+Rp2
+--Rc2==Rc1*Ri2/(Rc1+Ri2)
+--Rc3==Rc2+Rp1
+--Rc4==Rc3*Ri1/(Rc3+Ri1)
+--Rvyh==Rc4*Rn/(Rc4+Rn)
+--solve(Rv=Rvyh,a)
+--solve(Rv=Rvyh,b)
+--solve(Rv=Rvyh,c)
+--A==(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1-255*Rk^2*Rk0*Rn*Rv)*r2+((-R2*Rk^3*Rv+R2*Rk^3*Rn)*b+(-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1-R2*Rk^2*Rk0*Rn*Rv*b-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-R3*Rk^3*Rv+R3*Rk^3*Rn)*c+(-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1-R3*Rk^2*Rk0*Rn*Rv*c+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-(1/255)*R2*R3*Rk^3*Rv+(1/255)*R2*R3*Rk^3*Rn)*b+(-R3*Rk^2*Rk0*Rp1-R3*Rk^2*Rk0*Rn)*Rv+R3*Rk^2*Rk0*Rn*Rp1)*c+((-R2*Rk^2*Rk0*Rp2-R2*Rk^2*Rk0*Rp1-R2*Rk^2*Rk0*Rn)*Rv+R2*Rk^2*Rk0*Rn*Rp2+R2*Rk^2*Rk0*Rn*Rp1)*b+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(-(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv*b-R3*Rk*Rk0^2*Rn*Rp1*Rv)*c+(-R2*Rk*Rk0^2*Rn*Rp2-R2*Rk*Rk0^2*Rn*Rp1)*Rv*b-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R1*Rk^3*Rv-R1*Rk^3*Rn)*r2+((1/255)*R1*R2*Rk^3*Rv-(1/255)*R1*R2*Rk^3*Rn)*b+(R1*Rk^2*Rk0*Rp1+R1*Rk^2*Rk0*Rn)*Rv-R1*Rk^2*Rk0*Rn*Rp1)*r3+(((1/255)*R1*R3*Rk^3*Rv-(1/255)*R1*R3*Rk^3*Rn)*c+(R1*Rk^2*Rk0*Rp2+R1*Rk^2*Rk0*Rp1+R1*Rk^2*Rk0*Rn)*Rv-R1*Rk^2*Rk0*Rn*Rp2-R1*Rk^2*Rk0*Rn*Rp1)*r2+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*b+((1/255)*R1*R3*Rk^2*Rk0*Rp1+(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*c+(((1/255)*R1*R2*Rk^2*Rk0*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rp1+(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*b+(R1*Rk*Rk0^2*Rp1+R1*Rk*Rk0^2*Rn)*Rp2*Rv-R1*Rk*Rk0^2*Rn*Rp1*Rp2))
+--B==(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1+(-R1*Rk^3*Rv+R1*Rk^3*Rn)*a-255*Rk^2*Rk0*Rn*Rv)*r2+((-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1+((-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp1)*a-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-R3*Rk^3*Rv+R3*Rk^3*Rn)*c+(-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1+((-(1/255)*R1*R3*Rk^3*Rv+(1/255)*R1*R3*Rk^3*Rn)*a-R3*Rk^2*Rk0*Rn*Rv)*c+((-R1*Rk^2*Rk0*Rp2-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp2+R1*Rk^2*Rk0*Rn*Rp1)*a+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-R3*Rk^2*Rk0*Rp1-R3*Rk^2*Rk0*Rn)*Rv+R3*Rk^2*Rk0*Rn*Rp1)*c+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(((-(1/255)*R1*R3*Rk^2*Rk0*Rp1-(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv+(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*a-R3*Rk*Rk0^2*Rn*Rp1*Rv)*c+((-R1*Rk*Rk0^2*Rp1-R1*Rk*Rk0^2*Rn)*Rp2*Rv+R1*Rk*Rk0^2*Rn*Rp1*Rp2)*a-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R2*Rk^3*Rv-R2*Rk^3*Rn)*r1+((1/255)*R1*R2*Rk^3*Rv-(1/255)*R1*R2*Rk^3*Rn)*a+R2*Rk^2*Rk0*Rn*Rv)*r3+(((1/255)*R2*R3*Rk^3*Rv-(1/255)*R2*R3*Rk^3*Rn)*c+(R2*Rk^2*Rk0*Rp2+R2*Rk^2*Rk0*Rp1+R2*Rk^2*Rk0*Rn)*Rv-R2*Rk^2*Rk0*Rn*Rp2-R2*Rk^2*Rk0*Rn*Rp1)*r1+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*a+(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv)*c+(((1/255)*R1*R2*Rk^2*Rk0*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rp1+(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*a+(R2*Rk*Rk0^2*Rn*Rp2+R2*Rk*Rk0^2*Rn*Rp1)*Rv))
+--C==(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1+(-R1*Rk^3*Rv+R1*Rk^3*Rn)*a-255*Rk^2*Rk0*Rn*Rv)*r2+((-R2*Rk^3*Rv+R2*Rk^3*Rn)*b+(-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1+((-(1/255)*R1*R2*Rk^3*Rv+(1/255)*R1*R2*Rk^3*Rn)*a-R2*Rk^2*Rk0*Rn*Rv)*b+((-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp1)*a-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1+((-R1*Rk^2*Rk0*Rp2-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp2+R1*Rk^2*Rk0*Rn*Rp1)*a+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-R2*Rk^2*Rk0*Rp2-R2*Rk^2*Rk0*Rp1-R2*Rk^2*Rk0*Rn)*Rv+R2*Rk^2*Rk0*Rn*Rp2+R2*Rk^2*Rk0*Rn*Rp1)*b+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(((-(1/255)*R1*R2*Rk^2*Rk0*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rp1-(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv+(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*a+(-R2*Rk*Rk0^2*Rn*Rp2-R2*Rk*Rk0^2*Rn*Rp1)*Rv)*b+((-R1*Rk*Rk0^2*Rp1-R1*Rk*Rk0^2*Rn)*Rp2*Rv+R1*Rk*Rk0^2*Rn*Rp1*Rp2)*a-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R3*Rk^3*Rv-R3*Rk^3*Rn)*r1+((1/255)*R1*R3*Rk^3*Rv-(1/255)*R1*R3*Rk^3*Rn)*a+R3*Rk^2*Rk0*Rn*Rv)*r2+(((1/255)*R2*R3*Rk^3*Rv-(1/255)*R2*R3*Rk^3*Rn)*b+(R3*Rk^2*Rk0*Rp1+R3*Rk^2*Rk0*Rn)*Rv-R3*Rk^2*Rk0*Rn*Rp1)*r1+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*a+(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv)*b+(((1/255)*R1*R3*Rk^2*Rk0*Rp1+(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*a+R3*Rk*Rk0^2*Rn*Rp1*Rv))
+Rp1:=500
+Rp2:=1000
+Rn:=250
+R1:=1000
+R2:=980
+R3:=1003
+r1:=38
+r2:=42
+r3:=48
+Rk0:=500
+Rk:=497
+--b:=32
+--c:=32
+--b:=32
+--c:=32
+--Rv:Float:=50.0
+--a:=floor(A)
+--b:=floor(B)
+--c:=ceiling(C)
+--numeric(Rvyh)
+--while Rv<=150.0 repeat
+--	b:=32
+--	c:=32
+--	a:=floor(A)
+--	b:=floor(B)
+--	c:=ceiling(C)
+--	Rez:=numeric(Rvyh)
+--	Rv:=Rv+0.01
+--	output Rez
+Solver(abcd)==
+	Rv:Float:=abcd
+	b:=32
+	c:=32
+	Rc1==Ri3+Rp2
+	Rc2==Rc1*Ri2/(Rc1+Ri2)
+	Rc3==Rc2+Rp1
+	Rc4==Rc3*Ri1/(Rc3+Ri1)
+	A:=(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1-255*Rk^2*Rk0*Rn*Rv)*r2+((-R2*Rk^3*Rv+R2*Rk^3*Rn)*b+(-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1-R2*Rk^2*Rk0*Rn*Rv*b-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-R3*Rk^3*Rv+R3*Rk^3*Rn)*c+(-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1-R3*Rk^2*Rk0*Rn*Rv*c+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-(1/255)*R2*R3*Rk^3*Rv+(1/255)*R2*R3*Rk^3*Rn)*b+(-R3*Rk^2*Rk0*Rp1-R3*Rk^2*Rk0*Rn)*Rv+R3*Rk^2*Rk0*Rn*Rp1)*c+((-R2*Rk^2*Rk0*Rp2-R2*Rk^2*Rk0*Rp1-R2*Rk^2*Rk0*Rn)*Rv+R2*Rk^2*Rk0*Rn*Rp2+R2*Rk^2*Rk0*Rn*Rp1)*b+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(-(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv*b-R3*Rk*Rk0^2*Rn*Rp1*Rv)*c+(-R2*Rk*Rk0^2*Rn*Rp2-R2*Rk*Rk0^2*Rn*Rp1)*Rv*b-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R1*Rk^3*Rv-R1*Rk^3*Rn)*r2+((1/255)*R1*R2*Rk^3*Rv-(1/255)*R1*R2*Rk^3*Rn)*b+(R1*Rk^2*Rk0*Rp1+R1*Rk^2*Rk0*Rn)*Rv-R1*Rk^2*Rk0*Rn*Rp1)*r3+(((1/255)*R1*R3*Rk^3*Rv-(1/255)*R1*R3*Rk^3*Rn)*c+(R1*Rk^2*Rk0*Rp2+R1*Rk^2*Rk0*Rp1+R1*Rk^2*Rk0*Rn)*Rv-R1*Rk^2*Rk0*Rn*Rp2-R1*Rk^2*Rk0*Rn*Rp1)*r2+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*b+((1/255)*R1*R3*Rk^2*Rk0*Rp1+(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*c+(((1/255)*R1*R2*Rk^2*Rk0*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rp1+(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*b+(R1*Rk*Rk0^2*Rp1+R1*Rk*Rk0^2*Rn)*Rp2*Rv-R1*Rk*Rk0^2*Rn*Rp1*Rp2))
+	a:=floor(A)
+	B:=(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1+(-R1*Rk^3*Rv+R1*Rk^3*Rn)*a-255*Rk^2*Rk0*Rn*Rv)*r2+((-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1+((-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp1)*a-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-R3*Rk^3*Rv+R3*Rk^3*Rn)*c+(-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1+((-(1/255)*R1*R3*Rk^3*Rv+(1/255)*R1*R3*Rk^3*Rn)*a-R3*Rk^2*Rk0*Rn*Rv)*c+((-R1*Rk^2*Rk0*Rp2-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp2+R1*Rk^2*Rk0*Rn*Rp1)*a+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-R3*Rk^2*Rk0*Rp1-R3*Rk^2*Rk0*Rn)*Rv+R3*Rk^2*Rk0*Rn*Rp1)*c+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(((-(1/255)*R1*R3*Rk^2*Rk0*Rp1-(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv+(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*a-R3*Rk*Rk0^2*Rn*Rp1*Rv)*c+((-R1*Rk*Rk0^2*Rp1-R1*Rk*Rk0^2*Rn)*Rp2*Rv+R1*Rk*Rk0^2*Rn*Rp1*Rp2)*a-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R2*Rk^3*Rv-R2*Rk^3*Rn)*r1+((1/255)*R1*R2*Rk^3*Rv-(1/255)*R1*R2*Rk^3*Rn)*a+R2*Rk^2*Rk0*Rn*Rv)*r3+(((1/255)*R2*R3*Rk^3*Rv-(1/255)*R2*R3*Rk^3*Rn)*c+(R2*Rk^2*Rk0*Rp2+R2*Rk^2*Rk0*Rp1+R2*Rk^2*Rk0*Rn)*Rv-R2*Rk^2*Rk0*Rn*Rp2-R2*Rk^2*Rk0*Rn*Rp1)*r1+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*a+(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv)*c+(((1/255)*R1*R2*Rk^2*Rk0*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rp1+(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*a+(R2*Rk*Rk0^2*Rn*Rp2+R2*Rk*Rk0^2*Rn*Rp1)*Rv))
+	b:=floor(B)
+	C:=(((((-255*Rk^3*Rv+255*Rk^3*Rn)*r1+(-R1*Rk^3*Rv+R1*Rk^3*Rn)*a-255*Rk^2*Rk0*Rn*Rv)*r2+((-R2*Rk^3*Rv+R2*Rk^3*Rn)*b+(-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp1)*r1+((-(1/255)*R1*R2*Rk^3*Rv+(1/255)*R1*R2*Rk^3*Rn)*a-R2*Rk^2*Rk0*Rn*Rv)*b+((-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp1)*a-255*Rk*Rk0^2*Rn*Rp1*Rv)*r3+(((-255*Rk^2*Rk0*Rp2-255*Rk^2*Rk0*Rp1-255*Rk^2*Rk0*Rn)*Rv+255*Rk^2*Rk0*Rn*Rp2+255*Rk^2*Rk0*Rn*Rp1)*r1+((-R1*Rk^2*Rk0*Rp2-R1*Rk^2*Rk0*Rp1-R1*Rk^2*Rk0*Rn)*Rv+R1*Rk^2*Rk0*Rn*Rp2+R1*Rk^2*Rk0*Rn*Rp1)*a+(-255*Rk*Rk0^2*Rn*Rp2-255*Rk*Rk0^2*Rn*Rp1)*Rv)*r2+(((-R2*Rk^2*Rk0*Rp2-R2*Rk^2*Rk0*Rp1-R2*Rk^2*Rk0*Rn)*Rv+R2*Rk^2*Rk0*Rn*Rp2+R2*Rk^2*Rk0*Rn*Rp1)*b+(-255*Rk*Rk0^2*Rp1-255*Rk*Rk0^2*Rn)*Rp2*Rv+255*Rk*Rk0^2*Rn*Rp1*Rp2)*r1+(((-(1/255)*R1*R2*Rk^2*Rk0*Rp2-(1/255)*R1*R2*Rk^2*Rk0*Rp1-(1/255)*R1*R2*Rk^2*Rk0*Rn)*Rv+(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp2+(1/255)*R1*R2*Rk^2*Rk0*Rn*Rp1)*a+(-R2*Rk*Rk0^2*Rn*Rp2-R2*Rk*Rk0^2*Rn*Rp1)*Rv)*b+((-R1*Rk*Rk0^2*Rp1-R1*Rk*Rk0^2*Rn)*Rp2*Rv+R1*Rk*Rk0^2*Rn*Rp1*Rp2)*a-255*Rk0^3*Rn*Rp1*Rp2*Rv)/(((R3*Rk^3*Rv-R3*Rk^3*Rn)*r1+((1/255)*R1*R3*Rk^3*Rv-(1/255)*R1*R3*Rk^3*Rn)*a+R3*Rk^2*Rk0*Rn*Rv)*r2+(((1/255)*R2*R3*Rk^3*Rv-(1/255)*R2*R3*Rk^3*Rn)*b+(R3*Rk^2*Rk0*Rp1+R3*Rk^2*Rk0*Rn)*Rv-R3*Rk^2*Rk0*Rn*Rp1)*r1+(((1/65025)*R1*R2*R3*Rk^3*Rv-(1/65025)*R1*R2*R3*Rk^3*Rn)*a+(1/255)*R2*R3*Rk^2*Rk0*Rn*Rv)*b+(((1/255)*R1*R3*Rk^2*Rk0*Rp1+(1/255)*R1*R3*Rk^2*Rk0*Rn)*Rv-(1/255)*R1*R3*Rk^2*Rk0*Rn*Rp1)*a+R3*Rk*Rk0^2*Rn*Rp1*Rv))
+	c:=ceiling(C)
+	Ri1:=(Rk/Rk0)*(r1+a/255*R1)
+	Ri2:=(Rk/Rk0)*(r2+b/255*R2)
+	Ri3:=(Rk/Rk0)*(r3+c/255*R3)
+	Rvyh:=Rc4*Rn/(Rc4+Rn)
+i:=50
+Err:=0
+while i<=150 repeat
+	if (Solver(i)-i)>Err then Err:=Solver(i)-i
+	output Err
+	i:=i+0.01

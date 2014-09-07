@@ -1,0 +1,7 @@
+Host docker-skype
+  User      docker
+    Port      55557
+    HostName  127.0.0.1
+    RemoteForward 64713 localhost:4713
+    ForwardX11 yes
+    IdentityFile /home/feofan/.ssh/id_rsa

@@ -1,0 +1,240 @@
+# $xxxterm: xxxterm.conf,v 1.77 2011/08/25 15:31:26 marco Exp $
+
+# NOTE: browser_mode MUST be the first entry in this file!
+
+# normal browser operation (default)
+# browser_mode		= normal
+
+# prevent tracking operation
+browser_mode		= whitelist
+
+# home			= https://www.cyphertite.com
+# ctrl_click_focus	= 0
+# append_next		= 1
+# download_dir		= ~/downloads
+# default_zoom_level	= 1.0
+# fancy_bar		= 1
+# refresh_interval	= 10
+# ssl_ca_file		= /etc/ssl/cert.pem
+# ssl_strict_certs	= 0
+# enable_socket		= 0
+# enable_localstorage	= 0
+# single_instance	= 0
+# save_global_history	= 0
+# show_tabs		= 1
+# statusbar_elems	= BP
+tab_style		= compact
+show_url		= 0
+show_statusbar	= 1
+session_autosave	= 1
+guess_search		= 1
+# url_regex		= ^[[:blank:]]*[^[:blank:]]*([[:alnum:]-]+\.)+[[:alnum:]-][^[:blank:]]*[[:blank:]]*$
+# enable_spell_checking	= 1
+# spell_check_languages	= en_US
+# xterm_workaround	= 1
+# history_autosave	= 1
+
+#
+# default_script points to a script executed by the run_script command.
+# the only argument passed to this script is the current uri
+#
+# default_script	= ~/.xxxterm/playflash.sh
+
+# NOTE: webkit 1.4.x overwrites these values!
+# max_host_connections	= 5
+# max_connections	= 25
+
+cmd_font		= terminus normal 11
+oops_font		= terminus normal 11
+statusbar_font	= terminus normal 11
+tabbar_font		= terminus normal 11
+
+
+#
+# resource_dir		= /usr/local/share/xxxterm/
+# icon_size		= 2
+window_width		= 1366
+window_height		= 768
+
+#
+# user_agent can bet set to just about anything
+# for a comprehensive list see: http://www.useragentstring.com/pages/All/
+#
+#user_agent		= Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))
+#user_agent		= Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4
+#user_agent		= Mozilla/5.0 (Windows; U; Windows NT 6.1; ru; rv:1.9.2.3) Gecko/20100401 Firefox/4.0 (.NET CLR 3.5.30729)
+
+#
+# see http://www.xroxy.com/proxylist.php for a good list of open proxies
+# http_proxy		= http://127.0.0.1:80
+http_proxy = http://127.0.0.1:8123/
+
+#
+# search engines
+# uncomment one of these lines for you favorite search engine
+#
+# scroogle (default)
+# search_string		= https://ssl.scroogle.org/cgi-bin/nbbwssl.cgi?Gw=%s
+# search_string		= http://www.scroogle.org/cgi-bin/nbbw.cgi?Gw=%s
+# google
+search_string		= http://www.google.ru/search?hl=ru&newwindow=0&output=search&q=%s
+# yahoo
+# search_string		= http://search.yahoo.com/search?p=%s
+
+#
+# alias support, %s is substituded with user input
+# alias,link+action
+# alias = ports,http://openports.se/search.php?so=%s
+
+#
+# pdf, note that xpdf can't load a URI directly
+# use @ in front of mime_type to indicate to download the file first
+# mime_type		= application/pdf,kpdf
+# mime_type		= @application/pdf,xpdf
+
+#
+# specific mime type for video
+# mime_type		= video/x-ms-wmv,mplayer
+# mime_type		= video/quicktime,mplayer
+
+# default mime type for video
+mime_type		= video/*,mplayer
+
+# default mime type for audio
+# mime_type		= audio/*,vlc
+
+# word docs
+# mime_type		= application/msword,soffice
+
+# ignoring flash can be done by using a non-existent binary name
+# mime_type		= application/x-shockwave-flash,donothing
+
+#
+# advanced cookie and JS settings, don't touch unless you know what you are doing
+#
+# the settings for "browser_mode = whitelist" are as follows:
+# allow_volatile_cookies	= 0
+# cookie_policy			= no3rdparty
+cookies_enabled		= 0
+enable_cookie_whitelist	= 1
+# read_only_cookies		= 0
+# save_rejected_cookies		= 0
+# session_timeout		= 3600
+enable_scripts		= 0
+enable_js_whitelist		= 1
+enable_localstorage		= 1
+#
+# the settings for "browser_mode = normal" are as follows
+# allow_volatile_cookies	= 0
+# cookie_policy			= allow
+# cookies_enabled		= 1
+# enable_cookie_whitelist	= 0
+# read_only_cookies		= 0
+# save_rejected_cookies		= 0
+# session_timeout		= 3600
+# enable_scripts		= 1
+# enable_js_whitelist		= 0
+# enable_localstorage		= 1
+
+# cookie white list
+# cookie_wl		= .conformal.com
+# cookie_wl		= .peereboom.us
+
+# javascript white list
+# js_wl			= .conformal.com
+# js_wl			= .peereboom.us
+
+#
+# key bindings
+# to delete all default keybindings use "keybinding = clearall"
+#
+# keybinding	= clearall
+#
+# Key names can be found at:
+# http://git.gnome.org/browse/gtk+/tree/gdk/gdkkeysyms-compat.h
+# just chop off the GDK_ part and you have the keyname.
+# or look at
+# http://git.gnome.org/browse/gtk+/tree/gdk/gdkkeysyms.h
+# and chop off GDK_KEY_
+# Be aware that the names are case sensitive!
+#
+# default keybindings
+#
+# keybinding	= command,colon
+# keybinding	= search,slash
+# keybinding	= searchb,question
+# keybinding	= cookiejar,M1-j
+# keybinding	= downloadmgr,M1-d
+# keybinding	= history,M1-h
+# keybinding	= print,C-p
+# keybinding	= quitall,C-q
+# keybinding	= restart,M1-q
+# keybinding	= run_script,M1-r
+# keybinding	= js toggle,C-j
+# keybinding	= cookie toggle,M1-c
+# keybinding	= togglesrc,C-s
+# keybinding	= yankuri,y
+# keybinding	= pasteuricur,p
+# keybinding	= pasteurinew,P
+# keybinding	= toplevel toggle,F4
+# keybinding	= help,F1
+# keybinding	= searchnext,n
+# keybinding	= searchprevious,N
+# keybinding	= focusaddress,o
+# keybinding	= focussearch,F7
+keybinding	= promptopen,o
+keybinding	= promptopencurrent,O
+keybinding	= prompttabnew,t
+keybinding	= prompttabnewcurrent,T
+# keybinding	= hinting,f
+# keybinding	= userstyle,i
+keybinding	= goback,H
+# keybinding	= goback,M1-Left
+keybinding	= goforward,L
+# keybinding	= goforward,M1-Right
+# keybinding	= reload,F5
+keybinding	= reload,r
+# keybinding	= reload,C-l
+# keybinding	= favorites,!M1-f
+# keybinding	= scrolldown,j
+# keybinding	= scrolldown,Down
+# keybinding	= scrollup,k
+# keybinding	= scrollup,Up
+# keybinding	= scrollbottom,G
+# keybinding	= scrollbottom,End
+# keybinding	= scrolltop,Home
+# keybinding	= scrollpagedown,space
+# keybinding	= scrollpagedown,C-f
+# keybinding	= scrollpagedown,Page_Down
+# keybinding	= scrollhalfdown,C-d
+# keybinding	= scrollpageup,Page_Up
+# keybinding	= scrollpageup,C-b
+# keybinding	= scrollhalfup,C-u
+# keybinding	= scrollright,l
+# keybinding	= scrollright,Right
+# keybinding	= scrollfarright,dollar
+# keybinding	= scrollleft,h
+# keybinding	= scrollleft,Left
+# keybinding	= scrollfarleft,0
+# keybinding	= statustoggle,C-n
+# keybinding	= tabnew,t
+keybinding	= tabclose,d
+keybinding	= tabundoclose,u
+# keybinding	= tabnext 1,C-1
+# keybinding	= tabnext 2,C-2
+# keybinding	= tabnext 3,C-3
+# keybinding	= tabnext 4,C-4
+# keybinding	= tabnext 5,C-5
+# keybinding	= tabnext 6,C-6
+# keybinding	= tabnext 7,C-7
+# keybinding	= tabnext 8,C-8
+# keybinding	= tabnext 9,C-9
+# keybinding	= tabfirst,C-less
+# keybinding	= tablast,C-greater
+keybinding	= tabprevious,C-p
+keybinding	= tabnext,C-n
+# keybinding	= focusout,C-minus
+# keybinding	= focusin,C-equal
+# keybinding	= focusin,C-plus
+# keybinding	= focusreset,C-0
+#keybindinq	= wq,!ZZ

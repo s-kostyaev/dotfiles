@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# this script is for Linux!
+
+FindPath()
+{
+    X=`which "$1"`
+    Y=`readlink -e "$X"`
+    dirname "$Y"
+}
+
+if [ "${DEARESTHER_DATA_PATH}" = "" ]; then
+    DEARESTHER_DATA_PATH="`FindPath "$0"`"
+fi
+
+echo "Dear Esther: Installed in '$DEARESTHER_DATA_PATH'."
+cd "$DEARESTHER_DATA_PATH"
+
+export LD_LIBRARY_PATH="$DEARESTHER_DATA_PATH/bin":$LD_LIBRARY_PATH
+
+exec ./dearesther_linux -game dearesther "$@" >/dev/null 2>/dev/null
+
+

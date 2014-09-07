@@ -1,0 +1,7 @@
+#!/bin/bash
+empty -f -i in.fifo -o out.fifo axiom -nox
+sleep 3
+empty -s -o in.fifo ')set output tex on \n' &
+sleep 1
+empty -s -o in.fifo ')set quit unprotected \n' &
+sleep 1

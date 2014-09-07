@@ -1,0 +1,1 @@
+exec i3 | i3status -c ~/.xmobarrc | dzen2 -y 750 -x 350 -w 750 -fn 'terminus-koi8-r-16' -bg black | trayer --edge top --align left --SetDockType true --SetPartialStrut true  --expand true --width 10 --transparent true --tint 0x000000 --alpha 255 --height 13 | gnome-settings-daemon | nm-applet &

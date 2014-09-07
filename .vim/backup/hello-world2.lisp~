@@ -1,0 +1,73 @@
+(eval-when (:execute)
+  #+sbcl (require 'ltk))
+;#+sbcl (require 'ltk)
+(defpackage :hello-world
+    (:use :common-lisp :ltk)
+      (:export #:main))
+(in-package :hello-world)
+
+
+;;Функция переводит число из десятичной системы в систему с заданным основанием
+;;N - число в десятичной системе; M - новое основание системы счисления 
+(defun trans (N M)
+        ;Локальная функция tr переводит число N 
+        ;Результат представлен списком с обратной расстановкой цифр 
+	(defun tr (N)
+		(cond   ((= (floor N M) 0) (list (mod N M)))
+			(t (cons (mod N M) (tr (floor N M))))))
+      (reverse (tr N)))
+
+;;Строим графический интерфейс
+(defun main ()
+(with-ltk ()
+   ;Подключаем фрейм с именем f
+   (let* ((f (make-instance 'frame))
+   ;определяем три метки l1, l2, l3
+	  (l1 (make-instance 'label
+                                    :master f
+				    :text "Число в десятичной системе счисления"))
+          (l2 (make-instance 'label
+                                    :master f
+				    :text "Основание системы счисления"))
+          (l3 (make-instance 'label 
+				    :master f
+				    :text "Результат"))
+    ;определяем поля ввода e1,e2,e3
+          (e1 (make-instance 'entry 
+                                    :text "0"
+				    :master f
+                                    :width 58
+                                    ))
+          (e2 (make-instance 'entry 
+                                    :text "2"
+				    :master f
+				    :width 58
+                                    ))
+          (e3 (make-instance 'entry
+                                    :text ""
+				    :master f
+				    :width 58
+                                    ))
+
+    ;определяем кнопку b1
+          (b1 (make-instance 'button
+                            :master f
+                            :width 54
+                            :text "Перевести"
+    ;при нажатии на кнопку в поле e3 помещается результат перевода
+                            :command (lambda () 
+                               (setf (text e3) (trans  (parse-integer (text e1)) (parse-integer (text e2)))))))
+
+    ;определяем кнопку b2
+          (b2 (make-instance 'button
+                             :master f
+			     :text "Выход"
+    ;при нажатии на кнопку окно формы закрывается
+			     :command #'(lambda ()
+				  (setf *exit-mainloop* t)))))
+
+    ;отображаются компоненты в соответствующей последовательности
+                 (pack (list f l1 e1 l2 e2 b1 l3 e3 b2))
+
+    ;задается заголовок главной формы
+                 (wm-title *tk*  "Перевод"))))

@@ -1,0 +1,146 @@
+\documentclass{eskdtext} % для документов по ЕСКД
+\usepackage{axiom_tex}
+\usepackage{longtable} % В документе используем пакет longtable для создания таблиц
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{setspace,supertabular}
+
+%\usepackage{graphicx} % Используем графику в документе
+
+\usepackage{pgf} % для скриптовой графики
+\usepackage{tikz} 
+
+\usepackage[cm-default,no-math]{fontspec} % для удобного выбора шрифтов
+\usepackage{xltxtra} % для правильной работы с юникодом
+\defaultfontfeatures{Mapping=tex-text} % нужен для того чтобы работали стандартные сочетания символов ---, --  << >> и т.п.
+
+\usepackage[russian,english]{polyglossia} % замена babel - русификация внутренних переменных LaTeX
+\newfontfamily\cyrillicfont{Times New Roman}
+%\newfontfamily\cyrillicfont{GOST type A}
+\setdefaultlanguage{russian} 
+
+\usepackage{hyperref} % для гиперссылок
+\usepackage{mathtext} % Русские буквы в формулах
+\usepackage{xecyr} % для корректной работы с кириллицей
+\setmainfont{Times New Roman} % шрифт по умолчанию
+\ESKDdocName{КУРСОВОЙ ПРОЕКТ \\ по дисциплине «Робототехника»}
+\ESKDdepartment{%
+\textnormal{Министерство образования и науки РФ}}
+\ESKDcompany{%
+\textnormal{\hspace{10mm} \\ ТОМСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ СИСТЕМ УПРАВЛЕНИЯ И РАДИОЭЛЕКТРОНИКИ~(ТУСУР) \\ \hspace{10mm}
+ \\ Кафедра промышленной электроники~(ПрЭ)}}
+\ESKDauthor{Костяев С.С.}% "Разраб." в штампе на листе содержания
+\ESKDchecker{Сулимов Ю.И.} % "Пров."  в штампе на листе содержания
+\ESKDdate{2011/01/17} % Дата (Год отображается на титульной странице)
+\ESKDsignature{ФЭТ КП.XXXX.6 ПЗ} % Шифр
+\ESKDletter{}{У}{} % Литеры
+
+\renewcommand{\ESKDtheTitleFieldX}{%
+\ESKDtheYear}% Шаблон для отображения в нижней части титульного листа города и года
+
+\ESKDtitleDesignedBy{Выполнил:}{студент гр.367-4 \\ Костяев~С.С.} % Подпись и дата под заголовком документа
+
+\ESKDtitleDesignedBy{Проверил:}{доцент каф.~ПрЭ \\ Сулимов~Ю.И.} % Подпись и дата под заголовком документа
+\renewcommand{\baselinestretch}{1} % Задаём единичный межстрочный интервал
+
+
+% прямой шрифт в титульном листе
+
+
+\renewcommand{\ESKDtitleFontI}{\ESKDfontV\upshape}
+\renewcommand{\ESKDtitleFontII}{\ESKDfontIII\upshape}
+\renewcommand{\ESKDtitleFontIII}{%
+  \ESKDfontIII\renewcommand{\baselinestretch}{1.50}\selectfont\upshape}
+  \renewcommand{\ESKDtitleFontIV}{\ESKDfontV\upshape}
+  \renewcommand{\ESKDtitleFontV}{\ESKDfontV\upshape}
+  \renewcommand{\ESKDtitleFontVI}{\ESKDfontV\upshape}
+  \renewcommand{\ESKDtitleFontVII}{\ESKDfontIII\upshape}
+  \renewcommand{\ESKDtitleFontVIII}{%
+    \ESKDfontIII\renewcommand{\baselinestretch}{1.25}\selectfont\upshape}
+    \renewcommand{\ESKDtitleFontX}{\ESKDfontV\upshape}
+       
+
+
+
+% новые команды для ускорения оформления ТЗ
+
+\newcommand{\tzvar}[1]{\underline{\textit{#1}}}
+
+\newenvironment{tzenv}{\begin{flushleft}\it}{\end{flushleft}}
+
+% списки нумеруются только цифрами
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{\theenumi}
+
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumi.\theenumii}
+
+\renewcommand{\theenumiii}{\arabic{enumiii}}
+\renewcommand{\labelenumiii}{\theenumi.\theenumii.\theenumiii}
+
+\renewcommand{\theenumiv}{\arabic{enumiv}}
+\renewcommand{\labelenumiv}{\theenumi.\theenumii.\theenumiii.\theenumiv}
+
+% правильное оформление нумерованных списков
+
+\renewcommand{\@listI}{%
+\leftmargin=25pt
+\rightmargin=0pt
+\labelsep=5pt
+\labelwidth=20pt
+\itemindent=0pt
+\listparindent=0pt
+\topsep=8pt plus 2pt minus 4pt
+\partopsep=2pt plus 1pt minus 1pt
+\parsep=0pt plus 1pt
+\itemsep=\parsep}
+
+
+% правильное оформление заголовков
+
+\renewcommand{\section}{\@startsection{section}{1}%
+{\parindent}{3.5ex plus 1ex minus .2ex}%
+{2.3ex plus.2ex}{\normalfont\bf\large}}
+
+
+% Правильное оформление содержания
+\renewcommand{\l@section}{\@dottedtocline{1}{.5em}{.8em}}
+\renewcommand{\l@subsection}{\@dottedtocline{1}{1.7em}{1.6em}}
+
+
+
+% счетчики (для правильной нумерации таблиц, рисунков и т.д.)
+
+\@addtoreset{table}{section}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+\@addtoreset{figure}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\@addtoreset{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+% переносы
+
+\hyphenation{вклю-чен об-ласть на-пря-же-ние на-пря-же-ния ка-чест-ву га-ран-ти-ро-ван-но-го элек-три-чес-ких ко-то-рой сис-те-ма рас-счи-та-на элек-три-чес-кой вы-пря-ми-те-ля поз-во-лит па-ра-мет-ра-ми тран-зис-то-ре па-ра-мет-ры тран-зис-тор вы-пря-ми-тель-ну-ю}
+
+
+\begin{document} % Маркер начала документа
+\maketitle % Создать титульный лист на основе данных в заголовке документа
+%\input{referat}
+%\newpage
+\input{TZ}
+\newpage
+\input{preamble}
+\newpage
+\tableofcontents % Создать содержание документа (потребуется дважды сформировать документ для того,
+       % чтобы номера страниц сформировались правильно)
+\hspace{-1cm}
+%\begin{tabular}{l l}
+%ФЭТ КП.XXXX.14 Э1 & Схема электрическая принципиальная \\
+%ФЭТ КП.XXXX.14 ПЭ1 & Перечень элементов \\
+%\end{tabular}
+\newpage % Начать следующий раздел с новой страницы
+\input{content}      
+\end{document} % Маркер завершения документа
