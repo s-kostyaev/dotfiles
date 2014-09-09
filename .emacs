@@ -119,6 +119,9 @@
     (t (:inherit company-tooltip-selection)))))
 ;; Flymake
 (require 'flymake)
+(custom-set-variables
+     '(help-at-pt-timer-delay 0.9)
+     '(help-at-pt-display-when-idle '(flymake-overlay)))
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 
@@ -654,7 +657,7 @@
    (smooth-scroll-mode t)
 
 ;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
-(setq-default message-log-max nil)
+;(setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
 ;; Show only one active window when opening multiple files at the same time.
