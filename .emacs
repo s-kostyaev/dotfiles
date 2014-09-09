@@ -26,7 +26,7 @@
  '(tool-bar-mode nil))
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-jsc-dark)
+;(color-theme-jonadabian-slate)
 ;; (global-linum-mode 1)
 (require 'nlinum)
 (nlinum-mode 1)
@@ -42,9 +42,9 @@
 (evil-mode 1)
 ; SLIME for programming with Common Lisp.
 ; http://functionalrants.wordpress.com/2008/09/06/how-to-set-up-emacs-slime-sbcl-under-gnulinux/
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-  ;; Replace "sbcl" with the path to your implementation
-  (setq inferior-lisp-program "sbcl")
+;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;  ;; Replace "sbcl" with the path to your implementation
+;  (setq inferior-lisp-program "sbcl")
 
 
 
@@ -90,8 +90,8 @@
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c i") 'go-goto-imports)))
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd \"M-.\") 'godef-jump)))
+;(add-hook 'go-mode-hook (lambda ()
+;                          (local-set-key (kbd \"M-.\") 'godef-jump)))
 ;; autocomplete with gocode
 (require 'company)                                   ; load company mode
 (require 'company-go)                                ; load company mode go backend
@@ -117,6 +117,11 @@
  '(company-tooltip-common-selection
    ((((type x)) (:inherit company-tooltip-selection :weight bold))
     (t (:inherit company-tooltip-selection)))))
+;; Flymake
+(require 'flymake)
+(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
+(require 'go-flymake)
+
 
 
 (defun faces_x ()
@@ -510,7 +515,7 @@
 
 
 (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "chromium-browser")
+          browse-url-generic-program "firefox")
 
 ;;; Smex
 (global-set-key [(meta x)] (lambda ()
@@ -647,3 +652,15 @@
 
 (require 'smooth-scroll)
    (smooth-scroll-mode t)
+
+;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
+
+;; Show only one active window when opening multiple files at the same time.
+(add-hook 'window-setup-hook 'delete-other-windows)
+
+(setq scroll-margin 12)
+(setq scroll-step 1)
+(require 'color-theme-solarized)
+(color-theme-solarized-dark)
