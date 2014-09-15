@@ -1,6 +1,0 @@
-#!/bin/bash
-empty -s -o in.fifo "$1 \n" &
-sleep 3
-empty -r -b 2000 -i out.fifo | grep -A 2000 '$$' | grep -B 2000 '$$'| grep -v '\leqno' | grep -v '$$' > result
-
-

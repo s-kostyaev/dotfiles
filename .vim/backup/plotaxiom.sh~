@@ -1,8 +1,0 @@
-#!/bin/bash
-empty -s -o in.fifo "gnuDraw($2,\"$1.dat\") \n" &
-echo "gnuDraw($2,\"$1.dat\") \n" > rawinput
-sleep 3
-empty -r -b 2000 -i out.fifo > rawout
-cat rawout | grep -A 2000 '$$' | grep -B 2000 '$$'| grep -v '\leqno' | grep -v '$$' > result
-
-

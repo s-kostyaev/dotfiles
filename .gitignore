@@ -1,0 +1,9 @@
+.vimperator/info/default/history-command
+.vimperator/info/default/history-search
+.vimperator/info/default/local-marks
+.vim/backup/*
+.viminfo
+.emacs.d/auto-save-list
+.vimperator/info/default/history-*
+.emacs.d/ac-comphist.dat
+.vimperator/info/default/local-marks

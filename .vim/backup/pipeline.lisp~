@@ -1,5 +1,0 @@
-#!/usr/bin/clisp
-(let ((in (ext:run-shell-command "uname -a && echo ok" :output :stream)))
-(loop for line = (read-line in nil)
-while line
-do (format t "in: ~s" line))) 

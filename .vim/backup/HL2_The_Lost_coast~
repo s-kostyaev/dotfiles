@@ -1,3 +1,0 @@
-#!/bin/sh
-kdesu highgraph
-wine '/windows/Program Files (x86)/Half-Life 2 Ultimate Edition 6/Engine1/hl2.exe' -opengl -game lostcoast && kdesu lowgraph
