@@ -5,3 +5,4 @@
 .viminfo
 .emacs.d/auto-save-list
 .vimperator/info/default/history-*
+.emacs.d/ac-comphist.dat
