@@ -105,7 +105,7 @@ set backupdir=~/.vim/backup/
 " -=Кодировки, горячие клавиши и прочее=-
 if has("unix")
 " использовать английскую локаль на любой системе
-language en_US.UTF-8
+" language en_US.UTF-8
 endif
 " Кодировка по умолчанию
 set encoding=utf-8

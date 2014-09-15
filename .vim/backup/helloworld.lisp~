@@ -1,6 +1,0 @@
-(ccl:save-application "helloworld.so" :prepend-kernel nil
-                      :native t
-                      :toplevel-function (lambda ()
-                                           (unwind-protect
-                                             (write-line "Привет, мир!")
-                                             (ccl:quit))))

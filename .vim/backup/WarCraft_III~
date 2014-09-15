@@ -1,4 +1,0 @@
-#!/bin/sh
-kdesu highgraph
-cd "/windows/Program Files (x86)/R.G. Catalyst/Warcraft III"
-wine war3.exe && kdesu lowgraph

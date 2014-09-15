@@ -1,4 +1,0 @@
-#!/bin/sh
-CUR_DIR=`pwd`
-xelatex -shell-escape $1
-xdg-open "$CUR_DIR/`basename $1 .tex`.pdf" & 1 > /dev/null & 2 > /dev/null
