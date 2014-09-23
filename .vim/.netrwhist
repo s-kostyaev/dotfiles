@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/feofan/.local/share/Steam/SteamApps/common/Knock-knock/knock_Data/Mono'
-let g:netrw_dirhist_2='/home/feofan/.local/share/Steam/SteamApps/common/Knock-knock/knock_Data/Mono/etc'
-let g:netrw_dirhist_3='/home/feofan/.local/share/Steam/SteamApps/common/Knock-knock/knock_Data/Mono/etc/mono'

@@ -7,3 +7,5 @@
 .vimperator/info/default/history-*
 .emacs.d/ac-comphist.dat
 .vimperator/info/default/local-marks
+.muttator/info/default/history-command
+.vim/.netrwhist
