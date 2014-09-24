@@ -32,6 +32,9 @@
 (nlinum-mode 1)
 (add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
 
+
+(require 'whitespace)
+(global-whitespace-mode)
 ; carlo@r500:~/work/opt-lisp-r500/emacs-23.3$ ./configure --prefix=`pwd`/r500-build --with-x-toolkit=gtk
 ;
 ;
@@ -130,7 +133,7 @@
 (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "green"
                     :weight 'bold)
-
+(add-hook 'go-mode-hook '(lambda () (highlight-lines-matching-regexp ".\{81\}" "hi-green-b")))
 
 
 (defun faces_x ()
