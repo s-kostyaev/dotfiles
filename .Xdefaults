@@ -38,8 +38,8 @@ urxvt*color15:    #D0D0D0
 
 URxvt*saveLines: 10000
 
-URxvt.font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-*-
+URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+URxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
 
 URxvt*scrollBar: false
 
