@@ -61,7 +61,15 @@
 ;; to setup tabs
 (setq c-basic-indent 2)
 (setq tab-width 4)
+(setq tab-stop-list (number-sequence 4 200 4))
 (setq indent-tabs-mode nil)
+
+(custom-set-variables
+  '(indent-line-function 'insert-tab)
+   '(indent-tabs-mode t)
+    '(tab-width 4))
+(add-hook 'text-mode-hook
+	        (lambda () (setq indent-line-function 'insert-tab)))
 
 ; (highlight-tabs)
 ; (highlight-trailing-whitespace)
