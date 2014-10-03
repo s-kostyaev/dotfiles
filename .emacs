@@ -2,6 +2,8 @@
 (progn (cd "~/.emacs.d")
        (normal-top-level-add-subdirs-to-load-path))
 
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -10,8 +12,10 @@
  '(ac-sources (quote (ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
  '(browse-url-chromium-program "firefox-bin")
  '(display-time-mode t)
+ '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
+ '(help-at-pt-timer-delay 0.9)
  '(inhibit-startup-screen t)
- '(jabber-account-list (quote (("feofankss@jabber.tsk.ru" (:connection-type . ssl)))))
+ '(jabber-account-list (quote (("s.kostyaev@office.ngs.ru" (:password . "lL4wTH") (:network-server . "xmpp.office.ngs.ru") (:connection-type . network)) ("feofankss@jabber.tsk.ru" (:disabled . t) (:connection-type . ssl)))))
  '(jabber-auto-reconnect t)
  '(jabber-avatar-verbose nil)
  '(jabber-backlog-days 300)
@@ -23,7 +27,10 @@
  '(jabber-show-offline-contacts nil)
  '(jabber-vcard-avatars-retrieve nil)
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/"))))
- '(tool-bar-mode nil))
+ '(starttls-extra-arguments (quote ("--insecure")))
+ '(starttls-use-gnutls t)
+ '(tool-bar-mode nil)
+ '(warning-suppress-types (quote ((undo discard-info)))))
 (require 'color-theme)
 (color-theme-initialize)
 ;(color-theme-jonadabian-slate)
@@ -33,8 +40,8 @@
 (add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
 
 
-(require 'whitespace)
-(global-whitespace-mode)
+;; (require 'whitespace)
+;; (global-whitespace-mode)
 ; carlo@r500:~/work/opt-lisp-r500/emacs-23.3$ ./configure --prefix=`pwd`/r500-build --with-x-toolkit=gtk
 ;
 ;
@@ -87,6 +94,8 @@
 
 
 ;;;; Go mode
+(setenv "GOPATH" "/home/feofan/go")
+(setq exec-path (append exec-path '("~/go/bin")))
 (require 'go-mode-load)
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
@@ -106,25 +115,20 @@
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)))
 (custom-set-faces
- '(company-preview
-   ((t (:foreground "darkgray" :underline t))))
- '(company-preview-common
-   ((t (:inherit company-preview))))
- '(company-tooltip
-   ((t (:background "lightgray" :foreground "black"))))
- '(company-tooltip-selection
-   ((t (:background "steelblue" :foreground "white"))))
- '(company-tooltip-common
-   ((((type x)) (:inherit company-tooltip :weight bold))
-    (t (:inherit company-tooltip))))
- '(company-tooltip-common-selection
-   ((((type x)) (:inherit company-tooltip-selection :weight bold))
-    (t (:inherit company-tooltip-selection)))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Fixed" :foundry "Misc" :slant normal :weight normal :height 97 :width normal))))
+ '(company-preview ((t (:foreground "darkgray" :underline t))))
+ '(company-preview-common ((t (:inherit company-preview))))
+ '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
+ '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
+ '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
+ '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 ;; Flymake
 (require 'flymake)
-(custom-set-variables
-     '(help-at-pt-timer-delay 0.9)
-     '(help-at-pt-display-when-idle '(flymake-overlay)))
+
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 ;; doc
@@ -325,12 +329,7 @@
              'comint-next-input)))
 ;; run an inferior Octave process in a special Emacs buffer
        (autoload 'run-octave "octave-inf" nil t)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
 
 
 (setq fsm-debug nil)
@@ -676,3 +675,18 @@
 (setq scroll-step 1)
 (require 'color-theme-solarized)
 (color-theme-solarized-dark)
+
+;; PKGBUILDs
+(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
+
+;; Markdown
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; for over-80-chars line highlightning
+(add-hook 'prog-mode-hook 'column-enforce-mode)
