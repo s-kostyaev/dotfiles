@@ -84,6 +84,7 @@ setopt AUTO_CD
 alias pdflink='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./result.pdf'
 alias keepemerge='sudo FEATURES="keeptemp keepwork" emerge'
 alias mc='TERM=xterm-256color mc'
+alias et='emacsclient -t'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
@@ -95,3 +96,5 @@ compinit
 promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 export TERM=xterm-256color
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
