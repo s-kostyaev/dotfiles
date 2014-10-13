@@ -1,3 +1,17 @@
+# Set some human-friendly key aliases
+typeset -gA keyinfo
+keyinfo=(
+	'Escape' '\e'
+	'Control' '^'
+	'Backspace' "^?"
+	'Delete' "$terminfo[kdch1]"
+	'Up' "$terminfo[kcuu1]"
+	'Down' "$terminfo[kcud1]"
+	'Left' "$terminfo[kcub1]"
+	'Right' "$terminfo[kcuf1]"
+	'ShiftTab' "$terminfo[kcbt]"
+	)
+
 # менюшку нам для астокомплита
 #zstyle ':completion:*' menu yes select
 #source /etc/zsh_command_not_found
@@ -67,6 +81,7 @@ bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
 bindkey -M viins '^[.' insert-last-word
 bindkey "^[p" copy-prev-shell-word
+# bindkey "$keyinfo[Control]Q" push-line # Save the current command in the buffer stack
 
 # не пищать при дополнении или ошибках
 
