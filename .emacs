@@ -58,10 +58,10 @@
 
 
 ;; to setup tabs
-(setq c-basic-indent 2)
+(setq c-basic-indent 4)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 (custom-set-variables
   '(indent-line-function 'insert-tab)
@@ -305,37 +305,43 @@
 (define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
 
 ;;; Python mode
+(setenv "PYMACS_PYTHON" "python2")
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(add-hook 'python-mode-hook
+		    (lambda ()
+			      (setq indent-tabs-mode t)
+				      (setq python-indent 4)
+					      (setq tab-width 8)))
 
 ;;; Octave mode
-(autoload 'octave-mode "octave-mod" nil t)
-          ;(setq auto-mode-alist
-          ;      (cons '("\\.m$" . octave-mode) auto-mode-alist))
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
-;; to turn on the abbrevs, auto-fill and font-lock features automatically  
-       (add-hook 'octave-mode-hook
-         (lambda ()
-         (abbrev-mode 1)
-         (auto-fill-mode 1)
-         (if (eq window-system 'x)
-          (font-lock-mode 1))))
+;; (autoload 'octave-mode "octave-mod" nil t)
+;;           ;(setq auto-mode-alist
+;;           ;      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+;; (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+;; ;; to turn on the abbrevs, auto-fill and font-lock features automatically  
+;;        (add-hook 'octave-mode-hook
+;;          (lambda ()
+;;          (abbrev-mode 1)
+;;          (auto-fill-mode 1)
+;;          (if (eq window-system 'x)
+;;           (font-lock-mode 1))))
 
-;; And finally, inferior-octave-mode-hook is run after starting the process 
-    ;; and putting its buffer into Inferior Octave mode. Hence, if you like 
-    ;; the up and down arrow keys to behave in the interaction buffer as in 
-    ;; the shell, and you want this buffer to use nice colors:
+;; ;; And finally, inferior-octave-mode-hook is run after starting the process 
+;;     ;; and putting its buffer into Inferior Octave mode. Hence, if you like 
+;;     ;; the up and down arrow keys to behave in the interaction buffer as in 
+;;     ;; the shell, and you want this buffer to use nice colors:
     
-       (add-hook 'inferior-octave-mode-hook
-         (lambda ()
-           (turn-on-font-lock)
-           (define-key inferior-octave-mode-map [up]
-             'comint-previous-input)
-           (define-key inferior-octave-mode-map [down]
-             'comint-next-input)))
-;; run an inferior Octave process in a special Emacs buffer
-       (autoload 'run-octave "octave-inf" nil t)
+;;        (add-hook 'inferior-octave-mode-hook
+;;          (lambda ()
+;;            (turn-on-font-lock)
+;;            (define-key inferior-octave-mode-map [up]
+;;              'comint-previous-input)
+;;            (define-key inferior-octave-mode-map [down]
+;;              'comint-next-input)))
+;; ;; run an inferior Octave process in a special Emacs buffer
+;;        (autoload 'run-octave "octave-inf" nil t)
 
 
 
@@ -346,7 +352,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'auto-complete-clang)
-(require 'ac-octave)
+;; (require 'ac-octave)   
 ;; (require 'ac-nrepl)
 ;;  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 ;;  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
@@ -443,11 +449,11 @@
 
 ;(defun ac-octave-mode-setup ()
 ;(setq ac-sources '(ac-source-octave)))
-(add-hook 'octave-mode-hook
-'(lambda ()
-   (progn
-   (add-to-list 'ac-sources 'ac-source-octave)
-   (auto-complete-mode t))))
+;; (add-hook 'octave-mode-hook
+;; '(lambda ()
+;;    (progn
+;;    (add-to-list 'ac-sources 'ac-source-octave)
+;;    (auto-complete-mode t))))
   ; (ac-octave-mode-setup)))
 ;; Python
 ;; to use autocomlete install ropemacs and pymacs

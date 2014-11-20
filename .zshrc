@@ -23,13 +23,17 @@ autoload -U compinit promptinit
 compinit
 promptinit;
 
+# git status
+source /home/feofan/zsh/zsh-git-prompt/zshrc.sh
+# PROMPT='%{\e[1;31m%}%n %~%b$(git_super_status) %# '
+
 if [[ $EUID == 0 ]] 
 then
 PROMPT=$'%{\e[1;31m%}%n %{\e[1;34m%}%~ #%{\e[0m%} ' # user dir %
 else
 PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %#%{\e[0m%} ' # root dir #
 fi
-RPROMPT=$'%{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
+RPROMPT=$'$(git_super_status) %{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
 
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
@@ -110,6 +114,5 @@ autoload -U compinit promptinit
 compinit
 promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
-export TERM=xterm-256color
+TERM=rxvt-unicode-256color
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
