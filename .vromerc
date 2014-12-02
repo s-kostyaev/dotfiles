@@ -1,0 +1,20 @@
+" remove current tab
+map d dc
+unmap dm
+unmap do
+unmap dl
+unmap dr
+unmap dp
+unmap dP
+
+map j 5j
+map k 5k
+
+map J gt
+map K gT
+
+set searchengines+={"ddg":"https://duckduckgo.com/?q={{keyword}}"}
+
+set defaultsearch=ddg
+
+set follow_new_tab=0
