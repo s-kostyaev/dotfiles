@@ -7,7 +7,7 @@ unmap X
 unmap u
 unmap d
 
-map b :buffers<Space>
+map b :buffer<Space>
 map B :bookmarks<Space>
 map u lastClosedTab
 map d closeTab
