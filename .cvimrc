@@ -6,8 +6,10 @@ unmap x
 unmap X
 unmap u
 unmap d
+unmap zr
 
 map b :buffer<Space>
 map B :bookmarks<Space>
 map u lastClosedTab
 map d closeTab
+map zr :tabnew chrome://restart<CR>
