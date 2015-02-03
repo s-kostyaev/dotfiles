@@ -1,0 +1,2 @@
+#!/bin/sh
+chromium & xdotool sleep 1.5 key F11 sleep 0.5 keydown super key f keyup super
