@@ -1,0 +1,13 @@
+set nosmoothscroll
+
+unmap b
+unmap B
+unmap x
+unmap X
+unmap u
+unmap d
+
+map b :buffers<Space>
+map B :bookmarks<Space>
+map u lastClosedTab
+map d closeTab
