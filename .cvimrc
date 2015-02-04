@@ -3,8 +3,6 @@ set noautofocus
 
 unmap b
 unmap B
-unmap x
-unmap X
 unmap u
 unmap d
 unmap zr
