@@ -9,3 +9,4 @@
 .vimperator/info/default/local-marks
 .muttator/info/default/history-command
 .vim/.netrwhist
+.mcabber/histo/*
