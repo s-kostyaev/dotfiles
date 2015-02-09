@@ -104,7 +104,8 @@ alias pdflink='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./result.p
 alias keepemerge='sudo FEATURES="keeptemp keepwork" emerge'
 alias mc='TERM=xterm-256color mc'
 alias et='emacsclient -t'
-alias mcabber='mcabber -f .mcabberrc.${JABBER}'
+alias jo='mcabber -f .mcabberrc.office'
+alias jh='mcabber -f .mcabberrc.home'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
@@ -118,5 +119,4 @@ zstyle ':completion::complete:*' use-cache 1
 export TERM=rxvt-unicode-256color
 export EDITOR=vim
 export BROWSER=chromium
-export JABBER=office
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
