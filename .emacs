@@ -14,6 +14,8 @@
  '(display-time-mode t)
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
  '(help-at-pt-timer-delay 0.9)
+ '(indent-line-function (quote insert-tab) t)
+ '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
  '(jabber-auto-reconnect t)
  '(jabber-avatar-verbose nil)
@@ -28,6 +30,7 @@
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(starttls-extra-arguments (quote ("--insecure")))
  '(starttls-use-gnutls t)
+ '(tab-width 4)
  '(tool-bar-mode nil)
  '(warning-suppress-types (quote ((undo discard-info)))))
 (require 'color-theme)
@@ -46,9 +49,9 @@
 ;
 ;
 ; Use VIM keybindings :)
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)  
-(evil-mode 1)
+;; (add-to-list 'load-path "~/.emacs.d/evil")
+;; (require 'evil)  
+;; (evil-mode 1)
 ; SLIME for programming with Common Lisp.
 ; http://functionalrants.wordpress.com/2008/09/06/how-to-set-up-emacs-slime-sbcl-under-gnulinux/
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
@@ -63,10 +66,7 @@
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-tabs-mode nil)
 
-(custom-set-variables
-  '(indent-line-function 'insert-tab)
-   '(indent-tabs-mode t)
-    '(tab-width 4))
+
 (add-hook 'text-mode-hook
 	        (lambda () (setq indent-line-function 'insert-tab)))
 
@@ -103,7 +103,7 @@
 ;;;; Go mode
 (setenv "GOPATH" "/home/feofan/go")
 (setq exec-path (append exec-path '("~/go/bin")))
-(require 'go-mode-load)
+(require 'go-mode-autoloads)
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
@@ -126,7 +126,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Fixed" :foundry "Misc" :slant normal :weight normal :height 97 :width normal))))
+ '(default ((t (:family "Fixed" :foundry "Misc" :slant normal :weight normal :height 105 :width normal))))
  '(company-preview ((t (:foreground "darkgray" :underline t))))
  '(company-preview-common ((t (:inherit company-preview))))
  '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
@@ -210,7 +210,7 @@
 (global-set-key "\C-x\C-r" 'toggle-read-only);
 (global-set-key "\C-t" 'kill-word);
 (global-set-key "\C-p" 'previous-line);
-(global-set-key "\C-u" 'backward-word);
+;(global-set-key "\C-u" 'backward-word);
 (global-set-key "\C-o" 'forward-word);
 (global-set-key "\C-h" 'backward-delete-char-untabify);
 (global-set-key "\C-x\C-m" 'not-modified);
@@ -235,9 +235,9 @@
 
 
 ; Settings by Carlo Hamalainen:
-(global-set-key [f8] 'save-buffer)  ; F8 saves the current buffer (file)
+;(global-set-key [f8] 'save-buffer)  ; F8 saves the current buffer (file)
 ; (global-set-key [f9] 'compile)  
-(global-set-key [f9] 'slime-compile-and-load-file)
+;(global-set-key [f9] 'slime-compile-and-load-file)
 
 ;; http://emacs-fu.blogspot.com/2008/12/cycling-through-your-buffers-with-ctrl.html
 ;; cycle through buffers with Ctrl-Tab (like Firefox)
@@ -543,11 +543,11 @@
 
 ;;; Smex
 (global-set-key [(meta x)] (lambda ()
-                             (interactive)
-                             (or (boundp 'smex-cache)
-                                 (smex-initialize))
-                             (global-set-key [(meta x)] 'smex)
-                             (smex)))
+                            (interactive)
+                            (or (boundp 'smex-cache)
+                                (smex-initialize))
+                            (global-set-key [(meta x)] 'smex)
+                            (smex)))
 
 (global-set-key [(shift meta x)] (lambda ()
                                    (interactive)
