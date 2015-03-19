@@ -55,3 +55,7 @@ map ц w
 map ч x
 map н y
 map я z
+
+map J gT
+map K gt
+set focuscontent
