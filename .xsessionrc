@@ -1,7 +1,7 @@
 #!/bin/sh 
-setxkbmap "us,ru" ",winkeys" "grp:caps_toggle,grp_led:scroll"
+setxkbmap "us,ru" ",winkeys" "grp:caps_toggle,grp_led:caps"
 dunst &
-compton -b
-nitrogen --restore &
-# xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
+s2cctl start
+# nitrogen --restore &
+xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
 exec /usr/bin/redshift -l55.2:82.55 &

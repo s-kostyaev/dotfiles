@@ -10,7 +10,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-sources (quote (ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
- '(browse-url-chromium-program "firefox-bin")
+ '(browse-url-chromium-program "chromium")
  '(display-time-mode t)
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
  '(help-at-pt-timer-delay 0.9)
@@ -103,7 +103,7 @@
 ;;;; Go mode
 (setenv "GOPATH" "/home/feofan/go")
 (setq exec-path (append exec-path '("~/go/bin")))
-(require 'go-mode-load)
+(require 'go-mode-autoloads)
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
@@ -539,7 +539,7 @@
 
 
 (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "firefox")
+          browse-url-generic-program "chromium")
 
 ;;; Smex
 (global-set-key [(meta x)] (lambda ()
