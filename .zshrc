@@ -104,6 +104,8 @@ alias pdflink='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./result.p
 alias keepemerge='sudo FEATURES="keeptemp keepwork" emerge'
 alias mc='TERM=xterm-256color mc'
 alias et='emacsclient -t'
+alias eg='emacsclient -c'
+EM='emacsclient -c'
 alias jo='mcabber -f .mcabberrc.office'
 alias jh='mcabber -f .mcabberrc.home'
 export XLIB_SKIP_ARGB_VISUALS=1
@@ -117,6 +119,7 @@ compinit
 promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 export TERM=rxvt-unicode-256color
-export EDITOR=vim
+export EDITOR=ec
 export BROWSER=chromium
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export LC_ALL=en_US.UTF-8

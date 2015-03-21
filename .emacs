@@ -3,14 +3,19 @@
        (normal-top-level-add-subdirs-to-load-path))
 
 
-
+;(setq powerline-default-separator 'arrow)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-sources (quote (ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
- '(browse-url-chromium-program "firefox-bin")
+ '(ac-sources
+   (quote
+	(ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
+ '(browse-url-chromium-program "chromium")
+ '(custom-safe-themes
+   (quote
+	("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f0b0710b7e1260ead8f7808b3ee13c3bb38d45564e369cbe15fc6d312f0cd7a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(display-time-mode t)
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
  '(help-at-pt-timer-delay 0.9)
@@ -27,20 +32,37 @@
  '(jabber-roster-line-format " %c %-25n %u %-8s (%r)")
  '(jabber-show-offline-contacts nil)
  '(jabber-vcard-avatars-retrieve nil)
- '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/"))))
+ '(package-archives
+   (quote
+	(("gnu" . "http://elpa.gnu.org/packages/")
+	 ("marmalade" . "http://marmalade-repo.org/packages/")
+	 ("melpa" . "http://melpa.org/packages/"))))
  '(starttls-extra-arguments (quote ("--insecure")))
  '(starttls-use-gnutls t)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(warning-suppress-types (quote ((undo discard-info)))))
-(require 'color-theme)
-(color-theme-initialize)
-;(color-theme-jonadabian-slate)
+;(require 'color-theme)
+;(color-theme-initialize)
+;(color-theme-comidia)
 ;; (global-linum-mode 1)
 (require 'nlinum)
 (nlinum-mode 1)
 (add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
 
+;; Melpa
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+			              '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+										; powerline
+(require 'smart-mode-line)
+(sml/setup t)
+(sml/apply-theme "powerline")
 
 ;; (require 'whitespace)
 ;; (global-whitespace-mode)
@@ -126,7 +148,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Fixed" :foundry "Misc" :slant normal :weight normal :height 105 :width normal))))
+ '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(company-preview ((t (:foreground "darkgray" :underline t))))
  '(company-preview-common ((t (:inherit company-preview))))
  '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
@@ -147,50 +169,11 @@
 (add-hook 'go-mode-hook '(lambda () (highlight-lines-matching-regexp ".\{81\}" "hi-green-b")))
 
 
-(defun faces_x ()
-  ;; these are used when in X
-  (custom-set-faces
-   '(default ((t (:foreground "wheat" :background "black"))))
-   '(flyspell-duplicate ((t (:foreground "Gold3" :underline t :weight normal))))
-   '(flyspell-incorrect ((t (:foreground "OrangeRed" :underline t :weight normal))))
-   '(font-lock-comment-face ((t (:foreground "SteelBlue1"))))
-   '(font-lock-function-name-face ((t (:foreground "gold"))))
-   '(font-lock-keyword-face ((t (:foreground "springgreen"))))
-   '(font-lock-type-face ((t (:foreground "PaleGreen"))))
-   '(font-lock-variable-name-face ((t (:foreground "Coral"))))
-   '(menu ((((type x-toolkit)) (:background "light slate gray" :foreground "wheat" :box (:line-width 2 :color "grey75" :style released-button)))))
-   '(mode-line ((t (:foreground "black" :background "light slate gray"))))
-   '(tool-bar ((((type x w32 mac) (class color)) (:background "midnight blue" :foreground "wheat" :box (:line-width 1 :style released-button))))))
-  (set-cursor-color "deep sky blue")
-  (set-foreground-color "wheat")
-  (set-background-color "black")
-  (set-face-foreground 'default "wheat")
-  (set-face-background 'default "black"))
 
-(defun faces_nox ()
-  ;; these are used when in terminal
-  (custom-set-faces
-   '(default ((t (:foreground "white" :background "black"))))
-   '(font-lock-comment-face ((t (:foreground "magenta"))))
-   '(font-lock-function-name-face ((t (:foreground "red"))))
-   '(font-lock-keyword-face ((t (:foreground "green"))))
-   '(font-lock-type-face ((t (:foreground "blue"))))
-   '(font-lock-string-face ((t (:foreground "cyan"))))
-   '(font-lock-variable-name-face ((t (:foreground "blue"))))
-   '(menu ((((type x-toolkit)) (:background "white" :foreground "black" :box (:line-width 2 :color "grey75" :style released-button)))))
-   '(modeline ((t (:foreground "blue" :background "white")))))
-  (set-cursor-color "blue")
-  (set-foreground-color "white")
-  (set-background-color "black")
-  (set-face-foreground 'default "white")
-  (set-face-background 'default "black"))
-
-
-; (if window-system (faces_x) (faces_nox))
 
 ; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
 ; huaiyuan's answer:
-(set-face-attribute 'default nil :height 110)
+;(set-face-attribute 'default nil :height 90)
 
 
 ; for compiling C/C++
@@ -217,7 +200,7 @@
 (setq make-backup-files 'nil);
 (setq default-major-mode 'text-mode)
 (setq text-mode-hook 'turn-on-auto-fill)
-(set-default-font "-misc-fixed-medium-r-normal--15-140-*-*-c-*-*-1")
+(set-default-font "-misc-fixed-medium-r-normal-*-13-140-*-*-c-*-*-1")
 (setq auto-mode-alist (cons '("\\.cxx$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.hpp$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.tex$" . latex-mode) auto-mode-alist))
@@ -445,7 +428,7 @@
 (ac-flyspell-workaround)
 
 ;(setq ac-auto-start nil)
-(define-key ac-mode-map (kbd "C-SPC") 'auto-complete)
+(define-key ac-mode-map (kbd "TAB") 'auto-complete)
 
 ;(defun ac-octave-mode-setup ()
 ;(setq ac-sources '(ac-source-octave)))
@@ -531,15 +514,16 @@
 
 
 ;;;; ido-mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+
+(require 'ido-vertical-mode)
 (ido-mode 1)
-(require 'ido-vertical-mode-autoloads)
-(ido-vertical-mode t)
+(ido-vertical-mode 1)
 
 
 (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "firefox")
+          browse-url-generic-program "chromium")
 
 ;;; Smex
 (global-set-key [(meta x)] (lambda ()
@@ -686,8 +670,9 @@
 
 (setq scroll-margin 12)
 (setq scroll-step 1)
-(require 'color-theme-solarized)
-(color-theme-solarized-dark)
+;(require 'color-theme-solarized)
+;(color-theme-solarized)
+(load-theme 'solarized t)
 
 ;; PKGBUILDs
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
@@ -719,3 +704,4 @@
 						               text)))
 
 (add-hook 'jabber-alert-message-hooks 'notify-jabber-notify)
+(setq eval-expression-debug-on-error t) 

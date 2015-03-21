@@ -38,8 +38,13 @@ urxvt*color15:    #D0D0D0
 
 URxvt*saveLines: 10000
 
-URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
+! URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*,xft:Inconsolata\ for\ Powerline:pixelsize=12
+! urxvt*font: xft:Fixed:pixelsize=13, xft:Inconsolata for Powerline
+
+urxvt*font: xft:Fixed:pixelsize=13:antialias=true:hinting=true
+
+    
+! Rxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
 
 URxvt*scrollBar: false
 
