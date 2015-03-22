@@ -138,9 +138,9 @@ re-downloaded in order to locate PACKAGE."
 	(require 'package)))
 
 (need-package 'color-theme)
-(require 'color-theme)
+;(require 'color-theme)
 ;(setq color-theme-is-global t)
-(color-theme-initialize)
+;(color-theme-initialize)
 ;(color-theme-comidia)
 (need-package 'zenburn-theme)
 (load-theme 'zenburn t)
@@ -372,15 +372,18 @@ re-downloaded in order to locate PACKAGE."
 ;(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
 
 ;;; Python mode
+;(need-package 'python-mode)
 (setenv "PYMACS_PYTHON" "python2")
-(autoload 'python-mode "python-mode" "Python Mode." t)
+(autoload 'python-mode "python-mode.el" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 (add-hook 'python-mode-hook
 		    (lambda ()
 			      (setq indent-tabs-mode t)
 				      (setq python-indent 4)
-					      (setq tab-width 8)))
+                      (setq tab-width 8)
+                      (local-set-key (kbd "<M-iso-lefttab>") 'py-shift-right)
+                      (local-set-key (kbd "<backtab>") 'py-shift-left)))
 
 ;;; Octave mode
 ;; (autoload 'octave-mode "octave-mod" nil t)
@@ -522,20 +525,6 @@ re-downloaded in order to locate PACKAGE."
 ;;    (add-to-list 'ac-sources 'ac-source-octave)
 ;;    (auto-complete-mode t))))
   ; (ac-octave-mode-setup)))
-;; Python
-;; to use autocomlete install ropemacs and pymacs
-(add-hook 'python-mode-hook
-          (lambda ()
-	    (progn
-	      (pymacs-load "ropemacs" "rope-")
-	      (ac-ropemacs-initialize)
-	      (add-to-list 'ac-sources 'ac-source-ropemacs))))
-
-
-
-
-
-
 
 ;;; ElDoc
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
