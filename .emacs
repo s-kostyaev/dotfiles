@@ -2,6 +2,7 @@
 (progn (cd "~/.emacs.d")
        (normal-top-level-add-subdirs-to-load-path))
 
+(setq powerline-default-separator 'arrow)
 
 ;(setq powerline-default-separator 'arrow)
 (custom-set-variables
@@ -11,11 +12,12 @@
  ;; If there is more than one, they won't work right.
  '(ac-sources
    (quote
-	(ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
+    (ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
  '(browse-url-chromium-program "chromium")
+ '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-	("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f0b0710b7e1260ead8f7808b3ee13c3bb38d45564e369cbe15fc6d312f0cd7a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f0b0710b7e1260ead8f7808b3ee13c3bb38d45564e369cbe15fc6d312f0cd7a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(display-time-mode t)
  '(frame-background-mode (quote dark))
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
@@ -35,37 +37,126 @@
  '(jabber-vcard-avatars-retrieve nil)
  '(package-archives
    (quote
-	(("gnu" . "http://elpa.gnu.org/packages/")
-	 ("marmalade" . "http://marmalade-repo.org/packages/")
-	 ("melpa" . "http://melpa.org/packages/"))))
+    (("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa" . "http://melpa.org/packages/"))))
+ '(sml/mode-width
+   (if
+       (eq powerline-default-separator
+           (quote arrow))
+       (quote right)
+     (quote full)))
+ '(sml/pos-id-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s" powerline-default-separator
+                            (car powerline-default-separator-dir)))
+                   (quote powerline-active1)
+                   (quote powerline-active2))))
+     (:propertize " " face powerline-active2))))
+ '(sml/pos-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s" powerline-default-separator
+                            (cdr powerline-default-separator-dir)))
+                   (quote powerline-active1)
+                   nil)))
+     (:propertize " " face sml/global))))
+ '(sml/pre-id-separator
+   (quote
+    (""
+     (:propertize " " face sml/global)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s" powerline-default-separator
+                            (car powerline-default-separator-dir)))
+                   nil
+                   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active2)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s" powerline-default-separator
+                            (cdr powerline-default-separator-dir)))
+                   (quote powerline-active2)
+                   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
  '(starttls-extra-arguments (quote ("--insecure")))
  '(starttls-use-gnutls t)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(warning-suppress-types (quote ((undo discard-info)))))
-;(require 'color-theme)
-;(color-theme-initialize)
-;(color-theme-comidia)
-;; (global-linum-mode 1)
-(require 'nlinum)
-(nlinum-mode 1)
-(add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
 
 ;; Melpa
 (require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-			              '("melpa" . "http://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+;; (add-to-list 'package-archives
+;; 			              '("melpa" . "http://melpa.org/packages/") t)
+;; (when (< emacs-major-version 24)
+;;     ;; For important compatibility libraries like cl-lib
+;;     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
-										; powerline
-(require 'smart-mode-line)
+										; for automatic download required packages
+(defun need-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (if (package-installed-p package min-version)
+	   t
+	 (if (or (assoc package package-archive-contents) no-refresh)
+		 (package-install package)
+	   (progn
+		 (package-refresh-contents)
+		 (require-package package min-version t)))))
+
+
+(defun require-package (package &optional min-version no-refresh)
+  "Load package (download if need)"
+  (progn 
+	(need-package package min-version no-refresh)
+	(require 'package)))
+
+(need-package 'color-theme)
+(require 'color-theme)
+;(setq color-theme-is-global t)
+(color-theme-initialize)
+;(color-theme-comidia)
+(need-package 'zenburn-theme)
+(load-theme 'zenburn t)
+
+;; (global-linum-mode 1)
+(require-package 'nlinum)
+(nlinum-mode 1)
+(add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
+
+										;; powerline
+(require-package 'smart-mode-line)
+(need-package 'smart-mode-line-powerline-theme)
 (sml/setup t)
 (sml/apply-theme "powerline")
 
-;; (require 'whitespace)
+;; (require-package 'whitespace)
 ;; (global-whitespace-mode)
 ; carlo@r500:~/work/opt-lisp-r500/emacs-23.3$ ./configure --prefix=`pwd`/r500-build --with-x-toolkit=gtk
 ;
@@ -73,7 +164,7 @@
 ;
 ; Use VIM keybindings :)
 ;; (add-to-list 'load-path "~/.emacs.d/evil")
-;; (require 'evil)  
+;; (require-package 'evil)  
 ;; (evil-mode 1)
 ; SLIME for programming with Common Lisp.
 ; http://functionalrants.wordpress.com/2008/09/06/how-to-set-up-emacs-slime-sbcl-under-gnulinux/
@@ -126,6 +217,7 @@
 ;;;; Go mode
 (setenv "GOPATH" "/home/feofan/go")
 (setq exec-path (append exec-path '("~/go/bin")))
+(need-package 'go-mode)
 (require 'go-mode-autoloads)
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
@@ -135,8 +227,8 @@
 ;(add-hook 'go-mode-hook (lambda ()
 ;                          (local-set-key (kbd \"M-.\") 'godef-jump)))
 ;; autocomplete with gocode
-(require 'company)                                   ; load company mode
-(require 'company-go)                                ; load company mode go backend
+(require-package 'company)                                   ; load company mode
+(require-package 'company-go)                                ; load company mode go backend
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
@@ -144,29 +236,17 @@
 (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
- '(company-preview ((t (:foreground "darkgray" :underline t))))
- '(company-preview-common ((t (:inherit company-preview))))
- '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
- '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
- '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
- '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 ;; Flymake
-(require 'flymake)
+(require-package 'flymake)
 
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 ;; doc
-(require 'go-eldoc) ;; Don't need to require, if you install by package.el
+(need-package 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
-(set-face-attribute 'eldoc-highlight-function-argument nil
-                    :underline t :foreground "green"
-                    :weight 'bold)
+;; (set-face-attribute 'eldoc-highlight-function-argument nil
+;;                     :underline t :foreground "green"
+;;                     :weight 'bold)
 (add-hook 'go-mode-hook '(lambda () (highlight-lines-matching-regexp ".\{81\}" "hi-green-b")))
 
 
@@ -206,7 +286,7 @@
 (setq auto-mode-alist (cons '("\\.hpp$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.tex$" . latex-mode) auto-mode-alist))
 
-;(require 'font-lock)
+;(require-package 'font-lock)
 ;(add-hook 'c-mode-hook 'turn-on-font-lock)
 ;(add-hook 'c++-mode-hook 'turn-on-font-lock)
 
@@ -241,7 +321,7 @@
 
 
 ;;jabber
-(require 'jabber)
+(require-package 'jabber)
 (global-set-key "\C-x\C-a" 'jabber-activity-switch-to)
 ;input history
 (defvar my-jabber-input-history '() "Variable that holds input history")
@@ -285,8 +365,8 @@
        (delete-region jabber-point-insert (point-max))
        (insert (nth my-jabber-input-history-position my-jabber-input-history))))))
 
-(define-key jabber-chat-mode-map (kbd "M-p") 'my-jabber-previous-input)
-(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
+;(define-key jabber-chat-mode-map (kbd "M-p") 'my-jabber-previous-input)
+;(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
 
 ;;; Python mode
 (setenv "PYMACS_PYTHON" "python2")
@@ -333,16 +413,16 @@
 
 
 ;;; Auto-complete
-(require 'auto-complete)
+(require-package 'auto-complete)
 (require 'auto-complete-config)
-(require 'auto-complete-clang)
-;; (require 'ac-octave)   
-;; (require 'ac-nrepl)
+(require-package 'auto-complete-clang)
+;; (require-package 'ac-octave)   
+;; (require-package 'ac-nrepl)
 ;;  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 ;;  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 ;;  (eval-after-load "auto-complete"
 ;;    '(add-to-list 'ac-modes 'nrepl-mode))
-					;(require 'go-autocomplete)
+					;(require-package 'go-autocomplete)
 (defun auto-complete-clang-get-system-includes ()
   (with-temp-buffer
     (shell-command 
@@ -490,12 +570,12 @@
 (setq cider-repl-history-size 1000) ; the default is 500
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-(require 'ac-cider-compliment)
+(require-package 'ac-cider)
 (add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
 (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes cider-mode))
-;; (require 'nrepl)
+  '(add-to-list 'ac-modes 'cider-mode))
+;; (require-package 'nrepl)
 ;; (add-hook 'nrepl-interaction-mode-hook
 ;;   'nrepl-turn-on-eldoc-mode)
 
@@ -518,7 +598,7 @@
 ;(setq ido-enable-flex-matching t)
 ;(setq ido-everywhere t)
 
-(require 'ido-vertical-mode)
+(require-package 'ido-vertical-mode)
 (ido-mode 1)
 (ido-vertical-mode 1)
 
@@ -527,6 +607,7 @@
           browse-url-generic-program "chromium")
 
 ;;; Smex
+(need-package 'smex)
 (global-set-key [(meta x)] (lambda ()
                             (interactive)
                             (or (boundp 'smex-cache)
@@ -541,6 +622,7 @@
                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
                                    (smex-major-mode-commands)))
 ;;;; Paredit
+(need-package 'paredit)
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
@@ -656,11 +738,11 @@
 ;;   (define-key paredit-mode-map (kbd "M-^") 'paredit-delete-indentation)
 
 (eval-after-load "paredit.el"
-   '(require 'paredit-menu))
+   '(require-package 'paredit-menu))
 
 
-(require 'smooth-scroll)
-   (smooth-scroll-mode t)
+;(require-package 'smooth-scroll)
+;   (smooth-scroll-mode t)
 
 ;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
 ;(setq-default message-log-max nil)
@@ -671,9 +753,10 @@
 
 (setq scroll-margin 12)
 (setq scroll-step 1)
-;(require 'color-theme-solarized)
-;(color-theme-solarized)
-(load-theme 'solarized t)
+;(require-package 'color-theme-sanityinc-solarized)
+;(color-theme-sanityinc-solarized-dark)
+
+;(load-theme 'solarized t)
 
 ;; PKGBUILDs
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
@@ -688,6 +771,7 @@
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; for over-80-chars line highlightning
+(need-package 'column-enforce-mode)
 (add-hook 'prog-mode-hook 'column-enforce-mode)
 
 (load-file "~/.jabber-accs.el")
@@ -706,3 +790,15 @@
 
 (add-hook 'jabber-alert-message-hooks 'notify-jabber-notify)
 (setq eval-expression-debug-on-error t) 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
+ '(company-preview ((t (:foreground "darkgray" :underline t))))
+ '(company-preview-common ((t (:inherit company-preview))))
+ '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
+ '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
+ '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
+ '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
