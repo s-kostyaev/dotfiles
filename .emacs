@@ -12,12 +12,12 @@
  ;; If there is more than one, they won't work right.
  '(ac-sources
    (quote
-    (ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
+	(ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
  '(browse-url-chromium-program "chromium")
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f0b0710b7e1260ead8f7808b3ee13c3bb38d45564e369cbe15fc6d312f0cd7a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+	("96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "1a85b8ade3d7cf76897b338ff3b20409cb5a5fbed4e45c6f38c98eee7b025ad4" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f0b0710b7e1260ead8f7808b3ee13c3bb38d45564e369cbe15fc6d312f0cd7a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(display-time-mode t)
  '(frame-background-mode (quote dark))
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
@@ -37,70 +37,70 @@
  '(jabber-vcard-avatars-retrieve nil)
  '(package-archives
    (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "http://melpa.org/packages/"))))
+	(("gnu" . "http://elpa.gnu.org/packages/")
+	 ("melpa" . "http://melpa.org/packages/"))))
  '(sml/mode-width
    (if
-       (eq powerline-default-separator
-           (quote arrow))
-       (quote right)
-     (quote full)))
+	   (eq powerline-default-separator
+		   (quote arrow))
+	   (quote right)
+	 (quote full)))
  '(sml/pos-id-separator
    (quote
-    (""
-     (:propertize " " face powerline-active1)
-     (:eval
-      (propertize " "
-                  (quote display)
-                  (funcall
-                   (intern
-                    (format "powerline-%s-%s" powerline-default-separator
-                            (car powerline-default-separator-dir)))
-                   (quote powerline-active1)
-                   (quote powerline-active2))))
-     (:propertize " " face powerline-active2))))
+	(""
+	 (:propertize " " face powerline-active1)
+	 (:eval
+	  (propertize " "
+				  (quote display)
+				  (funcall
+				   (intern
+					(format "powerline-%s-%s" powerline-default-separator
+							(car powerline-default-separator-dir)))
+				   (quote powerline-active1)
+				   (quote powerline-active2))))
+	 (:propertize " " face powerline-active2))))
  '(sml/pos-minor-modes-separator
    (quote
-    (""
-     (:propertize " " face powerline-active1)
-     (:eval
-      (propertize " "
-                  (quote display)
-                  (funcall
-                   (intern
-                    (format "powerline-%s-%s" powerline-default-separator
-                            (cdr powerline-default-separator-dir)))
-                   (quote powerline-active1)
-                   nil)))
-     (:propertize " " face sml/global))))
+	(""
+	 (:propertize " " face powerline-active1)
+	 (:eval
+	  (propertize " "
+				  (quote display)
+				  (funcall
+				   (intern
+					(format "powerline-%s-%s" powerline-default-separator
+							(cdr powerline-default-separator-dir)))
+				   (quote powerline-active1)
+				   nil)))
+	 (:propertize " " face sml/global))))
  '(sml/pre-id-separator
    (quote
-    (""
-     (:propertize " " face sml/global)
-     (:eval
-      (propertize " "
-                  (quote display)
-                  (funcall
-                   (intern
-                    (format "powerline-%s-%s" powerline-default-separator
-                            (car powerline-default-separator-dir)))
-                   nil
-                   (quote powerline-active1))))
-     (:propertize " " face powerline-active1))))
+	(""
+	 (:propertize " " face sml/global)
+	 (:eval
+	  (propertize " "
+				  (quote display)
+				  (funcall
+				   (intern
+					(format "powerline-%s-%s" powerline-default-separator
+							(car powerline-default-separator-dir)))
+				   nil
+				   (quote powerline-active1))))
+	 (:propertize " " face powerline-active1))))
  '(sml/pre-minor-modes-separator
    (quote
-    (""
-     (:propertize " " face powerline-active2)
-     (:eval
-      (propertize " "
-                  (quote display)
-                  (funcall
-                   (intern
-                    (format "powerline-%s-%s" powerline-default-separator
-                            (cdr powerline-default-separator-dir)))
-                   (quote powerline-active2)
-                   (quote powerline-active1))))
-     (:propertize " " face powerline-active1))))
+	(""
+	 (:propertize " " face powerline-active2)
+	 (:eval
+	  (propertize " "
+				  (quote display)
+				  (funcall
+				   (intern
+					(format "powerline-%s-%s" powerline-default-separator
+							(cdr powerline-default-separator-dir)))
+				   (quote powerline-active2)
+				   (quote powerline-active1))))
+	 (:propertize " " face powerline-active1))))
  '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
  '(starttls-extra-arguments (quote ("--insecure")))
  '(starttls-use-gnutls t)
@@ -144,6 +144,8 @@ re-downloaded in order to locate PACKAGE."
 ;(color-theme-comidia)
 (need-package 'zenburn-theme)
 (load-theme 'zenburn t)
+
+(need-package 'sublime-themes)
 
 ;; (global-linum-mode 1)
 (require-package 'nlinum)
