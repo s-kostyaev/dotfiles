@@ -154,7 +154,8 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'smart-mode-line)
 (need-package 'smart-mode-line-powerline-theme)
 (sml/setup t)
-(sml/apply-theme "powerline")
+;; (sml/apply-theme "powerline")
+(sml/apply-theme 'respectful)
 
 ;; (require-package 'whitespace)
 ;; (global-whitespace-mode)
