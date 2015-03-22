@@ -795,4 +795,18 @@ re-downloaded in order to locate PACKAGE."
  '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
  '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 
+;; Web developement
 (need-package 'web-mode)
+(need-package 'js2-mode)
+(need-package 'ac-js2)
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+; js2-mode provides 4 level of syntax highlighting. They are 
+;  * 0 or a negative value means none. 
+;  * 1 adds basic syntax highlighting. 
+;  * 2 adds highlighting of some Ecma built-in properties. 
+;  * 3 adds highlighting of many Ecma built-in functions.
+(setq js2-highlight-level 3)
+(define-key js-mode-map "{" 'paredit-open-curly)
+(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
