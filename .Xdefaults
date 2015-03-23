@@ -41,7 +41,7 @@ URxvt*saveLines: 10000
 ! URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*,xft:Inconsolata\ for\ Powerline:pixelsize=12
 ! urxvt*font: xft:Fixed:pixelsize=13, xft:Inconsolata for Powerline
 
-urxvt*font: xft:Fixed:pixelsize=13:antialias=true:hinting=true
+urxvt*font: xft:Fixed:pixelsize=14:antialias=true:hinting=true
 
     
 ! Rxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
