@@ -799,14 +799,17 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'web-mode)
 (need-package 'js2-mode)
 (need-package 'ac-js2)
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+(need-package 'jquery-doc)
+(require 'jquery-doc)
+(add-hook 'js-mode-hook 'js2-mode)
+(add-hook 'js2-mode-hook '(lambda () 
+                            (local-set-key (kbd "{") 'paredit-open-curly)
+                            (local-set-key (kbd "}") 'paredit-close-curly-and-newline)
+                            (ac-js2-mode)
+                            (jquery-doc-setup)))
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
 ;  * 1 adds basic syntax highlighting. 
 ;  * 2 adds highlighting of some Ecma built-in properties. 
 ;  * 3 adds highlighting of many Ecma built-in functions.
 (setq js2-highlight-level 3)
-(define-key js-mode-map "{" 'paredit-open-curly)
-(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
-
