@@ -840,3 +840,12 @@ re-downloaded in order to locate PACKAGE."
 (eval-after-load "ace-jump-mode"
     '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;
+;; expand region
+;;
+(need-package 'expand-region)
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
+(delete-selection-mode)
