@@ -859,3 +859,13 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;
+;; tagedit
+;;
+(need-package 'tagedit)
+(eval-after-load "sgml-mode"
+  '(progn
+          (require 'tagedit)
+               (tagedit-add-paredit-like-keybindings)
+                    (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
