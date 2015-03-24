@@ -869,3 +869,12 @@ re-downloaded in order to locate PACKAGE."
           (require 'tagedit)
                (tagedit-add-paredit-like-keybindings)
                     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+
+;;
+;; emmet mode
+;;
+(need-package 'emmet-mode)
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(setq emmet-move-cursor-between-quotes t) ;; default nil
