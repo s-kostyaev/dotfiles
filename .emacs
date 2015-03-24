@@ -815,10 +815,16 @@ re-downloaded in order to locate PACKAGE."
 (setq js2-highlight-level 3)
 
 ;;
+;; key chord
+;;
+(need-package 'key-chord)
+(require 'key-chord)
+(key-chord-mode 1)
+
+;;
 ;; ace jump mode major function
 ;; 
 (need-package 'ace-jump-mode)
-(add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
 (autoload
     'ace-jump-mode
       "ace-jump-mode"
@@ -826,6 +832,8 @@ re-downloaded in order to locate PACKAGE."
           t)
 ;; you can select the key you prefer to
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(key-chord-define-global "fj" 'ace-jump-mode)
+
 
 
 
@@ -841,13 +849,14 @@ re-downloaded in order to locate PACKAGE."
     '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
+
 ;;
 ;; expand region
 ;;
 (need-package 'expand-region)
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
+(key-chord-define-global "sj" 'er/expand-region)
+(key-chord-define-global "sk" 'er/contract-region)
 (delete-selection-mode)
 
 ;;
@@ -855,10 +864,10 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (need-package 'multiple-cursors)
 (require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(key-chord-define-global "mf" 'mc/edit-lines)
+(key-chord-define-global "fn" 'mc/mark-next-like-this)
+(key-chord-define-global "fp" 'mc/mark-previous-like-this)
+(key-chord-define-global "fl" 'mc/mark-all-like-this)
 
 ;;
 ;; tagedit
