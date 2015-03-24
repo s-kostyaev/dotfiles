@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:Liberation Sans Mono 8
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -38,6 +38,12 @@ bindsym $mod+d exec j4-dmenu-desktop #dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+	
+#volume
+bindsym $mod+m exec pamixer --toggle-mute
+bindsym $mod+Down exec pamixer --decrease 3
+bindsym $mod+Up exec pamixer --increase 3
+
 
 # change focus
 bindsym $mod+j focus left
@@ -47,8 +53,6 @@ bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -119,6 +123,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+    
+bindsym $mod+c exec "chromium-fullscreen"
+bindsym $mod+x exec "emacsclient -c"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -162,4 +169,4 @@ bar {
 }
 
 exec --no-startup-id i3-msg 'exec ~/.xsessionrc'
-exec --no-startup-id i3-msg 'workspace 5; exec firefox; workspace 4; exec thunderbird; workspace 1'
+# exec --no-startup-id i3-msg 'workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 1'
