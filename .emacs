@@ -799,14 +799,82 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'web-mode)
 (need-package 'js2-mode)
 (need-package 'ac-js2)
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+(need-package 'jquery-doc)
+(require 'jquery-doc)
+(add-hook 'js-mode-hook 'js2-mode)
+(add-hook 'js2-mode-hook '(lambda () 
+                            (local-set-key (kbd "{") 'paredit-open-curly)
+                            (local-set-key (kbd "}") 'paredit-close-curly-and-newline)
+                            (ac-js2-mode)
+                            (jquery-doc-setup)))
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
 ;  * 1 adds basic syntax highlighting. 
 ;  * 2 adds highlighting of some Ecma built-in properties. 
 ;  * 3 adds highlighting of many Ecma built-in functions.
 (setq js2-highlight-level 3)
-(define-key js-mode-map "{" 'paredit-open-curly)
-(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
 
+;;
+;; ace jump mode major function
+;; 
+(need-package 'ace-jump-mode)
+(add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
+(autoload
+    'ace-jump-mode
+      "ace-jump-mode"
+        "Emacs quick move minor mode"
+          t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+    'ace-jump-mode-pop-mark
+      "ace-jump-mode"
+        "Ace jump back:-)"
+          t)
+(eval-after-load "ace-jump-mode"
+    '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;
+;; expand region
+;;
+(need-package 'expand-region)
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
+(delete-selection-mode)
+
+;;
+;; multiple cursors
+;;
+(need-package 'multiple-cursors)
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;
+;; tagedit
+;;
+(need-package 'tagedit)
+(eval-after-load "sgml-mode"
+  '(progn
+          (require 'tagedit)
+               (tagedit-add-paredit-like-keybindings)
+                    (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+
+;;
+;; emmet mode
+;;
+(need-package 'emmet-mode)
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(setq emmet-move-cursor-between-quotes t) ;; default nil
