@@ -148,9 +148,9 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'sublime-themes)
 
 ;; (global-linum-mode 1)
-(require-package 'nlinum)
-(nlinum-mode 1)
-(add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
+(need-package 'nlinum)
+;(nlinum-mode 1)
+;(add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
 
 										;; powerline
 (require-package 'smart-mode-line)
@@ -887,3 +887,8 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (setq emmet-move-cursor-between-quotes t) ;; default nil
+
+;;
+;; yasnippet
+;;
+(need-package 'yasnippet)
