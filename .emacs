@@ -2,9 +2,6 @@
 (progn (cd "~/.emacs.d")
        (normal-top-level-add-subdirs-to-load-path))
 
-(setq powerline-default-separator 'arrow)
-
-;(setq powerline-default-separator 'arrow)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -39,69 +36,6 @@
    (quote
 	(("gnu" . "http://elpa.gnu.org/packages/")
 	 ("melpa" . "http://melpa.org/packages/"))))
- '(sml/mode-width
-   (if
-	   (eq powerline-default-separator
-		   (quote arrow))
-	   (quote right)
-	 (quote full)))
- '(sml/pos-id-separator
-   (quote
-	(""
-	 (:propertize " " face powerline-active1)
-	 (:eval
-	  (propertize " "
-				  (quote display)
-				  (funcall
-				   (intern
-					(format "powerline-%s-%s" powerline-default-separator
-							(car powerline-default-separator-dir)))
-				   (quote powerline-active1)
-				   (quote powerline-active2))))
-	 (:propertize " " face powerline-active2))))
- '(sml/pos-minor-modes-separator
-   (quote
-	(""
-	 (:propertize " " face powerline-active1)
-	 (:eval
-	  (propertize " "
-				  (quote display)
-				  (funcall
-				   (intern
-					(format "powerline-%s-%s" powerline-default-separator
-							(cdr powerline-default-separator-dir)))
-				   (quote powerline-active1)
-				   nil)))
-	 (:propertize " " face sml/global))))
- '(sml/pre-id-separator
-   (quote
-	(""
-	 (:propertize " " face sml/global)
-	 (:eval
-	  (propertize " "
-				  (quote display)
-				  (funcall
-				   (intern
-					(format "powerline-%s-%s" powerline-default-separator
-							(car powerline-default-separator-dir)))
-				   nil
-				   (quote powerline-active1))))
-	 (:propertize " " face powerline-active1))))
- '(sml/pre-minor-modes-separator
-   (quote
-	(""
-	 (:propertize " " face powerline-active2)
-	 (:eval
-	  (propertize " "
-				  (quote display)
-				  (funcall
-				   (intern
-					(format "powerline-%s-%s" powerline-default-separator
-							(cdr powerline-default-separator-dir)))
-				   (quote powerline-active2)
-				   (quote powerline-active1))))
-	 (:propertize " " face powerline-active1))))
- '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
  '(starttls-extra-arguments (quote ("--insecure")))
  '(starttls-use-gnutls t)
  '(tab-width 4)
@@ -154,7 +88,7 @@ re-downloaded in order to locate PACKAGE."
 
 										;; powerline
 (require-package 'smart-mode-line)
-(need-package 'smart-mode-line-powerline-theme)
+;(need-package 'smart-mode-line-powerline-theme)
 (sml/setup t)
 ;; (sml/apply-theme "powerline")
 (sml/apply-theme 'respectful)
@@ -230,15 +164,17 @@ re-downloaded in order to locate PACKAGE."
 ;(add-hook 'go-mode-hook (lambda ()
 ;                          (local-set-key (kbd \"M-.\") 'godef-jump)))
 ;; autocomplete with gocode
-(require-package 'company)                                   ; load company mode
-(require-package 'company-go)                                ; load company mode go backend
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-(setq company-echo-delay 0)                          ; remove annoying blinking
-(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+(add-hook 'go-mode-hook '(lambda()
+                           (add-to-list 'ac-sources 'ac-source-yasnippet)))
+;;(require-package 'company)              ; load company mode
+;;(require-package 'company-go)                                ; load company mode go backend
+;;(setq company-tooltip-limit 20)                      ; bigger popup window
+;;(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+;;(setq company-echo-delay 0)                          ; remove annoying blinking
+;;(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+;; (add-hook 'go-mode-hook (lambda ()
+;;                           (set (make-local-variable 'company-backends) '(company-go))
+;;                           (company-mode)))
 ;; Flymake
 (require-package 'flymake)
 
@@ -247,9 +183,6 @@ re-downloaded in order to locate PACKAGE."
 ;; doc
 (need-package 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
-;; (set-face-attribute 'eldoc-highlight-function-argument nil
-;;                     :underline t :foreground "green"
-;;                     :weight 'bold)
 (add-hook 'go-mode-hook '(lambda () (highlight-lines-matching-regexp ".\{81\}" "hi-green-b")))
 
 
@@ -428,7 +361,10 @@ re-downloaded in order to locate PACKAGE."
 ;;  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 ;;  (eval-after-load "auto-complete"
 ;;    '(add-to-list 'ac-modes 'nrepl-mode))
-					;(require-package 'go-autocomplete)
+(need-package 'go-autocomplete)
+(require 'go-autocomplete)
+(need-package 'ac-emmet)
+(require 'ac-emmet)
 (defun auto-complete-clang-get-system-includes ()
   (with-temp-buffer
     (shell-command 
@@ -447,6 +383,7 @@ re-downloaded in order to locate PACKAGE."
 
 
 ;; Generic setup.
+(need-package 'fuzzy)
 (global-auto-complete-mode t)           ;enable global-mode
 (setq ac-auto-start nil)                ;automatically start (disabled)
 (setq ac-dwim t)                        ;Do what i mean
@@ -457,6 +394,7 @@ re-downloaded in order to locate PACKAGE."
 (setq ac-delay 0.5)
 (setq ac-use-fuzzy t)
 (setq ac-use-comphist t)
+(add-to-list 'ac-sources 'ac-source-yasnippet)
 ;(setq ac-use-quick-help nil)
 
 ;; (setq ac-modes
@@ -508,8 +446,6 @@ re-downloaded in order to locate PACKAGE."
                                  (add-to-list 'ac-omni-completion-sources
                                               (cons "->" '(ac-source-semantic)))
                                  (add-to-list '(ac-source-clang ac-source-yasnippet) ac-sources)))
-;; (add-hook 'go-mode-hook '(lambda()
-;;                            (add-to-list 'ac-sources 'ac-source-go)))
 
 
 (ac-flyspell-workaround)
@@ -787,13 +723,13 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
- '(company-preview ((t (:foreground "darkgray" :underline t))))
- '(company-preview-common ((t (:inherit company-preview))))
- '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
- '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
- '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
- '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
+ '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
+ ;; '(company-preview ((t (:foreground "darkgray" :underline t))))
+ ;; '(company-preview-common ((t (:inherit company-preview))))
+ ;; '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
+ ;; '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
+ ;; '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
+ ;; '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 
 ;; Web developement
 (need-package 'web-mode)
