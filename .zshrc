@@ -118,6 +118,7 @@ autoload -U compinit promptinit
 compinit
 promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 export TERM=rxvt-unicode-256color
 export EDITOR=ec
 export BROWSER=chromium
