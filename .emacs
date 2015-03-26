@@ -855,8 +855,8 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (need-package 'expand-region)
 (require 'expand-region)
-(key-chord-define-global "sj" 'er/expand-region)
-(key-chord-define-global "sk" 'er/contract-region)
+(key-chord-define-global "zj" 'er/expand-region)
+(key-chord-define-global "zk" 'er/contract-region)
 (delete-selection-mode)
 
 ;;
