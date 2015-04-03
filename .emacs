@@ -164,8 +164,8 @@ re-downloaded in order to locate PACKAGE."
 ;(add-hook 'go-mode-hook (lambda ()
 ;                          (local-set-key (kbd \"M-.\") 'godef-jump)))
 ;; autocomplete with gocode
-(add-hook 'go-mode-hook '(lambda()
-                           (add-to-list 'ac-sources 'ac-source-yasnippet)))
+;; (add-hook 'go-mode-hook '(lambda()
+;;                            (add-to-list 'ac-sources 'ac-source-yasnippet)))
 ;;(require-package 'company)              ; load company mode
 ;;(require-package 'company-go)                                ; load company mode go backend
 ;;(setq company-tooltip-limit 20)                      ; bigger popup window
@@ -392,9 +392,9 @@ re-downloaded in order to locate PACKAGE."
 (setq ac-auto-show-menu 0.5)
 (setq ac-ignore-case t)
 (setq ac-delay 0.5)
-(setq ac-use-fuzzy t)
+;; (setq ac-use-fuzzy t)
 (setq ac-use-comphist t)
-(add-to-list 'ac-sources 'ac-source-yasnippet)
+;; (add-to-list 'ac-sources 'ac-source-yasnippet)
 ;(setq ac-use-quick-help nil)
 
 ;; (setq ac-modes
