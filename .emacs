@@ -7,9 +7,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-sources
-   (quote
-	(ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers)) t)
  '(browse-url-chromium-program "chromium")
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
@@ -95,21 +92,11 @@ re-downloaded in order to locate PACKAGE."
 
 ;; (require-package 'whitespace)
 ;; (global-whitespace-mode)
-; carlo@r500:~/work/opt-lisp-r500/emacs-23.3$ ./configure --prefix=`pwd`/r500-build --with-x-toolkit=gtk
-;
-;
-;
+
 ; Use VIM keybindings :)
 ;; (add-to-list 'load-path "~/.emacs.d/evil")
 ;; (require-package 'evil)  
 ;; (evil-mode 1)
-; SLIME for programming with Common Lisp.
-; http://functionalrants.wordpress.com/2008/09/06/how-to-set-up-emacs-slime-sbcl-under-gnulinux/
-;(load (expand-file-name "~/quicklisp/slime-helper.el"))
-;  ;; Replace "sbcl" with the path to your implementation
-;  (setq inferior-lisp-program "sbcl")
-
-
 
 ;; to setup tabs
 (setq c-basic-indent 4)
@@ -161,20 +148,14 @@ re-downloaded in order to locate PACKAGE."
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c i") 'go-goto-imports)))
-;(add-hook 'go-mode-hook (lambda ()
-;                          (local-set-key (kbd \"M-.\") 'godef-jump)))
-;; autocomplete with gocode
-;; (add-hook 'go-mode-hook '(lambda()
-;;                            (add-to-list 'ac-sources 'ac-source-yasnippet)))
-;;(require-package 'company)              ; load company mode
-;;(require-package 'company-go)                                ; load company mode go backend
-;;(setq company-tooltip-limit 20)                      ; bigger popup window
-;;(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-;;(setq company-echo-delay 0)                          ; remove annoying blinking
-;;(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-;; (add-hook 'go-mode-hook (lambda ()
-;;                           (set (make-local-variable 'company-backends) '(company-go))
-;;                           (company-mode)))
+(require-package 'company-go)                                ; load company mode go backend
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+(add-hook 'go-mode-hook (lambda ()
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 ;; Flymake
 (require-package 'flymake)
 
@@ -187,10 +168,6 @@ re-downloaded in order to locate PACKAGE."
 
 
 
-
-; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
-; huaiyuan's answer:
-;(set-face-attribute 'default nil :height 90)
 
 
 ; for compiling C/C++
@@ -210,7 +187,6 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key "\C-x\C-r" 'toggle-read-only);
 (global-set-key "\C-t" 'kill-word);
 (global-set-key "\C-p" 'previous-line);
-;(global-set-key "\C-u" 'backward-word);
 (global-set-key "\C-o" 'forward-word);
 (global-set-key "\C-h" 'backward-delete-char-untabify);
 (global-set-key "\C-x\C-m" 'not-modified);
@@ -305,18 +281,23 @@ re-downloaded in order to locate PACKAGE."
 ;(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
 
 ;;; Python mode
-;(need-package 'python-mode)
+(need-package 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'eldoc-mode)
+(need-package 'company-anaconda)
+
 (setenv "PYMACS_PYTHON" "python2")
 (autoload 'python-mode "python-mode.el" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 (add-hook 'python-mode-hook
-		    (lambda ()
-			      (setq indent-tabs-mode t)
-				      (setq python-indent 4)
-                      (setq tab-width 8)
-                      (local-set-key (kbd "<M-iso-lefttab>") 'py-shift-right)
-                      (local-set-key (kbd "<backtab>") 'py-shift-left)))
+          (lambda ()
+              (add-to-list 'company-backends 'company-anaconda)
+              (setq indent-tabs-mode t)
+              (setq python-indent 4)
+              (setq tab-width 8)
+              (local-set-key (kbd "<M-iso-lefttab>") 'py-shift-right)
+              (local-set-key (kbd "<backtab>") 'py-shift-left)))
 
 ;;; Octave mode
 ;; (autoload 'octave-mode "octave-mod" nil t)
@@ -352,115 +333,9 @@ re-downloaded in order to locate PACKAGE."
 
 
 ;;; Auto-complete
-(require-package 'auto-complete)
-(require 'auto-complete-config)
-(require-package 'auto-complete-clang)
-;; (require-package 'ac-octave)   
-;; (require-package 'ac-nrepl)
-;;  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-;;  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-;;  (eval-after-load "auto-complete"
-;;    '(add-to-list 'ac-modes 'nrepl-mode))
-(need-package 'go-autocomplete)
-(require 'go-autocomplete)
-(need-package 'ac-emmet)
-(require 'ac-emmet)
-(defun auto-complete-clang-get-system-includes ()
-  (with-temp-buffer
-    (shell-command 
-     "echo | cpp -x c++ -Wp,-v 2>&1 | grep '^ .*include' | sed 's/^ //g'" 
-     (current-buffer))
-    (split-string (buffer-string) "\n" t)))
-
-(ac-config-default)
-
-(setq clang-completion-suppress-error t)
-(setq ac-clang-flags
-     (mapcar (lambda (item)(concat "-I" item))
-             ;(c-get-system-includes)
-	     (auto-complete-clang-get-system-includes)))
-
-
-
-;; Generic setup.
-(need-package 'fuzzy)
-(global-auto-complete-mode t)           ;enable global-mode
-(setq ac-auto-start nil)                ;automatically start (disabled)
-(setq ac-dwim t)                        ;Do what i mean
-(setq ac-override-local-map nil)        ;don't override local map
-(setq ac-quick-help-delay 1)
-(setq ac-auto-show-menu 0.5)
-(setq ac-ignore-case t)
-(setq ac-delay 0.5)
-;; (setq ac-use-fuzzy t)
-(setq ac-use-comphist t)
-;; (add-to-list 'ac-sources 'ac-source-yasnippet)
-;(setq ac-use-quick-help nil)
-
-;; (setq ac-modes
-;;       '(emacs-lisp-mode lisp-interaction-mode lisp-mode scheme-mode
-;;                         c-mode cc-mode c++-mode java-mode
-;;                         perl-mode cperl-mode python-mode ruby-mode
-;;                         ecmascript-mode javascript-mode php-mode css-mode
-;;                         makefile-mode sh-mode fortran-mode f90-mode ada-mode
-;;                         xml-mode sgml-mode
-;;                         haskell-mode literate-haskell-mode
-;;                         emms-tag-editor-mode
-;;                         asm-mode
-;;                         org-mode
-;;                         lua-mode go-mode))
-
-;; The sources for common all mode.
-
-
-;;; Lisp mode
-(dolist (hook (list
-               'emacs-lisp-mode-hook
-               'lisp-mode-hook
-               'lisp-interaction-mode-hook))
-  (add-hook hook '(lambda ()
-                    (add-to-list 'ac-sources 'ac-source-symbols))))
-
-(add-hook 'haskell-mode-hook '(lambda ()
-                                (add-to-list 'ac-sources 'ac-source-haskell)))
-
-(add-hook 'c-mode-common-hook '(lambda ()
-                                 (add-to-list 'ac-omni-completion-sources
-                                              (cons "\\." '(ac-source-semantic)))
-                                 (add-to-list 'ac-omni-completion-sources
-                                              (cons "->" '(ac-source-semantic)))
-                                 (add-to-list '(ac-source-clang ac-source-yasnippet) ac-sources)))
-
-;; (add-hook 'clojure-mode-hook '(lambda ()
-;; 				(add-to-list ac-sources
-;; 					     '(ac-source-nrepl-ns
-;; 					       ac-source-nrepl-vars
-;; 					       ac-source-nrepl-ns-classes
-;; 					       ac-source-nrepl-all-classes
-;; 					       ac-source-nrepl-java-methods
-;; 					       ac-source-nrepl-static-methods))))
-
-(add-hook 'c++-mode-hook '(lambda ()
-                                 (add-to-list 'ac-omni-completion-sources
-                                              (cons "\\." '(ac-source-semantic)))
-                                 (add-to-list 'ac-omni-completion-sources
-                                              (cons "->" '(ac-source-semantic)))
-                                 (add-to-list '(ac-source-clang ac-source-yasnippet) ac-sources)))
-
-
-(ac-flyspell-workaround)
-
-;(setq ac-auto-start nil)
-(define-key ac-mode-map (kbd "TAB") 'auto-complete)
-
-;(defun ac-octave-mode-setup ()
-;(setq ac-sources '(ac-source-octave)))
-;; (add-hook 'octave-mode-hook
-;; '(lambda ()
-;;    (progn
-;;    (add-to-list 'ac-sources 'ac-source-octave)
-;;    (auto-complete-mode t))))
-  ; (ac-octave-mode-setup)))
+(need-package 'company)
+(require 'company)
+(global-company-mode)
 
 ;;; ElDoc
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -486,9 +361,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Clojure
 
-;; (unless (package-installed-p 'cider)
-;;   (package-install 'cider))
-
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq nrepl-hide-special-buffers t)
 (setq cider-repl-print-length 100) ; the default is nil, no limit
@@ -498,33 +370,6 @@ re-downloaded in order to locate PACKAGE."
 (setq cider-repl-history-size 1000) ; the default is 500
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-(require-package 'ac-cider)
-(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-mode))
-;; (require-package 'nrepl)
-;; (add-hook 'nrepl-interaction-mode-hook
-;;   'nrepl-turn-on-eldoc-mode)
-
-;; (setq nrepl-hide-special-buffers t)
-
-;; (setq nrepl-popup-stacktraces-in-repl t)
-
-;; (add-to-list 'same-window-buffer-names "*nrepl*")
-
-;; (add-hook 'nrepl-mode-hook 'subword-mode)
-
-;; (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
-
-;; (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-
-;; (add-to-list 'same-window-buffer-names "*nrepl*")
-
-
-;;;; ido-mode
-;(setq ido-enable-flex-matching t)
-;(setq ido-everywhere t)
 
 (require-package 'ido-vertical-mode)
 (ido-mode 1)
@@ -669,9 +514,6 @@ re-downloaded in order to locate PACKAGE."
    '(require-package 'paredit-menu))
 
 
-;(require-package 'smooth-scroll)
-;   (smooth-scroll-mode t)
-
 ;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
 ;(setq-default message-log-max nil)
 (kill-buffer "*Messages*")
@@ -734,14 +576,12 @@ re-downloaded in order to locate PACKAGE."
 ;; Web developement
 (need-package 'web-mode)
 (need-package 'js2-mode)
-(need-package 'ac-js2)
 (need-package 'jquery-doc)
 (require 'jquery-doc)
 (add-hook 'js-mode-hook 'js2-mode)
 (add-hook 'js2-mode-hook '(lambda () 
                             (local-set-key (kbd "{") 'paredit-open-curly)
                             (local-set-key (kbd "}") 'paredit-close-curly-and-newline)
-                            (ac-js2-mode)
                             (jquery-doc-setup)))
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
