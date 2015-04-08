@@ -60,3 +60,5 @@ map J gT
 map K gt
 set focuscontent
 set toolbars=none
+noremap j 5j
+noremap k 5k
