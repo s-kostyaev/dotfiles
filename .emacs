@@ -17,7 +17,7 @@
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
  '(help-at-pt-timer-delay 0.9)
  '(indent-line-function (quote insert-tab) t)
- '(indent-tabs-mode t)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(jabber-auto-reconnect t)
  '(jabber-avatar-verbose nil)
@@ -293,7 +293,7 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'python-mode-hook
           (lambda ()
               (add-to-list 'company-backends 'company-anaconda)
-              (setq indent-tabs-mode t)
+              (setq indent-tabs-mode nil)
               (setq python-indent 4)
               (setq tab-width 8)
               (local-set-key (kbd "<M-iso-lefttab>") 'py-shift-right)
