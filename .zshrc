@@ -124,3 +124,6 @@ export EDITOR=ec
 export BROWSER=chromium
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LC_ALL=en_US.UTF-8
+
+#disable CTRL-S
+stty -ixon
