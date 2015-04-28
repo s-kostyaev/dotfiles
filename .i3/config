@@ -127,6 +127,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+c exec "chromium-fullscreen"
 bindsym $mod+z exec "firefox"
 bindsym $mod+x exec "emacsclient -c"
+bindsym Ctrl+Insert exec "xclip -o | xclip -selection clipboard -i"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
