@@ -106,6 +106,9 @@ alias mc='TERM=xterm-256color mc'
 alias et='emacsclient -t'
 alias eg='emacsclient -c'
 EM='emacsclient -c'
+es(){
+    emacsclient -t /sudo:root@localhost:$1
+}
 alias jo='mcabber -f .mcabberrc.office'
 alias jh='mcabber -f .mcabberrc.home'
 export XLIB_SKIP_ARGB_VISUALS=1
