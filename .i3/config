@@ -128,6 +128,7 @@ bindsym $mod+c exec "chromium-fullscreen"
 bindsym $mod+z exec "firefox"
 bindsym $mod+x exec "emacsclient -c"
 bindsym Ctrl+Insert exec "xclip -o | xclip -selection clipboard -i"
+bindsym $mod+F1 exec "i3lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
