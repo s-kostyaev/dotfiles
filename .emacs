@@ -64,9 +64,8 @@ re-downloaded in order to locate PACKAGE."
 
 (defun require-package (package &optional min-version no-refresh)
   "Load package (download if need)"
-  (progn 
-	(need-package package min-version no-refresh)
-	(require 'package)))
+  (need-package package min-version no-refresh)
+  (require 'package))
 
 (need-package 'color-theme)
 ;(require 'color-theme)
@@ -333,8 +332,7 @@ re-downloaded in order to locate PACKAGE."
 
 
 ;;; Auto-complete
-(need-package 'company)
-(require 'company)
+(require-package 'company)
 (global-company-mode)
 
 ;;; ElDoc
@@ -593,8 +591,7 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; key chord
 ;;
-(need-package 'key-chord)
-(require 'key-chord)
+(require-package 'key-chord)
 (key-chord-mode 1)
 
 ;;
@@ -629,8 +626,7 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; expand region
 ;;
-(need-package 'expand-region)
-(require 'expand-region)
+(require-package 'expand-region)
 (key-chord-define-global "zj" 'er/expand-region)
 (key-chord-define-global "zk" 'er/contract-region)
 (delete-selection-mode)
@@ -638,8 +634,7 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; multiple cursors
 ;;
-(need-package 'multiple-cursors)
-(require 'multiple-cursors)
+(require-package 'multiple-cursors)
 (key-chord-define-global "mf" 'mc/edit-lines)
 (key-chord-define-global "fn" 'mc/mark-next-like-this)
 (key-chord-define-global "fp" 'mc/mark-previous-like-this)
@@ -658,8 +653,7 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; emmet mode
 ;;
-(need-package 'emmet-mode)
-(require 'emmet-mode)
+(require-package 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (setq emmet-move-cursor-between-quotes t) ;; default nil
