@@ -1,3 +1,3 @@
-text/html;                      i3-sensible-browser %s; needsterminal
+text/html;                      firefox %s
 image/*;                        feh %s
 text/calendar;                  goik; copiousoutput
