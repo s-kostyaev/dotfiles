@@ -40,6 +40,8 @@ set roster_width=40
 
 set caps_directory = "~/.mcabber/caps"
 
+set beep_on_message = 1
+
 alias me = say /me
 alias online   = status online
 alias away     = status away

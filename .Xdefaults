@@ -64,3 +64,5 @@ URxvt.underlineURLs:   true
 URxvt.keysym.M-u:      perl:url-select:select_next
 
 
+! Set the Urgent hint on bell for console apps without notify-send
+URxvt.urgentOnBell: true
