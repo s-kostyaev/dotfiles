@@ -7,7 +7,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(browse-url-chromium-program "chromium")
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
@@ -374,8 +373,7 @@ re-downloaded in order to locate PACKAGE."
 (ido-vertical-mode 1)
 
 
-(setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "chromium")
+(setq browse-url-browser-function 'browse-url-firefox)
 
 ;;; Smex
 (need-package 'smex)
