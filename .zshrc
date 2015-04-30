@@ -124,7 +124,7 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 export TERM=rxvt-unicode-256color
 export EDITOR=ec
-export BROWSER=chromium
+export BROWSER=firefox
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LC_ALL=en_US.UTF-8
 
