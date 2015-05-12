@@ -285,6 +285,7 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'company-anaconda)
 
 (setenv "PYMACS_PYTHON" "python2")
+(setenv "PYTHONPATH" "/usr/bin/python2")
 (autoload 'python-mode "python-mode.el" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
