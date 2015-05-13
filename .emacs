@@ -666,3 +666,8 @@ re-downloaded in order to locate PACKAGE."
 ;; tramp mode for fast open files with sudo
 ;;
 (require 'tramp)
+
+;;
+;; C-w like in readline
+;;
+(global-set-key (kbd "C-w") 'backward-kill-word)
