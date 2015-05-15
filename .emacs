@@ -374,7 +374,7 @@ re-downloaded in order to locate PACKAGE."
 (ido-vertical-mode 1)
 
 
-(setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-browser-function 'browse-url-chromium)
 
 ;;; Smex
 (need-package 'smex)
@@ -576,10 +576,7 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'jquery-doc)
 (require 'jquery-doc)
 (add-hook 'js-mode-hook 'js2-mode)
-(add-hook 'js2-mode-hook '(lambda () 
-                            (local-set-key (kbd "{") 'paredit-open-curly)
-                            (local-set-key (kbd "}") 'paredit-close-curly-and-newline)
-                            (jquery-doc-setup)))
+(add-hook 'js2-mode-hook '(jquery-doc-setup))
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
 ;  * 1 adds basic syntax highlighting. 
