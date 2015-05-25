@@ -66,6 +66,13 @@ re-downloaded in order to locate PACKAGE."
   (need-package package min-version no-refresh)
   (require 'package))
 
+;;
+;; for automatic install from emacswiki
+;;
+(require 'auto-install)
+(setq auto-install-save-confirm nil)
+
+
 (need-package 'color-theme)
 ;(require 'color-theme)
 ;(setq color-theme-is-global t)
@@ -671,3 +678,12 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "C-c C-w") 'kill-region)
 
 (global-set-key (kbd "C-c C-n") 'goto-line)
+
+;;
+;; paste from kill menu for ido
+;;
+(auto-install-from-url "http://www.emacswiki.org/emacs/download/kill-ring-ido.el")
+(need-package 'noflet)
+(require 'kill-ring-ido)
+(setq kill-ring-ido-shortage-length 30)
+(key-chord-define-global "fy" 'kill-ring-ido)
