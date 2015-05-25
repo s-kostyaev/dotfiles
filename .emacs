@@ -687,3 +687,7 @@ re-downloaded in order to locate PACKAGE."
 (require 'kill-ring-ido)
 (setq kill-ring-ido-shortage-length 30)
 (key-chord-define-global "fy" 'kill-ring-ido)
+
+
+;;for faste toggle key-chord-mode
+(global-set-key [f9] 'key-chord-mode)
