@@ -643,9 +643,9 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (require-package 'multiple-cursors)
 (key-chord-define-global "mf" 'mc/edit-lines)
-(key-chord-define-global "fn" 'mc/mark-next-like-this)
-(key-chord-define-global "fp" 'mc/mark-previous-like-this)
-(key-chord-define-global "fl" 'mc/mark-all-like-this)
+(key-chord-define-global "fn" 'mc/mark-next-word-like-this)
+(key-chord-define-global "fp" 'mc/mark-previous-word-like-this)
+(key-chord-define-global "fl" 'mc/mark-all-words-like-this)
 
 ;;
 ;; tagedit
