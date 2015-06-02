@@ -646,6 +646,7 @@ re-downloaded in order to locate PACKAGE."
 (key-chord-define-global "fn" 'mc/mark-next-word-like-this)
 (key-chord-define-global "fp" 'mc/mark-previous-word-like-this)
 (key-chord-define-global "fl" 'mc/mark-all-words-like-this)
+(key-chord-define-global "fh" 'mc-hide-unmatched-lines-mode)
 
 ;;
 ;; tagedit
