@@ -669,7 +669,8 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; yasnippet
 ;;
-(need-package 'yasnippet)
+(require-package 'yasnippet)
+(yas-global-mode 1)
 
 ;;
 ;; tramp mode for fast open files with sudo
