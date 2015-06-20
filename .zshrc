@@ -111,6 +111,7 @@ es(){
 }
 alias jo='mcabber -f .mcabberrc.office'
 alias jh='mcabber -f .mcabberrc.home'
+alias sl='mcabber -f .mcabberrc.slack'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
