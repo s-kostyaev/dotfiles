@@ -12,3 +12,12 @@ map B :bookmarks<Space>
 map u lastClosedTab
 map d closeTab
 map zr :tabnew chrome://restart<CR>
+
+let blacklists = ["http://www.keybr.com/*"]
+
+let searchengine lz = "https://lazerto.com/?q="
+let defaultengine = "lz"
+let completionengines = ["lz"]
+
+let configpath = '/home/feofan/.cvimrc'
+set localconfig 
