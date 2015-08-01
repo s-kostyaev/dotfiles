@@ -16,8 +16,10 @@ map zr :tabnew chrome://restart<CR>
 let blacklists = ["http://www.keybr.com/*"]
 
 let searchengine lz = "https://lazerto.com/?q="
-let defaultengine = "lz"
-let completionengines = ["lz"]
+let searchengine dg = "https://duckduckgo.com/?q="
+let defaultengine = "dg"
+let completionengines = ["dg"]
+
 
 let configpath = '/home/feofan/.cvimrc'
 set localconfig 
