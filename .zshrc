@@ -38,6 +38,8 @@ RPROMPT=$'$(git_super_status) %{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 
+alias gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+
 case $TERM in (xterm*|rxvt)
 precmd () { print -Pn "\e]0;%n@%m: %~\a" }
 preexec () { print -Pn "\e]0;%n@%m: $1\a" }
