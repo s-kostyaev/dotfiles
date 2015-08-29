@@ -3,6 +3,7 @@ setxkbmap -option ctrl:nocaps
 setxkbmap "us,ru" ",winkeys" "grp:toggle,grp_led:caps"
 pulseaudio --start
 dunst &
+keynav &
 nitrogen --restore &
 # xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
 exec /usr/bin/redshift -l55.2:82.55 &
