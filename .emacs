@@ -28,6 +28,7 @@
  '(jabber-roster-line-format " %c %-25n %u %-8s (%r)")
  '(jabber-show-offline-contacts nil)
  '(jabber-vcard-avatars-retrieve nil)
+ '(menu-bar-mode nil)
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
