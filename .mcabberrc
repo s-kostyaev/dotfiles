@@ -77,4 +77,4 @@ bind 514 = buffer down
 bind M32 = msay toggle
 bind M13 = msay send
 
-source ~/.mcabber/mcabberrc.dark
+source ~/.mcabber/mcabberrc.light
