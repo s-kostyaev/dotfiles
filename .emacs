@@ -706,3 +706,6 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(require-package 'helm-descbinds)
+(helm-descbinds-mode 1)
