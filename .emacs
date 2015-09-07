@@ -7,6 +7,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(color-theme-sanityinc-solarized-rgb-is-srgb t)
  '(custom-enabled-themes (quote (sanityinc-solarized-light)))
  '(custom-safe-themes
    (quote
@@ -383,28 +384,28 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
 
-(require-package 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
+;; (require-package 'ido-vertical-mode)
+;; (ido-mode 1)
+;; (ido-vertical-mode 1)
 
 
 (setq browse-url-browser-function 'browse-url-chromium)
 
 ;;; Smex
-(need-package 'smex)
-(global-set-key [(meta x)] (lambda ()
-                            (interactive)
-                            (or (boundp 'smex-cache)
-                                (smex-initialize))
-                            (global-set-key [(meta x)] 'smex)
-                            (smex)))
+;; (need-package 'smex)
+;; (global-set-key [(meta x)] (lambda ()
+;;                             (interactive)
+;;                             (or (boundp 'smex-cache)
+;;                                 (smex-initialize))
+;;                             (global-set-key [(meta x)] 'smex)
+;;                             (smex)))
 
-(global-set-key [(shift meta x)] (lambda ()
-                                   (interactive)
-                                   (or (boundp 'smex-cache)
-                                       (smex-initialize))
-                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-                                   (smex-major-mode-commands)))
+;; (global-set-key [(shift meta x)] (lambda ()
+;;                                    (interactive)
+;;                                    (or (boundp 'smex-cache)
+;;                                        (smex-initialize))
+;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+;;                                    (smex-major-mode-commands)))
 ;;;; Paredit
 (need-package 'paredit)
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -572,7 +573,7 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Liberation Mono for Powerline" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
+ '(default ((t (:background nil :family "Hack" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
  ;; '(company-preview ((t (:foreground "darkgray" :underline t))))
  ;; '(company-preview-common ((t (:inherit company-preview))))
  ;; '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
@@ -687,12 +688,20 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; paste from kill menu for ido
 ;;
-(auto-install-from-url "http://www.emacswiki.org/emacs/download/kill-ring-ido.el")
-(need-package 'noflet)
-(require 'kill-ring-ido)
-(setq kill-ring-ido-shortage-length 30)
-(key-chord-define-global "fy" 'kill-ring-ido)
+;; (auto-install-from-url "http://www.emacswiki.org/emacs/download/kill-ring-ido.el")
+;; (need-package 'noflet)
+;; (require 'kill-ring-ido)
+;; (setq kill-ring-ido-shortage-length 30)
+;; (key-chord-define-global "fy" 'kill-ring-ido)
 
 
 ;;for faste toggle key-chord-mode
 (global-set-key [f9] 'key-chord-mode)
+
+;helm
+(need-package 'helm)
+(require 'helm-config)
+(global-set-key [(meta x)] 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
