@@ -111,6 +111,15 @@ EM='emacsclient -c'
 es(){
     emacsclient -t /sudo:root@localhost:$1
 }
+ci(){
+    curl http://container.s:8081/v2/c/node0.in.ngs.ru.$1/stats | jq '.'
+}
+ra(){
+    curl http://snob.s/hsd:rn:ngs:engineers/$1
+}
+dbi(){
+    curl http://db8.farm.s:8081/v2/c/$1/stats | jq '.'
+}
 alias jo='mcabber -f .mcabberrc.office'
 alias jh='mcabber -f .mcabberrc.home'
 alias sl='mcabber -f .mcabberrc.slack'
@@ -127,7 +136,7 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 export TERM=rxvt-unicode-256color
 export EDITOR=ec
-export BROWSER=firefox
+export BROWSER=inox
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LC_ALL=en_US.UTF-8
 
