@@ -1,3 +1,3 @@
-text/html;                      firefox %s
+text/html;                      inox %s
 image/*;                        feh %s
 text/calendar;                  goik; copiousoutput
