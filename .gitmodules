@@ -1,6 +1,0 @@
-[submodule ".fonts"]
-        path = .fonts
-        url = github.com:seletskiy/monaco-font
-[submodule "/home/feofan/.fonts"]
-	path = /home/feofan/.fonts
-	url = https://github.com/seletskiy/monaco-font
