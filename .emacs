@@ -709,3 +709,38 @@ re-downloaded in order to locate PACKAGE."
 
 (require-package 'helm-descbinds)
 (helm-descbinds-mode 1)
+
+;;
+;; ash integration
+;;
+(defun ash-inbox ()
+  (interactive)
+  (async-shell-command "ash inbox" "*ash inbox*" "*ash errors*"))
+
+(defun ash-ls ()
+  (interactive)
+  (async-shell-command (concat "ash " (thing-at-point 'symbol) " ls") 
+                       (thing-at-point 'symbol)))
+
+(defun ash-review-file (start end)
+  (interactive "r")
+  (async-shell-command (concat "ash -e emacsclient "
+                          (buffer-name)
+                          " review "
+                          (buffer-substring start end)) "*ash*" "*ash errors*"))
+
+(defun ash-approve ()
+  (interactive)
+  (async-shell-command (concat "ash "
+                          (buffer-name)
+                          " approve") "*ash*" "*ash errors*"))
+
+(defun ash-decline ()
+  (interactive)
+  (async-shell-command (concat "ash "
+                          (buffer-name)
+                          " decline") "*ash*" "*ash errors*"))
+
+(key-chord-define-global "ai" 'ash-inbox)
+(key-chord-define-global "al" 'ash-ls)
+(key-chord-define-global "ar" 'ash-review-file)
