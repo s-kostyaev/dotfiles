@@ -722,12 +722,12 @@ re-downloaded in order to locate PACKAGE."
   (async-shell-command (concat "ash " (thing-at-point 'symbol) " ls") 
                        (thing-at-point 'symbol)))
 
-(defun ash-review-file (start end)
-  (interactive "r")
+(defun ash-review-file ()
+  (interactive)
   (async-shell-command (concat "ash -e emacsclient "
-                          (buffer-name)
-                          " review "
-                          (buffer-substring start end)) "*ash*" "*ash errors*"))
+                               (buffer-name)
+                               " review "
+                               (ffap-file-at-point)) "*ash*" "*ash errors*"))
 
 (defun ash-approve ()
   (interactive)
