@@ -719,15 +719,21 @@ re-downloaded in order to locate PACKAGE."
 
 (defun ash-ls ()
   (interactive)
-  (async-shell-command (concat "ash " (thing-at-point 'symbol) " ls") 
-                       (thing-at-point 'symbol)))
+  (async-shell-command (concat "ash " (ffap-string-at-point) " ls") 
+                       (ffap-string-at-point)))
 
 (defun ash-review-file ()
   (interactive)
   (async-shell-command (concat "ash -e emacsclient "
                                (buffer-name)
                                " review "
-                               (ffap-file-at-point)) "*ash*" "*ash errors*"))
+                               (ffap-string-at-point)) "*ash*" "*ash errors*"))
+
+(defun ash-review ()
+  (interactive)
+  (async-shell-command (concat "ash -e emacsclient "
+                               (buffer-name)
+                               " review") "*ash*" "*ash errors*"))
 
 (defun ash-approve ()
   (interactive)
@@ -742,5 +748,4 @@ re-downloaded in order to locate PACKAGE."
                           " decline") "*ash*" "*ash errors*"))
 
 (global-set-key (kbd "C-c C-a i") 'ash-inbox)
-(global-set-key (kbd "C-c C-a l") 'ash-ls)
-(global-set-key (kbd "C-c C-a r") 'ash-review-file)
+
