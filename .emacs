@@ -741,4 +741,6 @@ re-downloaded in order to locate PACKAGE."
                           (buffer-name)
                           " decline") "*ash*" "*ash errors*"))
 
-(key-chord-define-global "ai" 'ash-inbox)
+(global-set-key (kbd "C-c C-a i") 'ash-inbox)
+(global-set-key (kbd "C-c C-a l") 'ash-ls)
+(global-set-key (kbd "C-c C-a r") 'ash-review-file)
