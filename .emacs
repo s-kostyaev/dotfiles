@@ -742,5 +742,3 @@ re-downloaded in order to locate PACKAGE."
                           " decline") "*ash*" "*ash errors*"))
 
 (key-chord-define-global "ai" 'ash-inbox)
-(key-chord-define-global "al" 'ash-ls)
-(key-chord-define-global "ar" 'ash-review-file)
