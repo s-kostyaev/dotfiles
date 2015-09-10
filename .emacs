@@ -713,9 +713,12 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; ash integration
 ;;
+(defcustom ash-editor "emacsclient"
+  "Editor for using with ash. Emacsclient by default")
+
 (defun ash-inbox ()
   (interactive)
-  (async-shell-command "ash inbox" "*ash inbox*" "*ash errors*"))
+  (async-shell-command "ash inbox" "*ash inbox*" " *ash errors*"))
 
 (defun ash-ls ()
   (interactive)
@@ -724,28 +727,26 @@ re-downloaded in order to locate PACKAGE."
 
 (defun ash-review-file ()
   (interactive)
-  (async-shell-command (concat "ash -e emacsclient "
+  (start-process-shell-command "ash" "*ash*" (concat "ash -e " ash-editor " "
                                (buffer-name)
                                " review "
-                               (ffap-string-at-point)) "*ash*" "*ash errors*"))
+                               (ffap-string-at-point))))
 
 (defun ash-review ()
   (interactive)
-  (async-shell-command (concat "ash -e emacsclient "
+  (start-process-shell-command "ash" "*ash*" (concat "ash -e " ash-editor " "
                                (buffer-name)
-                               " review") "*ash*" "*ash errors*"))
+                               " review")))
 
 (defun ash-approve ()
   (interactive)
-  (async-shell-command (concat "ash "
+  (start-process-shell-command "ash" "*ash*" (concat "ash "
                           (buffer-name)
-                          " approve") "*ash*" "*ash errors*"))
+                          " approve")))
 
 (defun ash-decline ()
   (interactive)
-  (async-shell-command (concat "ash "
+  (start-process-shell-command "ash" "*ash*" (concat "ash "
                           (buffer-name)
-                          " decline") "*ash*" "*ash errors*"))
-
-(global-set-key (kbd "C-c C-a i") 'ash-inbox)
+                          " decline")))
 
