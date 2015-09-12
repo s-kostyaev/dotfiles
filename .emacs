@@ -714,3 +714,9 @@ re-downloaded in order to locate PACKAGE."
 ;; ash integration
 ;;
 (require 'ash)
+
+;; disable italic
+(mapc
+ (lambda (face)
+   (set-face-attribute face nil :slant 'normal))
+ (face-list))
