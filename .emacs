@@ -550,8 +550,13 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; for over-80-chars line highlightning
-(need-package 'column-enforce-mode)
-(add-hook 'prog-mode-hook 'column-enforce-mode)
+;; (need-package 'column-enforce-mode)
+;; (add-hook 'prog-mode-hook 'column-enforce-mode)
+(require-package 'fill-column-indicator)
+(set 'fci-rule-column 80)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
+
 
 (load-file "~/.jabber-accs.el")
 (require 'notify)
@@ -574,7 +579,7 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Monaco" :foundry "FontForge" :slant normal :weight normal :height 90 :width normal)))))
+ '(default ((t (:background nil :family "Iosevka" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
  ;; '(company-preview ((t (:foreground "darkgray" :underline t))))
  ;; '(company-preview-common ((t (:inherit company-preview))))
  ;; '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
@@ -715,8 +720,8 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (require 'ash)
 
-;; disable italic
+;; disable italic & underline
 (mapc
  (lambda (face)
-   (set-face-attribute face nil :slant 'normal))
+   (set-face-attribute face nil :slant 'normal :underline nil))
  (face-list))
