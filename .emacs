@@ -534,8 +534,8 @@ re-downloaded in order to locate PACKAGE."
 ;; Show only one active window when opening multiple files at the same time.
 (add-hook 'window-setup-hook 'delete-other-windows)
 
-(setq scroll-margin 12)
-(setq scroll-step 1)
+;; (setq scroll-margin 12)
+;; (setq scroll-step 1)
 
 ;; PKGBUILDs
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
