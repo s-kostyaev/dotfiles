@@ -2,6 +2,7 @@
 setxkbmap -option ctrl:nocaps
 setxkbmap "us,ru" ",winkeys" "grp:toggle,grp_led:caps"
 xset fp+ ~/.fonts
+xset fp+ ~/unifont-powerline
 xset fp rehash
 pulseaudio --start
 dunst &
