@@ -4,9 +4,11 @@ URxvt*saveLines: 10000
 
 ! URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*,xft:Inconsolata\ for\ Powerline:pixelsize=12
 ! urxvt*font: xft:Fixed:pixelsize=13, xft:Inconsolata for Powerline
+!urxvt*font: xft:tewi
 
 !urxvt*font: xft:monaco:pixelsize=10:antialias=false:hinting=false
-urxvt*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
+!urxvt*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
+*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
     
 ! Rxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
 
@@ -27,3 +29,10 @@ URxvt.keysym.M-u:      perl:url-select:select_next
 
 ! Set the Urgent hint on bell for console apps without notify-send
 URxvt.urgentOnBell: true
+
+*termName: xterm-256color
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+Xterm*saveLines: 4096
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+xterm*bellIsUrgent: true
