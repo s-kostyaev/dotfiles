@@ -19,9 +19,9 @@ bindkey '\e[3~' delete-char # del
 bindkey ';5D' backward-word # ctrl+left 
 bindkey ';5C' forward-word #ctrl+right
 
-autoload -U compinit promptinit
-compinit
-promptinit;
+# autoload -U compinit promptinit
+# compinit
+# promptinit;
 
 # git status
 source /home/feofan/zsh/zsh-git-prompt/zshrc.sh
@@ -129,9 +129,9 @@ source ~/.profile
 #export TERM=xterm-256color
 #
 #автодополнение portage
-autoload -U compinit promptinit
-compinit
-promptinit; prompt gentoo
+# autoload -U compinit promptinit
+# compinit
+# promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 export TERM=rxvt-unicode-256color
