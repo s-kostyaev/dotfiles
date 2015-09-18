@@ -267,9 +267,6 @@ re-downloaded in order to locate PACKAGE."
        (delete-region jabber-point-insert (point-max))
        (insert (nth my-jabber-input-history-position my-jabber-input-history))))))
 
-(define-key jabber-chat-mode-map (kbd "M-p") 'my-jabber-previous-input)
-(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
-
 ;;; Python mode
 (need-package 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-mode)
