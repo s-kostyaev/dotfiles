@@ -87,7 +87,6 @@ re-downloaded in order to locate PACKAGE."
 
 (need-package 'sublime-themes)
 
-;; (global-linum-mode 1)
 (need-package 'nlinum)
 ;(nlinum-mode 1)
 ;(add-hook 'find-file-hook (lambda () (nlinum-mode 1)))
@@ -100,14 +99,6 @@ re-downloaded in order to locate PACKAGE."
 (sml/apply-theme 'respectful)
 (powerline-default-theme)
 
-;; (require-package 'whitespace)
-;; (global-whitespace-mode)
-
-; Use VIM keybindings :)
-;; (add-to-list 'load-path "~/.emacs.d/evil")
-;; (require-package 'evil)  
-;; (evil-mode 1)
-
 ;; to setup tabs
 (setq c-basic-indent 4)
 (setq tab-width 4)
@@ -117,11 +108,6 @@ re-downloaded in order to locate PACKAGE."
 
 (add-hook 'text-mode-hook
 	        (lambda () (setq indent-line-function 'insert-tab)))
-
-; (highlight-tabs)
-; (highlight-trailing-whitespace)
-
-
 
 ;; Text and the such
 ;; Use colors to highlight commands, etc.
@@ -212,22 +198,12 @@ re-downloaded in order to locate PACKAGE."
 (setq auto-mode-alist (cons '("\\.hpp$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.tex$" . latex-mode) auto-mode-alist))
 
-;(require-package 'font-lock)
-;(add-hook 'c-mode-hook 'turn-on-font-lock)
-;(add-hook 'c++-mode-hook 'turn-on-font-lock)
-
 ; http://nex-3.com/posts/45-efficient-window-switching-in-emacs#comments
 (global-set-key [M-left] 'windmove-left)          ; move to left windnow
 (global-set-key [M-right] 'windmove-right)        ; move to right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
 
-
-
-; Settings by Carlo Hamalainen:
-;(global-set-key [f8] 'save-buffer)  ; F8 saves the current buffer (file)
-; (global-set-key [f9] 'compile)  
-;(global-set-key [f9] 'slime-compile-and-load-file)
 
 ;; http://emacs-fu.blogspot.com/2008/12/cycling-through-your-buffers-with-ctrl.html
 ;; cycle through buffers with Ctrl-Tab (like Firefox)
@@ -291,8 +267,8 @@ re-downloaded in order to locate PACKAGE."
        (delete-region jabber-point-insert (point-max))
        (insert (nth my-jabber-input-history-position my-jabber-input-history))))))
 
-;(define-key jabber-chat-mode-map (kbd "M-p") 'my-jabber-previous-input)
-;(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
+(define-key jabber-chat-mode-map (kbd "M-p") 'my-jabber-previous-input)
+(define-key jabber-chat-mode-map (kbd "M-n") 'my-jabber-next-input)
 
 ;;; Python mode
 (need-package 'anaconda-mode)
@@ -384,29 +360,8 @@ re-downloaded in order to locate PACKAGE."
 (setq cider-repl-history-size 1000) ; the default is 500
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-
-;; (require-package 'ido-vertical-mode)
-;; (ido-mode 1)
-;; (ido-vertical-mode 1)
-
-
 (setq browse-url-browser-function 'browse-url-chromium)
 
-;;; Smex
-;; (need-package 'smex)
-;; (global-set-key [(meta x)] (lambda ()
-;;                             (interactive)
-;;                             (or (boundp 'smex-cache)
-;;                                 (smex-initialize))
-;;                             (global-set-key [(meta x)] 'smex)
-;;                             (smex)))
-
-;; (global-set-key [(shift meta x)] (lambda ()
-;;                                    (interactive)
-;;                                    (or (boundp 'smex-cache)
-;;                                        (smex-initialize))
-;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-;;                                    (smex-major-mode-commands)))
 ;;;; Paredit
 (need-package 'paredit)
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -690,16 +645,6 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "C-c C-w") 'kill-region)
 
 (global-set-key (kbd "C-c C-n") 'goto-line)
-
-;;
-;; paste from kill menu for ido
-;;
-;; (auto-install-from-url "http://www.emacswiki.org/emacs/download/kill-ring-ido.el")
-;; (need-package 'noflet)
-;; (require 'kill-ring-ido)
-;; (setq kill-ring-ido-shortage-length 30)
-;; (key-chord-define-global "fy" 'kill-ring-ido)
-
 
 ;;for faste toggle key-chord-mode
 (global-set-key [f9] 'key-chord-mode)
