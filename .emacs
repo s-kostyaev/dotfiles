@@ -564,16 +564,19 @@ re-downloaded in order to locate PACKAGE."
 ;; 
 (need-package 'ace-jump-mode)
 (autoload
-    'ace-jump-mode
-      "ace-jump-mode"
-        "Emacs quick move minor mode"
-          t)
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
 ;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(key-chord-define-global "fj" 'ace-jump-mode)
-
-
-
+(key-chord-define-global "fj"
+                         (defhydra hydra-ace-jump (:exit t) "Ace jump mode"
+                           ("a" ace-jump-mode "ace")
+                           ("l" ace-jump-line-mode "line")
+                           ("w" ace-jump-word-mode "word")
+                           ("c" ace-jump-char-mode "char")
+                           ("p" ace-jump-mode-pop-mark "pop mark")
+                           ("q" nil "quit")))
 
 ;; 
 ;; enable a more powerful jump back function from ace jump mode
@@ -585,7 +588,7 @@ re-downloaded in order to locate PACKAGE."
           t)
 (eval-after-load "ace-jump-mode"
     '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
 
 
 ;;
