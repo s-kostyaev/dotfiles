@@ -604,19 +604,28 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (require-package 'multiple-cursors)
 
-(global-set-key (kbd "C-c RET")
-                (defhydra hydra-multiple-cursors ()
-                  "Multiple cursors"
-                  ("w" mc/mark-next-word-like-this "Mark next word")
-                  ("W" mc/mark-previous-word-like-this "Mark prev word")
-                  ("m" mc/mark-next-like-this "Mark next")
-                  ("M" mc/mark-previous-like-this "Mark prev")
-                  ("a" mc/mark-all-words-like-this "Mark all words")
-                  ("A" mc/mark-all-like-this "Mark all")
-                  ("h" mc-hide-unmatched-lines-mode "Hide unmatched")
-                  ("u" mc/unmark-next-like-this "Unmark next")
-                  ("U" mc/unmark-previous-like-this "Unmark prev")
-                  ("q" nil "Quit")))
+(key-chord-define-global "fm"
+                         (defhydra multiple-cursors-hydra (:hint nil)
+    "
+     ^Up^            ^Down^            ^Other^
+--------------------------------------------------
+[_p_]   Next      [_n_]   Next      [_l_] Edit lines
+[_P_]   Skip      [_N_]   Skip      [_a_] Mark all
+[_M-p_] Unmark    [_M-n_] Unmark    [_r_] Mark by regexp
+^ ^               ^ ^               [_q_] Quit
+"
+  ("l" mc/edit-lines :exit t)
+  ("a" mc/mark-all-like-this :exit t)
+  ("n" mc/mark-next-like-this)
+  ("N" mc/skip-to-next-like-this)
+  ("M-n" mc/unmark-next-like-this)
+  ("p" mc/mark-previous-like-this)
+  ("P" mc/skip-to-previous-like-this)
+  ("M-p" mc/unmark-previous-like-this)
+  ("r" mc/mark-all-in-region-regexp :exit t)
+  ("W" mc/mark-previous-word-like-this "prev word")
+  ("w" mc/mark-next-word-like-this "next word")
+  ("q" nil)))
 
 ;;
 ;; tagedit
@@ -624,9 +633,9 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'tagedit)
 (eval-after-load "sgml-mode"
   '(progn
-          (require 'tagedit)
-               (tagedit-add-paredit-like-keybindings)
-                    (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+     (require 'tagedit)
+     (tagedit-add-paredit-like-keybindings)
+     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
 
 ;;
 ;; emmet mode
@@ -728,3 +737,9 @@ re-downloaded in order to locate PACKAGE."
 	  (set-window-buffer (next-window) next-win-buffer)
 	  (select-window first-win)
 	  (if this-win-2nd (other-window 1))))))
+
+;;
+;; keyboard selection
+;;
+(setq x-select-enable-primary t)
+(setq x-select-enable-clipboard t)
