@@ -600,11 +600,20 @@ re-downloaded in order to locate PACKAGE."
 ;; multiple cursors
 ;;
 (require-package 'multiple-cursors)
-(key-chord-define-global "mf" 'mc/edit-lines)
-(key-chord-define-global "fn" 'mc/mark-next-word-like-this)
-(key-chord-define-global "fp" 'mc/mark-previous-word-like-this)
-(key-chord-define-global "fl" 'mc/mark-all-words-like-this)
-(key-chord-define-global "fh" 'mc-hide-unmatched-lines-mode)
+
+(global-set-key (kbd "C-c RET")
+                (defhydra hydra-multiple-cursors ()
+                  "Multiple cursors"
+                  ("w" mc/mark-next-word-like-this "Mark next word")
+                  ("W" mc/mark-previous-word-like-this "Mark prev word")
+                  ("m" mc/mark-next-like-this "Mark next")
+                  ("M" mc/mark-previous-like-this "Mark prev")
+                  ("a" mc/mark-all-words-like-this "Mark all words")
+                  ("A" mc/mark-all-like-this "Mark all")
+                  ("h" mc-hide-unmatched-lines-mode "Hide unmatched")
+                  ("u" mc/unmark-next-like-this "Unmark next")
+                  ("U" mc/unmark-previous-like-this "Unmark prev")
+                  ("q" nil "Quit")))
 
 ;;
 ;; tagedit
@@ -667,3 +676,52 @@ re-downloaded in order to locate PACKAGE."
  (lambda (face)
    (set-face-attribute face nil :slant 'normal :underline nil))
  (face-list))
+
+;;
+;; hydra
+;;
+(need-package 'hydra)
+(require 'hydra)
+
+(global-set-key (kbd "C-x o")
+                (defhydra hydra-cycle-windows
+                  (:body-pre (other-window 1))
+                  "Windows"
+                  ("o" (other-window 1) "Next")
+                  ("O" (other-window -1) "Previous")
+                  ("t" toggle-window-split "Toggle split")
+                  ("]" enlarge-window-horizontally "Enlarge horizontal")
+                  ("[" shrink-window-horizontally "Shrink horizontal")
+                  ("=" enlarge-window "Enlarge vertival")
+                  ("-" shrink-window "Shrink vertical")
+                  ("b" balance-windows "Balance windows")
+                  ("m" delete-other-windows "Maximize window")
+                  ("n" split-window-below "New window")
+                  ("c" delete-window "Close window")
+                  ("q" nil "quit")))
+
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+	     (next-win-buffer (window-buffer (next-window)))
+	     (this-win-edges (window-edges (selected-window)))
+	     (next-win-edges (window-edges (next-window)))
+	     (this-win-2nd (not (and (<= (car this-win-edges)
+					 (car next-win-edges))
+				     (<= (cadr this-win-edges)
+					 (cadr next-win-edges)))))
+	     (splitter
+	      (if (= (car this-win-edges)
+		     (car (window-edges (next-window))))
+		  'split-window-horizontally
+		'split-window-vertically)))
+	(delete-other-windows)
+	(let ((first-win (selected-window)))
+	  (funcall splitter)
+	  (if this-win-2nd (other-window 1))
+	  (set-window-buffer (selected-window) this-win-buffer)
+	  (set-window-buffer (next-window) next-win-buffer)
+	  (select-window first-win)
+	  (if this-win-2nd (other-window 1))))))
