@@ -571,7 +571,7 @@ re-downloaded in order to locate PACKAGE."
 ;; you can select the key you prefer to
 (key-chord-define-global "fj"
                          (defhydra hydra-ace-jump (:exit t) "Ace jump mode"
-                           ("a" ace-jump-mode "ace")
+                           ("j" ace-jump-mode "jump")
                            ("l" ace-jump-line-mode "line")
                            ("w" ace-jump-word-mode "word")
                            ("c" ace-jump-char-mode "char")
@@ -582,12 +582,12 @@ re-downloaded in order to locate PACKAGE."
 ;; enable a more powerful jump back function from ace jump mode
 ;;
 (autoload
-    'ace-jump-mode-pop-mark
-      "ace-jump-mode"
-        "Ace jump back:-)"
-          t)
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
 (eval-after-load "ace-jump-mode"
-    '(ace-jump-mode-enable-mark-sync))
+  '(ace-jump-mode-enable-mark-sync))
 
 
 
