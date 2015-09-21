@@ -7,7 +7,8 @@ xset fp rehash
 pulseaudio --start
 dunst &
 keynav &
-xcompmgr -c &
-# nitrogen --restore &
-# xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
+# xcompmgr -c &
+nitrogen --restore &
+xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
+devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume %l has been mounted\"" &
 exec /usr/bin/redshift -l55.2:82.55 &
