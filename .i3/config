@@ -29,6 +29,9 @@ floating_modifier $mod
 # unmount command
 bindsym $mod+u exec devmon --unmount-all
 
+# file manager
+bindsym $mod+n exec xterm -e ranger
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
