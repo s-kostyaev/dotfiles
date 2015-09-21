@@ -25,15 +25,15 @@ bindkey ';5C' forward-word #ctrl+right
 
 # git status
 source /home/feofan/zsh/zsh-git-prompt/zshrc.sh
-# PROMPT='%{\e[1;31m%}%n %~%b$(git_super_status) %# '
+PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %{\e[0m%}$(git_super_status) %# '
 
-if [[ $EUID == 0 ]] 
-then
-PROMPT=$'%{\e[1;31m%}%n %{\e[1;34m%}%~ #%{\e[0m%} ' # user dir %
-else
-PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %#%{\e[0m%} ' # root dir #
-fi
-RPROMPT=$'$(git_super_status) %{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
+# if [[ $EUID == 0 ]] 
+# then
+# PROMPT=$'%{\e[1;31m%}%n %{\e[1;34m%}%~ #%{\e[0m%} ' # user dir %
+# else
+# PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %#%{\e[0m%} ' # root dir #
+# fi
+# RPROMPT=$'$(git_super_status) %{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
 
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
