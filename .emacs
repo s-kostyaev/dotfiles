@@ -744,3 +744,6 @@ re-downloaded in order to locate PACKAGE."
 ;;
 (setq x-select-enable-primary t)
 (setq x-select-enable-clipboard t)
+
+;; rebind F1 for xterm
+(global-set-key (kbd "M-o p") 'help)
