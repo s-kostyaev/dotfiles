@@ -42,3 +42,4 @@ XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT
 xterm*bellIsUrgent: true
 
 URxvt.buffered: false
+XTerm*on4Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
