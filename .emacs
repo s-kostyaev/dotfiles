@@ -196,6 +196,10 @@ re-downloaded in order to locate PACKAGE."
                           (local-set-key (kbd "C-c C-c") (lambda () 
                                                            (interactive)
                                                            (shell-command "go build")))))
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c C-t") (lambda ()
+                                                           (interactive)
+                                                           (shell-command "go test")))))
 (require-package 'company-go)                                ; load company mode go backend
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-idle-delay .4)                         ; decrease delay before autocompletion popup shows
