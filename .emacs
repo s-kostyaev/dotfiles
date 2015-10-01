@@ -208,6 +208,8 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)))
+(load "$GOPATH/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
+(add-hook 'go-mode-hook 'go-oracle-mode)
 ;; Flymake
 (require-package 'flymake)
 
