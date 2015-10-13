@@ -734,6 +734,9 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'helm-descbinds)
 (helm-descbinds-mode 1)
 
+(require-package 'helm-ls-git)
+(global-set-key (kbd "C-c C-f") 'helm-browse-project)
+
 ;;
 ;; ash integration
 ;;
