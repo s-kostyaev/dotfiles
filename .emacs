@@ -668,6 +668,7 @@ re-downloaded in order to locate PACKAGE."
 [_M-p_] Unmark    [_M-n_] Unmark    [_A_] Mark all words
 [_W_]   Up word   [_w_]   Down word [_r_] Mark
  ^ ^               ^ ^              [_q_] Quit
+ ^ ^               ^ ^              [_h_] Toggle hide unmatched
 "
   ("l" mc/edit-lines :exit t)
   ("a" mc/mark-all-like-this :exit t)
@@ -681,6 +682,7 @@ re-downloaded in order to locate PACKAGE."
   ("r" mc/mark-all-in-region-regexp :exit t)
   ("W" mc/mark-previous-word-like-this)
   ("w" mc/mark-next-word-like-this)
+  ("h" mc-hide-unmatched-lines-mode)
   ("q" nil)))
 
 ;;
