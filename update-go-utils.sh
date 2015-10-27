@@ -4,7 +4,7 @@ PKGS='github.com/github/hub
 github.com/kovetskiy/manul
 github.com/seletskiy/hastur
 github.com/seletskiy/ash
-git.rn/devops/gunter
+github.com/reconquest/gunter
 golang.org/x/tools/cmd/oracle
 github.com/svent/sift
 github.com/kisielk/errcheck
