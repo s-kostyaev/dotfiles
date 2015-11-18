@@ -192,10 +192,12 @@ re-downloaded in order to locate PACKAGE."
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c i") 'go-goto-imports)))
+;; gobuild
+(require 'gobuild)
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-c") (lambda () 
                                                            (interactive)
-                                                           (shell-command "go build")))))
+                                                           (gobuild)))))
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-t") (lambda ()
                                                            (interactive)
