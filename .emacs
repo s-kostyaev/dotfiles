@@ -218,6 +218,10 @@ re-downloaded in order to locate PACKAGE."
 (require 'go-impl)
 ;; gometalinter
 (require 'gometalinter)
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c C-l") (lambda ()
+                                                           (interactive)
+                                                           (gometalinter)))))
 
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
