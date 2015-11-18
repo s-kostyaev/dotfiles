@@ -212,6 +212,8 @@ re-downloaded in order to locate PACKAGE."
 ;; (add-hook 'go-mode-hook 'go-oracle-mode)
 ;; Flymake
 (require-package 'flymake)
+;; go-impl
+(require 'go-impl)
 
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)

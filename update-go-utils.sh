@@ -16,6 +16,7 @@ github.com/tears-of-noobs/batrak
 github.com/rogpeppe/godef
 github.com/alecthomas/gometalinter
 github.com/bradfitz/goimports
-github.com/fzipp/gocyclo'
+github.com/fzipp/gocyclo
+github.com/josharian/impl'
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
