@@ -214,6 +214,8 @@ re-downloaded in order to locate PACKAGE."
 (require-package 'flymake)
 ;; go-impl
 (require 'go-impl)
+;; gometalinter
+(require 'gometalinter)
 
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
