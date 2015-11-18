@@ -7,6 +7,6 @@
 [submodule "unifont-powerline"]
 	path = unifont-powerline
 	url = https://github.com/s-kostyaev/unifont-powerline.git
-[submodule "/home/feofan/.emacs.d/go-impl"]
-	path = /home/feofan/.emacs.d/go-impl
+[submodule ".emacs.d/go-impl"]
+	path = .emacs.d/go-impl
 	url = https://github.com/syohex/emacs-go-impl.git
