@@ -19,8 +19,8 @@ bindkey '\e[3~' delete-char # del
 bindkey ';5D' backward-word # ctrl+left 
 bindkey ';5C' forward-word #ctrl+right
 
-# autoload -U compinit promptinit
-# compinit
+autoload -U compinit # promptinit
+compinit
 # promptinit;
 
 # git status
