@@ -25,7 +25,7 @@ bindkey ';5C' forward-word #ctrl+right
 
 # git status
 source /home/feofan/zsh/zsh-git-prompt/zshrc.sh
-PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %{\e[0m%}$(git_super_status) %# '
+PROMPT=$'%{\e[1;32m%}%{$fg[cyan]%}%n%{$fg[blue]%}@%{$fg[green]%}%m %{\e[1;34m%}%~ %{\e[0m%}$(git_super_status) %# '
 
 # if [[ $EUID == 0 ]] 
 # then
