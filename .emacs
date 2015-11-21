@@ -172,6 +172,10 @@ re-downloaded in order to locate PACKAGE."
 	  (select-window first-win)
 	  (if this-win-2nd (other-window 1))))))
 
+;; Flycheck
+(require-package 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;;;; Go mode
 (setenv "GOPATH" "/home/feofan/go")
 (setq exec-path (append exec-path '("~/go/bin")))
@@ -202,8 +206,6 @@ re-downloaded in order to locate PACKAGE."
                           (company-mode)))
 ;; (load "$GOPATH/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
 ;; (add-hook 'go-mode-hook 'go-oracle-mode)
-;; Flymake
-(require-package 'flymake)
 ;; go-impl
 (require 'go-impl)
 ;; gometalinter
@@ -212,16 +214,9 @@ re-downloaded in order to locate PACKAGE."
                           (local-set-key (kbd "C-c C-l") (lambda ()
                                                            (interactive)
                                                            (gometalinter)))))
-
+;; Flycheck
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
-(require 'go-flymake)
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd "C-c f n") (lambda ()
-                                                           (interactive)
-                                                           (flymake-goto-next-error)))
-                          (local-set-key (kbd "C-c f p") (lambda ()
-                                                           (interactive)
-                                                           (flymake-goto-prev-error)))))
+(require 'go-flycheck)
 ;; doc
 (need-package 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
