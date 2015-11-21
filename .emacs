@@ -560,6 +560,16 @@ re-downloaded in order to locate PACKAGE."
 ;; use eslint with web-mode for jsx files
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 
+;; tern
+(need-package 'tern)
+(need-package 'company-tern)
+(add-to-list 'company-backends 'company-tern)
+(setq company-tern-meta-as-single-line t)
+(setq company-tooltip-align-annotations t)
+
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
 ;; adjust indents for web-mode to 2 spaces
 (defun my-web-mode-hook ()
   "Hooks for Web mode. Adjust indents"
