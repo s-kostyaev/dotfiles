@@ -14,6 +14,7 @@ github.com/seletskiy/go-makepkg
 github.com/nsf/gocode
 github.com/tears-of-noobs/batrak
 github.com/rogpeppe/godef
+github.com/dougm/goflymake
 github.com/alecthomas/gometalinter
 github.com/bradfitz/goimports
 github.com/fzipp/gocyclo

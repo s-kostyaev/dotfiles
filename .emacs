@@ -225,6 +225,13 @@ re-downloaded in order to locate PACKAGE."
 
 (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c f n") (lambda ()
+                                                           (interactive)
+                                                           (flymake-goto-next-error)))
+                          (local-set-key (kbd "C-c f p") (lambda ()
+                                                           (interactive)
+                                                           (flymake-goto-prev-error)))))
 ;; doc
 (need-package 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
