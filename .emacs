@@ -20,16 +20,6 @@
  '(indent-line-function (quote insert-tab) t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(jabber-auto-reconnect t)
- '(jabber-avatar-verbose nil)
- '(jabber-backlog-days 300)
- '(jabber-chat-buffer-format "*-jabber-%n-*")
- '(jabber-history-enabled t)
- '(jabber-mode-line-mode t)
- '(jabber-roster-buffer "*-jabber-*")
- '(jabber-roster-line-format " %c %-25n %u %-8s (%r)")
- '(jabber-show-offline-contacts nil)
- '(jabber-vcard-avatars-retrieve nil)
  '(menu-bar-mode nil)
  '(package-archives
    (quote
@@ -292,52 +282,6 @@ re-downloaded in order to locate PACKAGE."
 
 (put 'downcase-region 'disabled nil)
 
-
-;;jabber
-(require-package 'jabber)
-(global-set-key "\C-x\C-a" 'jabber-activity-switch-to)
-;input history
-(defvar my-jabber-input-history '() "Variable that holds input history")
-(make-variable-buffer-local 'my-jabber-input-history)
-
-(defvar my-jabber-input-history-position 0 "Current position in input history")
-(make-variable-buffer-local 'my-jabber-input-history-position)
-
-(defvar my-jabber-input-history-current nil "Current input value")
-(make-variable-buffer-local 'my-jabber-input-history-current)
-
-(defun my-jabber-input-history-hook (body id)
-  (add-to-list 'my-jabber-input-history body t)
-  (setq my-jabber-input-history-position (length my-jabber-input-history)))
-(add-hook 'jabber-chat-send-hooks 'my-jabber-input-history-hook)
-
-(defun my-jabber-previous-input ()
-  (interactive)
-  (let (current-input (pos my-jabber-input-history-position) (len (length my-jabber-input-history)))
-    (if (= pos 0)
-        (message "%s" "No previous input")
-      (setq current-input (delete-and-extract-region jabber-point-insert (point-max)))
-      (when (= pos len) ; running first time, save current input
-          (setq my-jabber-input-history-current current-input))
-      (decf my-jabber-input-history-position)
-      (insert (nth my-jabber-input-history-position my-jabber-input-history)))))
-
-(defun my-jabber-next-input ()
-  (interactive)
-  (let ((pos my-jabber-input-history-position) (len (length my-jabber-input-history)))
-    (cond
-     ((= pos (1- len)) ; pointing at the last element, insert saved input
-       (incf my-jabber-input-history-position)
-       (delete-region jabber-point-insert (point-max))
-       (insert my-jabber-input-history-current)
-       (setq my-jabber-input-history-current nil))
-      ((= pos len)                              ; pointing beyound last element, notify user
-       (message "%s" "No next input"))
-      (t                                ; insert next history item
-       (incf my-jabber-input-history-position)
-       (delete-region jabber-point-insert (point-max))
-       (insert (nth my-jabber-input-history-position my-jabber-input-history))))))
-
 ;;; Python mode
 (need-package 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-mode)
@@ -581,21 +525,6 @@ re-downloaded in order to locate PACKAGE."
 (global-fci-mode 1)
 
 
-(load-file "~/.jabber-accs.el")
-(require 'notify)
-
-(defun notify-jabber-notify (from buf text proposed-alert)
-    "(jabber.el hook) Notify of new Jabber chat messages via notify.el"
-	  (when (or jabber-message-alert-same-buffer
-				            (not (memq (selected-window) (get-buffer-window-list buf))))
-		    (if (jabber-muc-sender-p from)
-				        (notify (format "(PM) %s"
-										                       (jabber-jid-displayname (jabber-jid-user from)))
-								               (format "%s: %s" (jabber-jid-resource from) text)))
-			      (notify (format "%s" (jabber-jid-displayname from))
-						               text)))
-
-(add-hook 'jabber-alert-message-hooks 'notify-jabber-notify)
 (setq eval-expression-debug-on-error t) 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
