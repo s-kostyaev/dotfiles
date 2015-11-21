@@ -138,7 +138,7 @@ bindsym $mod+x exec "emacsclient -c"
 bindsym Ctrl+Insert exec "xclip -o | xclip -selection clipboard -i"
 bindsym $mod+F1 exec "i3lock"
 
-bindsym $mod+F2 exec "xcompmgr -c"
+bindsym $mod+F2 exec "xcompmgr -a"
 bindsym $mod+F3 exec "killall xcompmgr"
 
 # resize window (you can also use the mouse for that)
