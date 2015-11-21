@@ -534,19 +534,40 @@ re-downloaded in order to locate PACKAGE."
  ;; '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
  ;; '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 
-;; Web developement
+;;;; Web developement
 (need-package 'web-mode)
 (need-package 'js2-mode)
 (need-package 'jquery-doc)
 (require 'jquery-doc)
 (add-hook 'js-mode-hook 'js2-mode)
 (add-hook 'js2-mode-hook '(jquery-doc-setup))
+
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
 ;  * 1 adds basic syntax highlighting. 
 ;  * 2 adds highlighting of some Ecma built-in properties. 
 ;  * 3 adds highlighting of many Ecma built-in functions.
 (setq js2-highlight-level 3)
+
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; adjust indents for web-mode to 2 spaces
+(defun my-web-mode-hook ()
+  "Hooks for Web mode. Adjust indents"
+  ;; http://web-mode.org/
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;;
 ;; key chord
