@@ -585,6 +585,7 @@ re-downloaded in order to locate PACKAGE."
 
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; adjust indents for web-mode to 2 spaces
 (defun my-web-mode-hook ()
