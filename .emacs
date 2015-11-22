@@ -530,7 +530,10 @@ re-downloaded in order to locate PACKAGE."
       (when (and (not popup-instances) sanityinc/fci-mode-suppressed)
             (setq sanityinc/fci-mode-suppressed nil)
                 (turn-on-fci-mode)))
-
+; workaround for web-mode
+(add-hook 'after-change-major-mode-hook
+          (lambda () (if (string= major-mode "web-mode")
+                         (turn-off-fci-mode) (turn-on-fci-mode))))
 
 (setq eval-expression-debug-on-error t) 
 (custom-set-faces
@@ -590,6 +593,16 @@ re-downloaded in order to locate PACKAGE."
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;;
+;; emmet mode
+;;
+(require-package 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+
 
 ;;
 ;; key chord
@@ -678,14 +691,6 @@ re-downloaded in order to locate PACKAGE."
      (require 'tagedit)
      (tagedit-add-paredit-like-keybindings)
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
-
-;;
-;; emmet mode
-;;
-(require-package 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(setq emmet-move-cursor-between-quotes t) ;; default nil
 
 ;;
 ;; yasnippet
