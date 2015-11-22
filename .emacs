@@ -814,3 +814,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; In addition of above, you need to enable migemo mode if you'd like to
 ;; (helm-migemo-mode 1)
+
+;; restclient-mode
+(require-package 'restclient)
