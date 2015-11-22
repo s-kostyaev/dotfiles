@@ -556,6 +556,7 @@ re-downloaded in order to locate PACKAGE."
 (require 'jquery-doc)
 (add-hook 'js-mode-hook 'js2-mode)
 (add-hook 'js2-mode-hook '(jquery-doc-setup))
+(require-package 'react-snippets)
 
 ; js2-mode provides 4 level of syntax highlighting. They are 
 ;  * 0 or a negative value means none. 
