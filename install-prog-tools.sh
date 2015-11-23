@@ -10,3 +10,5 @@ echo install webpack for building javascript with deps
 sudo npm install -g webpack
 echo install webpack-dev-server for autoreload changed files
 sudo npm install -g webpack-dev-server
+echo install tern for autocomplete
+sudo npm install -g tern
