@@ -31,6 +31,11 @@
  '(tool-bar-mode nil)
  '(warning-suppress-types (quote ((undo discard-info)))))
 
+;; all keybindings must work with russian (key-chord still doesn't work)
+;; system language must be set to en
+;; use C-\ for change language in emacs instead
+(setq default-input-method "cyrillic-jcuken")
+
 ;; Melpa
 (require 'package) ;; You might already have this line
 ;; (add-to-list 'package-archives
