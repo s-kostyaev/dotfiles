@@ -187,8 +187,14 @@ re-downloaded in order to locate PACKAGE."
 (need-package 'go-mode)
 (require 'go-mode-autoloads)
 (add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'after-save-hook (lambda () (shell-command "goimports -w *.go")
-                              (revert-buffer t t)))
+(defun goimports ()
+  "Running goimports on go files"
+  (interactive)
+  (if (equalp mode-name "Go")
+      (progn
+        (shell-command "goimports -w *.go")
+        (revert-buffer t t))))
+(add-hook 'after-save-hook 'goimports)
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (add-hook 'go-mode-hook (lambda ()
