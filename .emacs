@@ -831,3 +831,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;; restclient-mode
 (require-package 'restclient)
+
+
+;;;; Projectile
+(need-package 'projectile)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
