@@ -123,6 +123,7 @@ dbi(){
 alias jo='mcabber -f .mcabberrc.office'
 alias jh='mcabber -f .mcabberrc.home'
 alias sl='mcabber -f .mcabberrc.slack'
+alias gt='gtypist --banner-colors=6,7,6,7 -c 0,7 --scoring=cpm'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
