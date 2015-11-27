@@ -18,6 +18,7 @@ github.com/dougm/goflymake
 github.com/alecthomas/gometalinter
 github.com/bradfitz/goimports
 github.com/fzipp/gocyclo
-github.com/josharian/impl'
+github.com/josharian/impl
+github.com/maruel/panicparse'
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
