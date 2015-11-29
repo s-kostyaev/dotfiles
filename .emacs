@@ -8,6 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(color-theme-sanityinc-solarized-rgb-is-srgb t)
+ '(company-gtags-modes (quote (prog-mode jde-mode web-mode js-mode js3-mode)))
  '(custom-enabled-themes (quote (sanityinc-solarized-light)))
  '(custom-safe-themes
    (quote
@@ -569,19 +570,9 @@ re-downloaded in order to locate PACKAGE."
 
 ;;;; Web developement
 (need-package 'web-mode)
-(need-package 'js2-mode)
-(need-package 'jquery-doc)
-(require 'jquery-doc)
-(add-hook 'js-mode-hook 'js2-mode)
-(add-hook 'js2-mode-hook '(jquery-doc-setup))
+(need-package 'js3-mode)
+(add-hook 'js-mode-hook 'js3-mode)
 (require-package 'react-snippets)
-
-; js2-mode provides 4 level of syntax highlighting. They are 
-;  * 0 or a negative value means none. 
-;  * 1 adds basic syntax highlighting. 
-;  * 2 adds highlighting of some Ecma built-in properties. 
-;  * 3 adds highlighting of many Ecma built-in functions.
-(setq js2-highlight-level 3)
 
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
@@ -601,9 +592,9 @@ re-downloaded in order to locate PACKAGE."
 (setq company-tern-meta-as-single-line t)
 (setq company-tooltip-align-annotations t)
 
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-(add-hook 'web-mode-hook (lambda () (tern-mode t)))
+;; (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+;; (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+;; (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; adjust indents for web-mode to 2 spaces
 (defun my-web-mode-hook ()
@@ -852,16 +843,18 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
-
-;; customize
-
+(add-hook 'web-mode-hook 'helm-gtags-mode)
+(add-hook 'js3-mode-hook 'helm-gtags-mode)
 
 ;; key bindings
 (eval-after-load "helm-gtags"
   '(progn
-     (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
-     (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
-     (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
+     (define-key helm-gtags-mode-map (kbd "M-t d") 'helm-gtags-dwim)
+     (define-key helm-gtags-mode-map (kbd "M-t t") 'helm-gtags-find-tag)
+     (define-key helm-gtags-mode-map (kbd "M-t r") 'helm-gtags-find-rtag)
+     (define-key helm-gtags-mode-map (kbd "M-t s") 'helm-gtags-find-symbol)
+     (define-key helm-gtags-mode-map (kbd "M-t u") 'helm-gtags-update-tags)
+     (define-key helm-gtags-mode-map (kbd "M-t c") 'helm-gtags-create-tags)
      (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
