@@ -859,3 +859,6 @@ re-downloaded in order to locate PACKAGE."
      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+
+;; speed-typing
+(require-package 'speed-type)
