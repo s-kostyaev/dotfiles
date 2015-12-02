@@ -40,7 +40,7 @@
 ;; all keybindings must work with russian (key-chord still doesn't work)
 ;; system language must be set to en
 ;; use C-\ for change language in emacs instead
-(setq default-input-method "cyrillic-jcuken")
+(setq default-input-method "cyrillic-jis-russian")
 
 ;; Melpa
 (require 'package) ;; You might already have this line
