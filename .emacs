@@ -862,3 +862,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; speed-typing
 (require-package 'speed-type)
+
+;; magit
+(require-package 'magit)
