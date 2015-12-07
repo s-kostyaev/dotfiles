@@ -873,4 +873,4 @@ re-downloaded in order to locate PACKAGE."
 ; ditaa
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ditaa . t))) ; this line activates ditaa
+ '((ditaa . t) (dot . t)))
