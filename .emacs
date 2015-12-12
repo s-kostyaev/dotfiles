@@ -216,9 +216,9 @@ re-downloaded in order to locate PACKAGE."
                                                            (interactive)
                                                            (shell-command "go test")))))
 (require-package 'company-go)                                ; load company mode go backend
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .4)                         ; decrease delay before autocompletion popup shows
-(setq company-echo-delay 0)                          ; remove annoying blinking
+;(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay nil)                         ; decrease delay before autocompletion popup shows
+;(setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'company-backends) '(company-go))
@@ -351,7 +351,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;;; Auto-complete
 (require-package 'company)
+(need-package 'helm-company)
 (global-company-mode)
+(global-set-key (kbd "M-:") 'helm-company)
+
 
 ;;; ElDoc
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -537,18 +540,18 @@ re-downloaded in order to locate PACKAGE."
 (set 'fci-rule-column 80)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
-; workaroud for company
-(defvar sanityinc/fci-mode-suppressed nil)
-(defadvice pos-tip-show (before suppress-fci-mode activate)
-    "Suspend fci-mode while popups are visible"
-      (set (make-local-variable 'sanityinc/fci-mode-suppressed) fci-mode)
-        (when fci-mode
-              (turn-off-fci-mode)))
-(defadvice pos-tip-hide (after restore-fci-mode activate)
-    "Restore fci-mode when all popups have closed"
-      (when (and (not popup-instances) sanityinc/fci-mode-suppressed)
-            (setq sanityinc/fci-mode-suppressed nil)
-                (turn-on-fci-mode)))
+;; ; workaroud for company
+;; (defvar sanityinc/fci-mode-suppressed nil)
+;; (defadvice pos-tip-show (before suppress-fci-mode activate)
+;;     "Suspend fci-mode while popups are visible"
+;;       (set (make-local-variable 'sanityinc/fci-mode-suppressed) fci-mode)
+;;         (when fci-mode
+;;               (turn-off-fci-mode)))
+;; (defadvice pos-tip-hide (after restore-fci-mode activate)
+;;     "Restore fci-mode when all popups have closed"
+;;       (when (and (not popup-instances) sanityinc/fci-mode-suppressed)
+;;             (setq sanityinc/fci-mode-suppressed nil)
+;;                 (turn-on-fci-mode)))
 ; workaround for web-mode
 (add-hook 'after-change-major-mode-hook
           (lambda () (if (string= major-mode "web-mode")
