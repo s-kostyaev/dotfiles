@@ -1,4 +1,5 @@
 #!/bin/sh 
+i3lock -c 555555 &
 setxkbmap -option ctrl:nocaps
 setxkbmap "us,ru" ",winkeys" "grp:toggle,grp_led:caps"
 xset fp+ ~/.fonts
@@ -7,8 +8,8 @@ xset fp rehash
 pulseaudio --start
 dunst &
 keynav &
-# xcompmgr -c &
+xcompmgr -a &
 nitrogen --restore &
-xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --output VGA1  --mode 1920x1080 --pos 1920x0 --rotate left
+./.display.sh 
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume has been mounted to %d\"" > /dev/null 2>&1 &
 exec /usr/bin/redshift -l55.2:82.55 &
