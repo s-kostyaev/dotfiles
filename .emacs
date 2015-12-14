@@ -416,24 +416,6 @@ re-downloaded in order to locate PACKAGE."
     (read-kbd-macro paredit-backward-delete-key) nil))
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
-(defvar electrify-return-match
-    "[\]}\)\"]"
-    "If this regexp matches the text after the cursor, do an \"electric\"
-  return.")
-
-(defun electrify-return-if-match (arg)
-    "If the text after the cursor matches `electrify-return-match' then
-  open and indent an empty line between the cursor and the text.  Move the
-  cursor to the new line."
-    (interactive "P")
-    (let ((case-fold-search nil))
-      (if (looking-at electrify-return-match)
-	  (save-excursion (newline-and-indent)))
-      (newline arg)
-      (indent-according-to-mode)))
-  ;; Using local-set-key in a mode-hook is a better idea.
-  (global-set-key (kbd "RET") 'electrify-return-if-match)
-
   (defun paredit-barf-all-the-way-backward ()
     (interactive)
     (paredit-split-sexp)
@@ -463,49 +445,6 @@ re-downloaded in order to locate PACKAGE."
           (if (eq (char-after) ?\))
               (throw 'done t)))
         (paredit-forward-slurp-sexp))))
-  ;; (nconc paredit-commands
-  ;;        '("Extreme Barfage & Slurpage"
-  ;;          (("C-M-)")
-  ;;                       paredit-slurp-all-the-way-forward
-  ;;                       ("(foo (bar |baz) quux zot)"
-  ;;                        "(foo (bar |baz quux zot))")
-  ;;                       ("(a b ((c| d)) e f)"
-  ;;                        "(a b ((c| d)) e f)"))
-  ;;          (("C-M-}" "M-F")
-  ;;                       paredit-barf-all-the-way-forward
-  ;;                       ("(foo (bar |baz quux) zot)"
-  ;;                        "(foo (bar|) baz quux zot)"))
-  ;;          (("C-M-(")
-  ;;                       paredit-slurp-all-the-way-backward
-  ;;                       ("(foo bar (baz| quux) zot)"
-  ;;                        "((foo bar baz| quux) zot)")
-  ;;                       ("(a b ((c| d)) e f)"
-  ;;                        "(a b ((c| d)) e f)"))
-  ;;          (("C-M-{" "M-B")
-  ;;                       paredit-barf-all-the-way-backward
-  ;;                       ("(foo (bar baz |quux) zot)"
-  ;;                        "(foo bar baz (|quux) zot)"))))
-  ;; (paredit-define-keys)
-  ;; (paredit-annotate-mode-with-examples)
-  ;; (paredit-annotate-functions-with-examples)
-
-
-
-;; (defun paredit-delete-indentation (&optional arg)
-;;     "Handle joining lines that end in a comment."
-;;     (interactive "*P")
-;;     (let (comt)
-;;       (save-excursion
-;;         (move-beginning-of-line (if arg 1 0))
-;;         (when (skip-syntax-forward "^<" (point-at-eol))
-;; 	  (setq comt (delete-and-extract-region (point) (point-at-eol)))))
-;;       (delete-indentation arg)
-;;       (when comt
-;;         (save-excursion
-;;       	  (move-end-of-line 1)
-;; 	  (insert " ")
-;; 	  (insert comt)))))
-;;   (define-key paredit-mode-map (kbd "M-^") 'paredit-delete-indentation)
 
 (eval-after-load "paredit.el"
    '(require-package 'paredit-menu))
