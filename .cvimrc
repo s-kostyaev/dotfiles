@@ -23,3 +23,6 @@ let completionengines = ["dg"]
 
 let configpath = '/home/feofan/.cvimrc'
 set localconfig 
+
+" Cyrillic
+let langmap = "ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>"
