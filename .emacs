@@ -835,3 +835,7 @@ re-downloaded in order to locate PACKAGE."
     (shrink-window-if-larger-than-buffer)))
 
 (key-chord-define-global (kbd ";r") 'indirect-region)
+
+;; helm themes
+(require 'helm-config)
+(require-package 'helm-themes)
