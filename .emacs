@@ -839,3 +839,6 @@ re-downloaded in order to locate PACKAGE."
 ;; helm themes
 (require 'helm-config)
 (require-package 'helm-themes)
+
+;; helm flycheck
+(need-package 'helm-flycheck)
