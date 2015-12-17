@@ -13,3 +13,6 @@
 [submodule "chromelpass"]
 	path = chromelpass
 	url = https://github.com/pfn/passifox.git
+[submodule ".emacs.d/helm-ash"]
+	path = .emacs.d/helm-ash
+	url = https://github.com/s-kostyaev/helm-ash.git

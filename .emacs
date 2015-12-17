@@ -672,7 +672,8 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; ash integration
 ;;
-(require 'ash)
+(require 'helm-ash)
+(global-set-key (kbd "C-x c C-r") 'helm-ash-inbox)
 
 ;; disable italic
 (mapc
