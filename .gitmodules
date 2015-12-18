@@ -1,9 +1,6 @@
 [submodule "fonts"]
 	path = .fonts
 	url = https://github.com/seletskiy/monaco-font.git
-[submodule ".emacs.d/ash"]
-	path = .emacs.d/ash
-	url = https://github.com/s-kostyaev/ash.el.git
 [submodule "unifont-powerline"]
 	path = unifont-powerline
 	url = https://github.com/s-kostyaev/unifont-powerline.git
