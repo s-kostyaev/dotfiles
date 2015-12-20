@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# hack for udevd
+if [[ "$HOME" == "" ]]; then
+    sleep 1
+
+    HOME=${HOME:-/home/vxw}
+    PATH=${PATH:-/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/go/bin/}
+    XAUTHORITY=${XAUTHORITY:-/home/vxw/.Xauthority}
+    DISPLAY=${DISPLAY:-:0.0}
+
+    export HOME PATH DISPLAY XAUTHORITY
+fi
+
+KEYCODES="evdev+aliases(qwerty)"
+COMPAT="complete+hjkl"
+SYMBOLS=(
+    "pc"
+    "us"
+    "ru:2"
+
+    "level3(lwin_switch)"
+    "mod4-lvl3"
+
+    "hjkl"
+    "hjkl(caret)"
+    "hjkl(fast-enter)"
+    "hjkl(fast-escape)"
+
+
+    #"capslock(escape)"
+    "altwin(swap_alt_win)"
+    "bksp-last-group"
+    #"ralt-first-group"
+
+    "hjkl(fast-numpad)"
+    "level5(ralt_switch)"
+    #"hjkl(rtrn_switch)"
+
+    "ctrl-shift-caps"
+)
+
+SYMBOLS=$(IFS="+"; echo "${SYMBOLS[*]}")
+
+setxkbmap \
+    -keycodes $KEYCODES \
+    -symbols $SYMBOLS \
+    -compat $COMPAT \
+    -print | xkbcomp -w 0 - $DISPLAY
+
+xset r rate 210 200
+xset -b
+
+
+HANDLER_ENG="CAPSLOCK"
+HANDLER_RUS="RIGHTSHIFT"
+if grep -q "Razer" /proc/bus/input/devices; then
+    KEYBOARD="razer"
+else
+    KEYBOARD="keyboard"
+fi
+
+sudo pkill shift-shift
+sudo shift-shift -quiet=true \
+    -match "$KEYBOARD" -first "$HANDLER_ENG" -second "$HANDLER_RUS" &
