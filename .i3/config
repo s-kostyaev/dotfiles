@@ -27,13 +27,13 @@ font pango:Liberation Sans Mono 8
 floating_modifier $mod
 
 # unmount command
-bindsym $mod+u exec devmon --unmount-all
+bindsym Ctrl+Shift+u exec devmon --unmount-all
 
 # file manager
-bindsym $mod+n exec xterm -e ranger
+bindsym Ctrl+Shift+n exec xterm -e ranger
 
 # start a terminal
-bindsym $mod+Return exec marvex -b /usr/bin/xterm # i3-sensible-terminal
+bindsym $mod+Return exec marvex -b /usr/bin/urxvt # i3-sensible-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -47,16 +47,16 @@ bindsym $mod+d exec LC_ALL=en_US.UTF-8 j4-dmenu-desktop #dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 #volume
-bindsym $mod+m exec pamixer --toggle-mute
-bindsym $mod+Down exec pamixer --decrease 3
-bindsym $mod+Up exec pamixer --increase 3
+bindsym Ctrl+Shift+m exec pamixer --toggle-mute
+bindsym Ctrl+Shift+Down exec pamixer --decrease 3
+bindsym Ctrl+Shift+Up exec pamixer --increase 3
 
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -66,25 +66,25 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym Ctrl+Shift+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym Ctrl+Shift+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym Ctrl+Shift+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -125,16 +125,16 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym Ctrl+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Ctrl+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
     
-bindsym $mod+c exec "inox" 
+bindsym Ctrl+Shift+c exec "inox"
 # "chromium-fullscreen"
-bindsym $mod+z exec "firefox"
-bindsym $mod+x exec "emacsclient -c"
+bindsym Ctrl+Shift+z exec "firefox"
+bindsym Ctrl+Shift+x exec "emacsclient -c"
 bindsym Ctrl+Insert exec "xclip -o | xclip -selection clipboard -i"
 bindsym $mod+F1 exec "i3lock -c 000000"
 
