@@ -105,11 +105,11 @@ setopt AUTO_CD
 alias pdflink='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./result.pdf'
 alias keepemerge='sudo FEATURES="keeptemp keepwork" emerge'
 alias mc='TERM=xterm-256color mc'
-alias et='emacsclient -t'
-alias eg='emacsclient -c'
-EM='emacsclient -c'
+alias et='emacsclient -t -a ""'
+alias eg='emacsclient -c -a ""'
+EM='emacsclient -c -a ""'
 es(){
-    emacsclient -t /sudo:root@localhost:$1
+    emacsclient -a "" -t /sudo:root@localhost:$1
 }
 ci(){
     curl http://container.s:8081/v2/c/node0.in.ngs.ru.$1/stats | jq '.'
