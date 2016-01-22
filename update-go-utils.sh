@@ -19,6 +19,15 @@ github.com/alecthomas/gometalinter
 github.com/bradfitz/goimports
 github.com/fzipp/gocyclo
 github.com/josharian/impl
-github.com/maruel/panicparse'
+github.com/maruel/panicparse
+github.com/remyoudompheng/go-misc/deadcode
+github.com/gordonklaus/ineffassign
+github.com/mvdan/interfacer/cmd/interfacer
+github.com/opennota/check/cmd/aligncheck
+github.com/opennota/check/cmd/structcheck
+github.com/opennota/check/cmd/varcheck
+golang.org/x/tools/cmd/gotype
+github.com/mibk/dupl
+'
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
