@@ -126,6 +126,8 @@ alias sln='mcabber -f .mcabberrc.slack-ngs'
 alias slp='mcabber -f .mcabberrc.slack-postdevops'
 alias slg='mcabber -f .mcabberrc.slack-go'
 alias gt='gtypist --banner-colors=6,7,6,7 -c 0,7 --scoring=cpm'
+alias mo='mutt -F ~/.muttrc.office'
+alias my='mutt -F ~/.muttrc.yahoo'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
