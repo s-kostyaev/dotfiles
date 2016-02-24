@@ -37,7 +37,7 @@ SYMBOLS=(
     "level5(ralt_switch)"
     #"hjkl(rtrn_switch)"
 
-    "ctrl-shift-caps"
+    "ctrl(nocaps)"
 )
 
 SYMBOLS=$(IFS="+"; echo "${SYMBOLS[*]}")
