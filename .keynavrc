@@ -32,7 +32,7 @@ shift+l cut-right,warp
 space warp,click 1
 minus warp,click 3
 
-
+ctrl+space sh "xdotool keydown Control_L",click 1
 
 shift+space warp,drag 1
 shift+minus warp,drag 3
