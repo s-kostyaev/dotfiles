@@ -13,3 +13,6 @@
 [submodule ".emacs.d/helm-ash"]
 	path = .emacs.d/helm-ash
 	url = https://github.com/s-kostyaev/helm-ash.git
+[submodule ".emacs.d/rebar"]
+	path = .emacs.d/rebar
+	url = https://github.com/leoliu/rebar.el.git
