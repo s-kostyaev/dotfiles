@@ -133,7 +133,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
     
 bindsym Ctrl+Shift+c exec "chromium"
 # "chromium-fullscreen"
-bindsym Ctrl+Shift+z exec "firefox-nightly"
+bindsym Ctrl+Shift+z exec "firefox-aurora"
 bindsym Ctrl+Shift+x exec "emacsclient -c -a ''"
 bindsym Ctrl+Insert exec "xclip -o | xclip -selection clipboard -i"
 bindsym $mod+F1 exec "i3lock -c 000000"
