@@ -30,7 +30,7 @@ floating_modifier $mod
 bindsym Ctrl+Shift+u exec devmon --unmount-all
 
 # file manager
-bindsym Ctrl+Shift+n exec xterm -e ranger
+bindsym Ctrl+Shift+n exec marvex -b /usr/bin/xterm -e ranger
 
 # start a terminal
 bindsym $mod+Return exec marvex -b /usr/bin/xterm # i3-sensible-terminal
