@@ -12,7 +12,7 @@ if [[ "$HOME" == "" ]]; then
     export HOME PATH DISPLAY XAUTHORITY
 fi
 
-KEYCODES="evdev+aliases(qwerty)"
+KEYCODES="aliases(qwerty)+evdev"
 COMPAT="complete+hjkl"
 SYMBOLS=(
     "pc"
