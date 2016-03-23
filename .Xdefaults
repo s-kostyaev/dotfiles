@@ -39,7 +39,11 @@ URxvt.urgentOnBell: true
 XTerm*locale: true
 XTerm*metaSendsEscape: true
 Xterm*saveLines: 4096
-XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+XTerm*VT100.translations: #override \n\
+    <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+    Shift <KeyPress> KP_Subtract: insert() \n\
+    Shift~Ctrl <KeyPress> KP_Add: insert() \n\
+    Shift Ctrl <KeyPress> KP_Add: insert()
 xterm*bellIsUrgent: true
 
 URxvt.buffered: false
