@@ -19,3 +19,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/awesome"]
+	path = .config/awesome
+	url = https://github.com/s-kostyaev/awesome_config.git
