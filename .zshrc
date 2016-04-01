@@ -132,7 +132,7 @@ alias mya='mutt -F ~/.muttrc.yahoo'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
-#export TERM=xterm-256color
+export TERM=xterm-256color
 #
 #автодополнение portage
 # autoload -U compinit promptinit
@@ -140,7 +140,6 @@ source ~/.profile
 # promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
-export TERM=rxvt-unicode-256color
 export EDITOR=ec
 export BROWSER=chromium
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -148,3 +147,19 @@ export LC_ALL=en_US.UTF-8
 
 #disable CTRL-S
 stty -ixon
+
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+
+    # specify plugins here
+    zgen load seletskiy/zsh-smart-kill-word
+
+    # generate the init script from plugins above
+    zgen save
+fi
+
+bindkey '^W' smart-backward-kill-word
+bindkey '^S' smart-forward-kill-word

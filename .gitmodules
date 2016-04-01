@@ -22,3 +22,6 @@
 [submodule ".config/awesome"]
 	path = .config/awesome
 	url = https://github.com/s-kostyaev/awesome_config.git
+[submodule ".zgen"]
+	path = .zgen
+	url = https://github.com/tarjoilija/zgen.git
