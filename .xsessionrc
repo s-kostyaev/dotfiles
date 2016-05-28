@@ -5,10 +5,11 @@ xset fp+ ~/.fonts
 xset fp+ ~/unifont-powerline
 xset fp rehash
 pulseaudio --start
-dunst &
+# dunst &
 keynav &
-xcompmgr -a &
-nitrogen --restore &
+# xcompmgr -a &
+compton --backend xrender --no-fading-openclose --vsync drm --paint-on-overlay &
+# nitrogen --restore &
 ./.display.sh 
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume has been mounted to %d\"" > /dev/null 2>&1 &
 exec /usr/bin/redshift -l55.2:82.55 &
