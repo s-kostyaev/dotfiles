@@ -8,7 +8,7 @@ pulseaudio --start
 # dunst &
 keynav &
 # xcompmgr -a &
-compton --backend xrender --no-fading-openclose --vsync drm --paint-on-overlay &
+compton --backend xrender --no-fading-openclose --vsync drm --paint-on-overlay -i 0 &
 # nitrogen --restore &
 ./.display.sh 
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume has been mounted to %d\"" > /dev/null 2>&1 &
