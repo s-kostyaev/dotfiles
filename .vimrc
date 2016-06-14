@@ -29,7 +29,7 @@ Plug 'yuku-t/unite-git'
 Plug 'bling/vim-airline'
 Plug 'SirVer/ultisnips'
 Plug 'epmatsw/ag.vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -91,8 +91,8 @@ set cino=(s,m1,+0
 set comments-=mb:*
 set lazyredraw
 
-py import go
-py import util
+" py import go
+" py import util
 
 " autocomplete list numbers
 " autoinsert comment Leader
@@ -108,7 +108,7 @@ let g:go_snippet_engine = "skip"
 let g:notes_directories = ['~/.notes']
 
 "let g:airline_powerline_fonts = 1
-let g:airline_theme = 'lucius'
+" let g:airline_theme = 'lucius'
 let g:airline#extensions#whitespace#symbol = '☼'
 
 let g:syntastic_always_populate_loc_list = 1
@@ -124,11 +124,11 @@ let g:XkbSwitchEnabled = 1
 let mapleader="\<space>"
 
 let g:Powerline_symbols = 'fancy'
-let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
-let g:ycm_allow_changing_updatetime = 0
-let g:ycm_confirm_extra_conf = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
+" let g:ycm_allow_changing_updatetime = 0
+" let g:ycm_confirm_extra_conf = 1
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 let g:surround_102 = "\1function: \1(\r)"
 let html_no_rendering=1
@@ -485,7 +485,7 @@ fun! g:CheckCC()
     endif
 endfun
 
-if system('background') == "light\n"
+if system('echo $BACKGROUND') == "light\n"
     call g:LightRoom()
 else
     call g:DarkRoom()

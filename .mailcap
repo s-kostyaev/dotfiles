@@ -1,6 +1,3 @@
-text/html;                      ash-mailcap \
-                                -x "elinks --force-html --dump %s" \
-                                -t /usr/share/ash-mailcap-autoview/editor %s; \
-                                copiousoutput
+text/html;                      elinks --force-html --dump %s; copiousoutput
 image/*;                        feh %s
 text/calendar;                  goik; copiousoutput

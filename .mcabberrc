@@ -59,7 +59,8 @@ alias s        = roster search d.shashkov@
 alias oa       = roster search oapp@
 alias pp       = roster search p.prudnikov@
 alias v        = roster search e.kovetskiy@
-
+alias jc       = room join octopus@conference.jabber.eltex.loc sergey.kostyaev ecss
+alias js       = room join room409@conference.jabber.eltex.loc sergey.kostyaev ims
 alias dark     = source ~/.mcabber/mcabberrc.dark
 alias light    = source ~/.mcabber/mcabberrc.light
 
