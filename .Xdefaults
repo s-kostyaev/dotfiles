@@ -49,3 +49,7 @@ xterm*bellIsUrgent: true
 
 URxvt.buffered: false
 XTerm*on4Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintmedium
