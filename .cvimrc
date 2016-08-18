@@ -12,6 +12,7 @@ map B :bookmarks<Space>
 map u lastClosedTab
 map d closeTab
 map zr :tabnew chrome://restart<CR>
+map H goBack
 
 let blacklists = ["http://www.keybr.com/*"]
 
