@@ -1,1 +1,2 @@
 code:add_path ("/usr/lib/yaws-2.0.2/ebin/").
+code:add_patha("/usr/lib/erlang/lib/wrangler-1.2.0/ebin").
