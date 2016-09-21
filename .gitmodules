@@ -4,9 +4,6 @@
 [submodule "unifont-powerline"]
 	path = unifont-powerline
 	url = https://github.com/s-kostyaev/unifont-powerline.git
-[submodule ".emacs.d/go-impl"]
-	path = .emacs.d/lisp/go-impl
-	url = https://github.com/syohex/emacs-go-impl.git
 [submodule "chromelpass"]
 	path = chromelpass
 	url = https://github.com/pfn/passifox.git
