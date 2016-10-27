@@ -232,3 +232,7 @@ git_prompt_string() {
 
 # Set the right-hand prompt
 RPS1='$(git_prompt_string)'
+
+export XKB_DEFAULT_LAYOUT=us,ru
+export XKB_DEFAULT_VARIANT=,winkeys
+export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
