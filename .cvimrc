@@ -15,7 +15,6 @@ map zr :tabnew chrome://restart<CR>
 
 let blacklists = ["http://www.keybr.com/*"]
 
-let searchengine lz = "https://lazerto.com/?q="
 let searchengine dg = "https://duckduckgo.com/?q="
 let defaultengine = "dg"
 let completionengines = ["dg"]
