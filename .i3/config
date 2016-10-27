@@ -138,7 +138,7 @@ bindsym Ctrl+Shift+c exec "chromium"
 bindsym Ctrl+Shift+z exec firefox
 bindsym Ctrl+Shift+x exec emacsclient -c -a ''
 bindsym Ctrl+Insert exec bash -c "xclip -o | xclip -selection clipboard -i"
-bindsym Ctrl+Shift+l exec i3lock -c 000000
+bindsym Ctrl+Shift+l exec swaylock -c 000000
 
 bindsym $mod+F2 exec "xcompmgr -a"
 # bindsym $mod+F3 exec "killall xcompmgr"
