@@ -130,14 +130,15 @@ bindsym $mod+Shift+0 move container to workspace 10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Ctrl+Shift+r reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Ctrl+Shift+e exit
+#exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
     
 bindsym Ctrl+Shift+c exec "chromium"
 # "chromium-fullscreen"
 bindsym Ctrl+Shift+z exec firefox
 bindsym Ctrl+Shift+x exec emacsclient -c -a ''
 bindsym Ctrl+Insert exec bash -c "xclip -o | xclip -selection clipboard -i"
-bindsym $mod+F1 exec "i3lock -c 000000"
+bindsym Ctrl+Shift+l exec i3lock -c 000000
 
 bindsym $mod+F2 exec "xcompmgr -a"
 # bindsym $mod+F3 exec "killall xcompmgr"
