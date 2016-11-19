@@ -14,7 +14,7 @@ HANDLER_RUS="RIGHTSHIFT"
 if grep -q "Razer" /proc/bus/input/devices; then
     KEYBOARD="razer"
 else
-    KEYBOARD="HID 04f3:0103"
+    KEYBOARD="keyboard"
 fi
 
 sudo pkill shift-shift
