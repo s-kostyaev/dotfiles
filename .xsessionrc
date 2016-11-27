@@ -7,6 +7,7 @@ xset fp+ ~/unifont-powerline
 xset fp rehash
 pulseaudio --start
 # dunst &
+pkill keynav
 keynav &
 # xcompmgr -a &
 # compton --backend xrender --no-fading-openclose --vsync drm --paint-on-overlay -i 0 &
@@ -15,4 +16,5 @@ srandrd ~/.display.sh
 pkill pasystray
 pasystray &
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume has been mounted to %d\"" > /dev/null 2>&1 &
+pkill redshift
 exec /usr/bin/redshift -l55.2:82.55 &
