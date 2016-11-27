@@ -1,6 +1,7 @@
 #!/bin/sh 
 i3lock -c 555555 &
 ./.keyboard.sh
+pkill xxkb
 xxkb &
 xset fp+ ~/.fonts
 xset fp+ ~/unifont-powerline
