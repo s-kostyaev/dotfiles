@@ -126,7 +126,7 @@ alias sln='mcabber -f .mcabberrc.slack-ngs'
 alias slp='mcabber -f .mcabberrc.slack-postdevops'
 alias slg='mcabber -f .mcabberrc.slack-go'
 alias gt='gtypist --banner-colors=6,7,6,7 -c 0,7 --scoring=cpm'
-alias mo='mutt -F ~/.muttrc.office'
+alias mo='mutt -F ~/.muttrc.www'
 alias my='mutt -F ~/.muttrc.yandex'
 alias mya='mutt -F ~/.muttrc.yahoo'
 export XLIB_SKIP_ARGB_VISUALS=1
@@ -236,3 +236,6 @@ RPS1='$(git_prompt_string)'
 export XKB_DEFAULT_LAYOUT=us,ru
 export XKB_DEFAULT_VARIANT=,winkeys
 export XKB_DEFAULT_OPTIONS=grp:alt_space_toggle,ctrl:nocaps,grp_led:caps
+
+export ERL_LIBS=~/eltex/private_lib
+export RELX="relx -d"
