@@ -32,6 +32,9 @@ URxvt.url-select.launcher: /usr/bin/chromium
 URxvt.underlineURLs:   true
 
 URxvt.keysym.M-y:      perl:url-select:select_next
+URxvt.perl-ext-common: ...,keyboard-select
+URxvt.keysym.M-j:      perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 
 ! Set the Urgent hint on bell for console apps without notify-send
