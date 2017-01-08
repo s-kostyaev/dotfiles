@@ -6,7 +6,8 @@ URxvt*saveLines: 10000
 ! URxvt.font: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*,xft:Inconsolata\ for\ Powerline:pixelsize=12
 ! urxvt*font: xft:Fixed:pixelsize=13, xft:Inconsolata for Powerline
 !urxvt*font: xft:tewi
-urxvt*font: xft:Dejavu Sans Mono:pixelsize=12
+! urxvt*font: xft:Dejavu Sans Mono:pixelsize=12
+urxvt*font: xft:Fira Mono:pixelsize=12
 
 ! urxvt*font: xft:monaco:pixelsize=12:antialias=false:hinting=false
 ! xterm*renderFont: true
@@ -17,7 +18,8 @@ urxvt*font: xft:Dejavu Sans Mono:pixelsize=12
 ! *font: -fontforge-monaco-medium-r-normal--12-120-72-72-p-59-iso10646-1
 XTerm*font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 ! Emacs.font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
-emacs.font: DejaVu Sans Mono-10
+! emacs.font: DejaVu Sans Mono-10
+emacs.font: Fira Mono-10
 
 ! Rxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
 
