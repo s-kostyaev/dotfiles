@@ -75,7 +75,7 @@ bind 276 = roster toggle
 # Ctrl-Up/Ctrl-Down bound to /buffer up/down  (like Ctrl-p/Ctrl-n)
 bind 521 = buffer up
 bind 514 = buffer down
-bind M32 = msay toggle
+bind M109 = msay toggle
 bind M13 = msay send
 
 source ~/.mcabber/mcabberrc.light
