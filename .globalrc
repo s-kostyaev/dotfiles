@@ -25,11 +25,13 @@
 # GTAGSLABEL environment variable. Default target is 'default'.
 #
 default:\
-	:tc=ctags:
+	:tc=new-ctags:
 native:\
 	:tc=gtags:tc=htags:
 user:\
 	:tc=user-custom:tc=htags:
+new-ctags:
+    :tc=universal-ctags:tc=htags:
 ctags:\
 	:tc=exuberant-ctags:tc=htags:
 pygments:\
@@ -59,6 +61,89 @@ user-custom|User custom plugin parser:\
 # Plug-in parser to use Exuberant Ctags.
 #
 exuberant-ctags|plugin-example|setting to use Exuberant Ctags plug-in parser:\
+	:tc=common:\
+	:langmap=Asm\:.asm.ASM.s.S:\
+	:langmap=Asp\:.asp.asa:\
+	:langmap=Awk\:.awk.gawk.mawk:\
+	:langmap=Basic\:.bas.bi.bb.pb:\
+	:langmap=BETA\:.bet:\
+	:langmap=C\:.c:\
+	:langmap=C++\:.c++.cc.cp.cpp.cxx.h.h++.hh.hp.hpp.hxx.C.H:\
+	:langmap=C#\:.cs:\
+	:langmap=Cobol\:.cbl.cob.CBL.COB:\
+	:langmap=DosBatch\:.bat.cmd:\
+	:langmap=Eiffel\:.e:\
+	:langmap=Erlang\:.erl.ERL.hrl.HRL:\
+	:langmap=Flex\:.as.mxml:\
+	:langmap=Fortran\:.f.for.ftn.f77.f90.f95.F.FOR.FTN.F77.F90.F95:\
+	:langmap=HTML\:.htm.html:\
+	:langmap=Java\:.java:\
+	:langmap=js\:.jsx.js:\
+	:langmap=Lisp\:.cl.clisp.el.l.lisp.lsp:\
+	:langmap=Lua\:.lua:\
+	:langmap=MatLab\:.m:\
+	:langmap=OCaml\:.ml.mli:\
+	:langmap=Pascal\:.p.pas:\
+	:langmap=Perl\:.pl.pm.plx.perl:\
+	:langmap=PHP\:.php.php3.phtml:\
+	:langmap=Python\:.py.pyx.pxd.pxi.scons:\
+	:langmap=REXX\:.cmd.rexx.rx:\
+	:langmap=Ruby\:.rb.ruby:\
+	:langmap=Scheme\:.SCM.SM.sch.scheme.scm.sm:\
+	:langmap=Sh\:.sh.SH.bsh.bash.ksh.zsh:\
+	:langmap=SLang\:.sl:\
+	:langmap=SML\:.sml.sig:\
+	:langmap=SQL\:.sql:\
+	:langmap=Tcl\:.tcl.tk.wish.itcl:\
+	:langmap=Tex\:.tex:\
+	:langmap=Vera\:.vr.vri.vrh:\
+	:langmap=Verilog\:.v:\
+	:langmap=VHDL\:.vhdl.vhd:\
+	:langmap=Vim\:.vim:\
+	:langmap=YACC\:.y:\
+	:gtags_parser=Asm\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Asp\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Awk\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Basic\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=BETA\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=C\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=C++\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=C#\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Cobol\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=DosBatch\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Eiffel\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Erlang\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Flex\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Fortran\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=HTML\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Java\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=js\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Lisp\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Lua\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=MatLab\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=OCaml\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Pascal\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Perl\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=PHP\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Python\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=REXX\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Ruby\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Scheme\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Sh\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=SLang\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=SML\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=SQL\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Tcl\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Tex\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Vera\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Verilog\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=VHDL\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=Vim\:/usr/lib/gtags/exuberant-ctags.so:\
+	:gtags_parser=YACC\:/usr/lib/gtags/exuberant-ctags.so:
+#
+# Plug-in parser to use Universal Ctags.
+#
+universal-ctags|plugin-example|setting to use Universal Ctags plug-in parser:\
 	:tc=common:\
 	:langmap=Asm\:.asm.ASM.s.S:\
 	:langmap=Asp\:.asp.asa:\
