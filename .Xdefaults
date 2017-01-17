@@ -62,7 +62,7 @@ XTerm*on4Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]]
 
 Xft.antialias: true
 Xft.hinting: true
-Xft.hintstyle: hintmedium
+Xft.hintstyle: hintslight
 
 ###########################################################################
 ###---URXVT KEY CODES---###################################################
