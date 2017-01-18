@@ -1,6 +1,6 @@
 @-moz-document domain("linux.org.ru"), domain("bash.im"), domain("github.com"), domain("duckduckgo.com"), domain("www.reddit.com"), domain("git.eltex.loc"), domain("gitlab.eltex.loc") {
 @namespace url(http://www.w3.org/1999/xhtml);
-html, body, .msg, a.menu-item, pre, .quote, .text, .boxed-group-inner, .readme .markdown-body, table.files, .repohead.experiment-repo-nav, .header, .header-wrap, .zci-wrap, .zci, tbody {
+html, body, .msg, a.menu-item, pre, .quote, .text, .boxed-group-inner, .readme .markdown-body, table.files, .repohead.experiment-repo-nav, .header, .header-wrap, .zci-wrap, .zci, tbody, .side,.link .usertext-body .md, #header, .linkinfo, .sidebox .spacer {
         background-color: #fdf6e3 !important;
         background: #fdf6e3 !important;
         color: #657b83 !important;
