@@ -55,6 +55,8 @@
     /* Give id's BG hopefully */
     DIV[id] {background-color: inherit !important}
 
+    div[id="cVim-link-container"] {background-color: transparent !important}
+
     /* Try to contrast containers */
     html:root > BODY > * > * > * > *:not(INPUT):not([onclick]) > DIV:not(:empty):not([id])
     {background: none #272727 !important}
