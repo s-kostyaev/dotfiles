@@ -1,5 +1,4 @@
-@namespace url(http://www.w3.org/1999/xhtml);
-
+@-moz-document url-prefix("file://"), regexp("https?://((?!(www.w3schools.com|www.colorcodehex|habrahabr|www.weblancer|mail.google.com|play.google.com|www.google.com|www.linkedin.com|tgsoft.in)).*)*") {
 /* --------------------------------------------	*
  * Style:   All Dark Military                   *
  * Author:  airstep         			*
@@ -14,10 +13,8 @@
  * --------------------------------------------	*/
 
 /* Global */
-
-@-moz-document url-prefix("file://"), regexp("https?://((?!(www.w3schools.com|www.colorcodehex|habrahabr|www.weblancer|mail.google.com|play.google.com|www.google.com|www.linkedin.com|tgsoft.in)).*)*") {
 *	{ color: #AAAAAA !important; border-color: #333333 !important; }
-    a, a *	{ color: #BB77BB !important; text-decoration: none !important; }
+    a, a *,.link-gray-dark	{ color: #BB77BB !important; text-decoration: none !important; }
     a:hover, a:hover * { color: #448855 !important; }
     a:visited, a:visited * { color: #AA4444 !important; }
     a:visited:hover, a:visited:hover * { color: #55AA00 !important; }
