@@ -44,7 +44,7 @@
     :not([id*="lbImage"]) { background-image: none !important }
 
     /* Basic Bodies */
-    HTML, BODY { background: none #282828 !important }
+    HTML, BODY { background: none #292b2e !important }
 
     /* Make descendents of the body element transparent.  Formerly "DIV + SPAN" rules. */
     BODY * {background-color: transparent !important}
@@ -56,19 +56,19 @@
 
     /* Try to contrast containers */
     html:root > BODY > * > * > * > *:not(INPUT):not([onclick]) > DIV:not(:empty):not([id])
-    {background: none #282828 !important}
+    {background: none #292b2e !important}
 }
 
 @-moz-document url-prefix("https://www.colorcodehex.com") {
 [class*="logo"] {display: none !important;}    
     
-    HTML, BODY { background: none #282828 !important }
+    HTML, BODY { background: none #292b2e !important }
     BODY *:not(td):not(span):not([class="color_so"]):not(a):not([class="color_schemes_b"]):not([class="color_code_2"]) {background-color: transparent !important}
     [class*="color_s"] div, h1, h2, h3 {color: gray !important;}
 }
 
 @-moz-document url-prefix("http://www.w3schools.com") {
-HTML, BODY { background: none #282828 !important; color: gray !important; }
+HTML, BODY { background: none #292b2e !important; color: gray !important; }
     BODY *:not(td):not([class*="example"]) {background-color: transparent !important}
 }
 
@@ -88,7 +88,7 @@ h1, h2, h3, h4, p, span {color: gray !important;}
         opacity: .99
     }
     
-    HTML, BODY { background: none #282828 !important; color: gray !important; }
+    HTML, BODY { background: none #292b2e !important; color: gray !important; }
     BODY *:not(td):not(span):not(a) {background-color: transparent !important}
 }
 
