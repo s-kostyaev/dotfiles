@@ -236,6 +236,8 @@ RPS1='$(git_prompt_string)'
 export XKB_DEFAULT_LAYOUT=us,ru
 export XKB_DEFAULT_VARIANT=,winkeys
 export XKB_DEFAULT_OPTIONS=grp:win_space_toggle,ctrl:nocaps,grp_led:caps
+export WLC_REPEAT_DELAY=200
+export WLC_REPEAT_RATE=60
 
 export ERL_LIBS=~/eltex/private_lib
 export RELX="relx -d"
