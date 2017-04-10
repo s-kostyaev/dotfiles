@@ -49,8 +49,8 @@ bindsym $mod+d exec rofi -show run #LC_ALL=en_US.UTF-8 dmenu_run
 	
 #volume
 bindsym Ctrl+Shift+m exec pamixer --toggle-mute
-bindsym Ctrl+Shift+Down exec pamixer --decrease 3
-bindsym Ctrl+Shift+Up exec pamixer --increase 3
+bindsym Ctrl+Shift+j exec pamixer --decrease 3
+bindsym Ctrl+Shift+k exec pamixer --increase 3
 
 
 # change focus
@@ -182,6 +182,7 @@ bar {
 	        inactive_workspace #888888 #222222
 	        urgent_workspace   #ffffff #900000
 	    }
+        position top
 }
 
 exec --no-startup-id i3-msg 'exec ~/.xsessionrc'
