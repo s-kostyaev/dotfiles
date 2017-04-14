@@ -54,19 +54,20 @@ bindsym Ctrl+Shift+k exec pamixer --increase 3
 
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-# bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 # bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
@@ -76,10 +77,10 @@ bindsym $mod+Shift+l move up
 # bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym Ctrl+Shift+v split v
+bindsym Ctrl+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Ctrl+Shift+f fullscreen
