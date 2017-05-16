@@ -134,6 +134,8 @@ bindsym Ctrl+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym Ctrl+Shift+e exit
 #exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+u [urgent=latest] focus
     
 bindsym Ctrl+Shift+c exec "chromium"
 # "chromium-fullscreen"
@@ -141,6 +143,8 @@ bindsym Ctrl+Shift+z exec firefox
 bindsym Ctrl+Shift+x exec emacsclient -c -a ''
 bindsym Ctrl+Insert exec bash -c "xclip -o | xclip -selection clipboard -i"
 bindsym Ctrl+Shift+l exec swaylock -c 000000
+
+bindsym $mod+t exec "/home/feofan/trans.sh"
 
 bindsym $mod+F2 exec "xcompmgr -a"
 # bindsym $mod+F3 exec "killall xcompmgr"
