@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-notmuch tag -inbox +report -unread -- from:sergey.kostyaev@eltex.loc and отчет
+notmuch tag -inbox +reporT -unread -- from:sergey.kostyaev@eltex.loc and отчет
 notmuch tag +jenkins -inbox -unread -- 'from:jenkins.ims@eltex.loc'
 notmuch tag -inbox -unread +github -- 'from:subscribed@noreply.github.com'
 notmuch tag -inbox -unread +github -- 'to:*@noreply.github.com'

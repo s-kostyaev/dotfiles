@@ -2,7 +2,7 @@
 
 mbsync -aV
 notmuch new
-notmuch tag -inbox +report -unread -- tag:unread and from:sergey.kostyaev@eltex.loc and отчет
+notmuch tag -inbox +reporT -unread -- tag:unread and from:sergey.kostyaev@eltex.loc and отчет
 notmuch tag +jenkins -inbox -unread -- tag:unread and 'from:jenkins.ims@eltex.loc'
 notmuch tag -inbox -unread +github -- tag:unread and 'from:subscribed@noreply.github.com'
 notmuch tag -inbox -unread +github -- tag:unread and 'to:*@noreply.github.com'
