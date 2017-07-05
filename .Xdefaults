@@ -21,7 +21,10 @@ XTerm*font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 ! Emacs.font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 ! emacs.font: DejaVu Sans Mono-10
 ! emacs.font: Fira Mono-10
-emacs.font: Go Mono-11
+emacs.font: Go Mono-12
+! emacs.font: Hack-12
+! emacs.font: -xos4-xos4 Terminus-normal-normal-normal-*-18-*-*-*-c-100-iso10646-1
+! emacs.font: Ubuntu Mono-13
 
 ! Rxvt.boldFont: -*-fixed-bold-r-*-*-14-*-*-*-*-*-*-
 
