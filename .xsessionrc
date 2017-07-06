@@ -16,6 +16,8 @@ keynav &
 srandrd ~/.display.sh
 pkill pasystray
 pasystray &
+caffeine &
+emacs --daemon
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"Volume has been mounted to %d\"" > /dev/null 2>&1 &
 pkill redshift
 exec /usr/bin/redshift -l55.2:82.55 &

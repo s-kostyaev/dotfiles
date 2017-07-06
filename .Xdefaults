@@ -1,4 +1,4 @@
-#include ".Xresources.d/colors.dark"
+#include ".Xresources.d/colors.solarized"
 
 URxvt*saveLines: 10000
 
@@ -8,7 +8,7 @@ URxvt*saveLines: 10000
 !urxvt*font: xft:tewi
 ! urxvt*font: xft:Dejavu Sans Mono:pixelsize=12
 ! urxvt*font: xft:Fira Mono:pixelsize=12
-urxvt*font: xft:Go Mono:pixelsize=12
+urxvt*font: xft:Go Mono:pixelsize=16
 
 ! urxvt*font: xft:monaco:pixelsize=12:antialias=false:hinting=false
 ! xterm*renderFont: true
