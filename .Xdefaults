@@ -1,4 +1,4 @@
-#include ".Xresources.d/colors.solarized"
+#include ".Xresources.d/colors.solarized_light"
 
 URxvt*saveLines: 10000
 
