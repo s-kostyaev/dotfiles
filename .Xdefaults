@@ -276,13 +276,13 @@ rofi.modi:                           window,run
 ! "Font to use" Set from: Default
 ! rofi.font:                           mono 12
 ! "Color scheme for normal row" Set from: Default
-rofi.color-normal:                   #333333,#eeeeee,#555555,#eeeeee,#555555
+! rofi.color-normal:                   #333333,#eeeeee,#555555,#eeeeee,#555555
 ! "Color scheme for urgent row" Set from: Default
 ! rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
 ! "Color scheme for active row" Set from: Default
 ! rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
 ! "Color scheme window" Set from: Default
-rofi.color-window:                   #333333,#666666
+! rofi.color-window:                   #333333,#666666
 ! "Border width" Set from: Default
 ! rofi.bw:                             1
 ! "Location on screen" Set from: Default
