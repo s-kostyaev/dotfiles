@@ -23,6 +23,7 @@ github.com/mibk/dupl
 github.com/zmb3/gogetdoc
 github.com/godoctor/godoctor
 github.com/jstemmer/gotags
+github.com/derekparker/delve/cmd/dlv
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
