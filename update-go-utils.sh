@@ -21,6 +21,8 @@ github.com/opennota/check/cmd/varcheck
 golang.org/x/tools/cmd/gotype
 github.com/mibk/dupl
 github.com/zmb3/gogetdoc
+github.com/godoctor/godoctor
+github.com/jstemmer/gotags
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
