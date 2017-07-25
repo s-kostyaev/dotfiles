@@ -8,13 +8,13 @@ URxvt*saveLines: 10000
 !urxvt*font: xft:tewi
 ! urxvt*font: xft:Dejavu Sans Mono:pixelsize=12
 ! urxvt*font: xft:Fira Mono:pixelsize=12
-! urxvt*font: xft:Go Mono:pixelsize=16
-urxvt*font: xft:Iosevka light:pixelsize=18
+urxvt*font: xft:Go Mono:pixelsize=14
+! urxvt*font: xft:Iosevka light:pixelsize=18
 
 ! urxvt*font: xft:monaco:pixelsize=12:antialias=false:hinting=false
 xterm*renderFont: true
-xterm*faceName: Iosevka light
-xterm*faceSize: 14
+xterm*faceName: Go Mono !Iosevka light
+xterm*faceSize: 10
 ! urxvt*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 ! *font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 ! *font: -fontforge-monaco-medium-r-normal--12-120-72-72-p-59-iso10646-1
@@ -22,8 +22,8 @@ xterm*faceSize: 14
 ! Emacs.font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 ! emacs.font: DejaVu Sans Mono-10
 ! emacs.font: Fira Mono-10
-! emacs.font: Go Mono-12
-emacs.font: -CYEL-Iosevka-light-normal-normal-*-18-*-*-*-d-0-iso10646-1
+emacs.font: Go Mono-12
+! emacs.font: -CYEL-Iosevka-light-normal-normal-*-18-*-*-*-d-0-iso10646-1
 ! emacs.font: Hack-12
 ! emacs.font: -xos4-xos4 Terminus-normal-normal-normal-*-18-*-*-*-c-100-iso10646-1
 ! emacs.font: Ubuntu Mono-13
