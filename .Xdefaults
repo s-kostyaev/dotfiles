@@ -13,8 +13,9 @@ urxvt*font: xft:Go Mono:pixelsize=14
 
 ! urxvt*font: xft:monaco:pixelsize=12:antialias=false:hinting=false
 xterm*renderFont: true
-xterm*faceName: Go Mono !Iosevka light
-xterm*faceSize: 10
+xterm*faceName: Go Mono
+!Iosevka light
+xterm*faceSize: 12
 ! urxvt*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 ! *font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 ! *font: -fontforge-monaco-medium-r-normal--12-120-72-72-p-59-iso10646-1
@@ -68,6 +69,7 @@ XTerm*on4Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]]
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
+Xft.rgba: rgb
 
 ###########################################################################
 ###---URXVT KEY CODES---###################################################
