@@ -25,6 +25,7 @@ github.com/godoctor/godoctor
 github.com/jstemmer/gotags
 github.com/derekparker/delve/cmd/dlv
 github.com/ValeLint/vale
+sourcegraph.com/sqs/goreturns
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
