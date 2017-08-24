@@ -8,7 +8,7 @@ github.com/nsf/gocode
 github.com/rogpeppe/godef
 github.com/dougm/goflymake
 github.com/alecthomas/gometalinter
-github.com/bradfitz/goimports
+golang.org/x/tools/cmd/goimports
 github.com/fzipp/gocyclo
 github.com/josharian/impl
 github.com/maruel/panicparse
@@ -25,7 +25,6 @@ github.com/godoctor/godoctor
 github.com/jstemmer/gotags
 github.com/derekparker/delve/cmd/dlv
 github.com/ValeLint/vale
-sourcegraph.com/sqs/goreturns
 github.com/stapelberg/expanderr
 '
 
