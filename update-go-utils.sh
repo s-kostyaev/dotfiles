@@ -26,6 +26,9 @@ github.com/jstemmer/gotags
 github.com/derekparker/delve/cmd/dlv
 github.com/ValeLint/vale
 github.com/stapelberg/expanderr
+github.com/posener/complete/gocomplete
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
+
+gocomplete -install -y
