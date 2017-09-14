@@ -28,6 +28,7 @@ github.com/ValeLint/vale
 github.com/stapelberg/expanderr
 github.com/posener/complete/gocomplete
 github.com/sourcegraph/go-langserver
+github.com/cweill/gotests/...
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
