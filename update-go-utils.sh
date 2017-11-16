@@ -19,6 +19,7 @@ github.com/posener/complete/gocomplete
 github.com/sourcegraph/go-langserver
 github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/...
+github.com/kovetskiy/transline
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
