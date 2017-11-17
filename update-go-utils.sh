@@ -20,6 +20,7 @@ github.com/sourcegraph/go-langserver
 github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/...
 github.com/kovetskiy/transline
+golang.org/x/tools/cmd/godoc
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
