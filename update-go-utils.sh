@@ -21,6 +21,7 @@ github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/...
 github.com/kovetskiy/transline
 golang.org/x/tools/cmd/godoc
+github.com/fatih/gomodifytags
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
