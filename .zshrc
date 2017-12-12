@@ -132,7 +132,6 @@ alias mya='mutt -F ~/.muttrc.yahoo'
 export XLIB_SKIP_ARGB_VISUALS=1
 export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
-export TERM=xterm-256color
 #
 #автодополнение portage
 # autoload -U compinit promptinit
