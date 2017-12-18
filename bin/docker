@@ -1,0 +1,38 @@
+#!/bin/bash
+
+REAL_DOCKER=${REAL_DOCKER:-/usr/bin/docker}
+
+case "$1" in
+shell)
+    shift
+    "$REAL_DOCKER" run -v "$(pwd)":/dctx:rw -t -i --entrypoint /bin/sh "$@" -c "export TERM=$TERM; test -x /bin/bash && exec /bin/bash || exec /bin/sh" ;;
+ps)
+    shift
+    "$REAL_DOCKER" ps --format "table{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Names}}" --all "$@" | grep . ;;
+ip)
+    shift
+    "$REAL_DOCKER" inspect -f '{{ .Name  }} IPADDR {{ .NetworkSettings.IPAddress  }}/{{ .NetworkSettings.IPPrefixLen  }} LLADR {{ .NetworkSettings.MacAddress  }} GW {{ .NetworkSettings.Gateway  }}' "$1" ;;
+graph)
+    TEMPFILE=$(mktemp)
+    "$REAL_DOCKER" run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+        centurylink/image-graph > "$TEMPFILE"
+    xdg-open "$TEMPFILE"
+    rm "$TEMPFILE" ;;
+img)
+    shift
+    "$REAL_DOCKER" images --format "{{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}\t{{.Size}}" "$@" | column -t -s "$(echo -e "\t")" | sort ;;
+clean)
+    "$REAL_DOCKER" ps -a -q -f status=exited | xargs -r "$REAL_DOCKER" rm -f
+    "$REAL_DOCKER" ps -a -q -f status=created | xargs -r "$REAL_DOCKER" rm -f
+    "$REAL_DOCKER" images -q -f dangling=true | xargs -r "$REAL_DOCKER" rmi -f
+    "$REAL_DOCKER" volume prune --force ;;
+enter)
+    shift
+    "$REAL_DOCKER" exec -t -i "$@" /bin/sh -c "export TERM=$TERM; test -x /bin/bash && exec /bin/bash || exec /bin/sh" ;;
+labels)
+    shift
+    # shellcheck disable=SC2016
+    "$REAL_DOCKER" inspect --format='{{ range $k, $v := .Config.Labels }}{{ $k }}={{ $v }}{{ "\n" }}{{ end }}' "$@" ;;
+*)
+    "$REAL_DOCKER" "$@" ;;
+esac

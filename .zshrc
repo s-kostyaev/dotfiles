@@ -223,6 +223,8 @@ parse_git_state() {
 
 }
 
+export PATH=~/bin/:$PATH
+
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
     local git_where="$(parse_git_branch)"
