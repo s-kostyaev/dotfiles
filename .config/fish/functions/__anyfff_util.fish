@@ -1,0 +1,1 @@
+/home/feofan/.config/fisherman/anyfff/functions/__anyfff_util.fish
