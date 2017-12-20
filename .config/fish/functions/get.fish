@@ -1,0 +1,1 @@
+/home/feofan/.config/fisherman/get/functions/get.fish
