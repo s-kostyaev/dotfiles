@@ -1,10 +1,8 @@
-set __GIT_PROMPT_DIR ~/bash-git-prompt
 alias et "emacsclient -t"
 alias gh 'git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
-fundle plugin hagiyat/anyfff
-
-if type -q peco
-  set -x ANYFFF__FINDER_APP peco
-  set -x ANYFFF__FILESEARCH_MAXDEPTH 3
-end
+if not functions -q fisher; eval (curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher); end
+if not functions -q anyfff_widget; fisher hagiyat/anyfff; end
+if not type -q peco; eval (go get -u github.com/peco/peco/...); end
+set -x ANYFFF__FINDER_APP peco
+set -x ANYFFF__FILESEARCH_MAXDEPTH 3
+if not functions -q fish_title; fisher vibrant; end
