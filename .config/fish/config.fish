@@ -5,6 +5,6 @@ if not functions -q anyfff_widget; fisher hagiyat/anyfff; end
 if not type -q peco; eval (go get -u github.com/peco/peco/...); end
 set -x ANYFFF__FINDER_APP peco
 set -x ANYFFF__FILESEARCH_MAXDEPTH 3
-if not functions -q fish_title; fisher vibrant; end
+if not functions -q fish_title; fisher; end
 set GOPATH /home/feofan/go
 set TERM xterm-24bit
