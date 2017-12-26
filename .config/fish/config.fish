@@ -8,3 +8,10 @@ set -x ANYFFF__FILESEARCH_MAXDEPTH 3
 if not functions -q fish_title; fisher vibrant; end
 set GOPATH /home/feofan/go
 set TERM xterm-24bit
+function my_put_history
+    history | peco --prompt "history >"  | read -l selected
+    if [ $selected ]
+      commandline -i $selected
+      commandline -f repaint
+    end
+end
