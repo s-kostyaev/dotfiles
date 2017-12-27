@@ -1,1 +1,0 @@
-/home/feofan/.config/fisherman/getopts/getopts.fish
