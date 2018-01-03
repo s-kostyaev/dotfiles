@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-mbsync -aV
+# mbsync -aV
+offlineimap
 notmuch new
 notmuch tag -inbox +reporT -unread -- tag:unread and from:sergey.kostyaev@eltex.loc and отчет
 notmuch tag +jenkins -inbox -unread -- tag:unread and 'from:jenkins.ims@eltex.loc'

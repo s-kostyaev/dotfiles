@@ -1,0 +1,34 @@
+[general]
+pythonfile = /home/feofan/.offlineimap.py
+# List of accounts to be synced, separated by a comma.
+accounts = yandex,mailru
+
+[Account yandex]
+localrepository = yandex-local
+remoterepository = yandex-remote
+
+[Repository yandex-local]
+type = Maildir
+localfolders = ~/mail/yandex
+
+[Repository yandex-remote]
+type = IMAP
+remotehost = imap.yandex.ru
+remoteuser = feo.me
+remotepasseval = get_pass("mail-pass")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account mailru]
+localrepository = mailru-local
+remoterepository = mailru-remote
+
+[Repository mailru-local]
+type = Maildir
+localfolders = ~/mail/mailru
+
+[Repository mailru-remote]
+type = IMAP
+remotehost = imap.mail.ru
+remoteuser = feofankss@mail.ru
+remotepasseval = get_pass("mailru-pass")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
