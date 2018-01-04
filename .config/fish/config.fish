@@ -15,3 +15,4 @@ function my_put_history
       commandline -f repaint
     end
 end
+export EDITOR='emacsclient -t -a ""'
