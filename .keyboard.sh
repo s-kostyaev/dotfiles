@@ -1,7 +1,8 @@
 #!/bin/bash
 
+setxkbmap -option
 setxkbmap -option ctrl:nocaps
-setxkbmap "us,ru" ",winkeys" "grp:alt_space_toggle,grp_led:caps"
+setxkbmap "us,ru" ",winkeys" "grp:win_space_toggle,grp_led:caps"
 # killall -9 xcape
 # ./reconfig-kbd
 # ./space2hyper
