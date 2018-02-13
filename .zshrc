@@ -16,24 +16,10 @@ keyinfo=(
 #zstyle ':completion:*' menu yes select
 #source /etc/zsh_command_not_found
 bindkey '\e[3~' delete-char # del
-bindkey ';5D' backward-word # ctrl+left 
-bindkey ';5C' forward-word #ctrl+right
 
 autoload -U compinit # promptinit
 compinit
 # promptinit;
-
-# git status
-# source /home/feofan/zsh/zsh-git-prompt/zshrc.sh
-PROMPT=$'%{\e[1;32m%}%{$fg[cyan]%}%n%{$fg[blue]%}@%{$fg[green]%}%m %{\e[1;34m%}%~ %{\e[0m%} %# '
-
-# if [[ $EUID == 0 ]] 
-# then
-# PROMPT=$'%{\e[1;31m%}%n %{\e[1;34m%}%~ #%{\e[0m%} ' # user dir %
-# else
-# PROMPT=$'%{\e[1;32m%}%n %{\e[1;34m%}%~ %#%{\e[0m%} ' # root dir #
-# fi
-# RPROMPT=$'$(git_super_status) %{\e[1;34m%}%T%{\e[0m%}' # right prompt with time
 
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
@@ -57,24 +43,11 @@ alias cpaste="ls /tmp/ccopy.* | sed 's|/tmp/ccopy.||' | xargs -I % mv /tmp/ccopy
 alias -g ERR='2>>( sed -ue "s/.*/$fg_bold[red]&$reset_color/" 1>&2 )'
 
 
-dot() {
-		if [[ $LBUFFER = *.. ]]; then
-					LBUFFER+=/..
-		else
-					LBUFFER+=.
-		fi
-}
-
-autoload -U dot
-zle -N dot
-bindkey . dot
-
-
 # HISTORY
 # number of lines kept in history
-export HISTSIZE=10000
+export HISTSIZE=100000
 # number of lines saved in the history after logout
-export SAVEHIST=10000
+export SAVEHIST=100000
 # location of history
 export HISTFILE=~/.zhistory
 # append command to history file once executed
@@ -98,39 +71,12 @@ setopt NO_BEEP
 
 setopt AUTO_CD
 
-
-# исправлять неверно набранные комманды
-
-#setopt CORRECT_ALL
-alias pdflink='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./result.pdf'
-alias keepemerge='sudo FEATURES="keeptemp keepwork" emerge'
-alias mc='TERM=xterm-256color mc'
 alias et='emacsclient -t -a ""'
 alias eg='emacsclient -c -a ""'
 EM='emacsclient -c -a ""'
 es(){
     emacsclient -a "" -t /sudo:root@localhost:$1
 }
-ci(){
-    curl http://container.s:8081/v2/c/node0.in.ngs.ru.$1/stats | jq '.'
-}
-ra(){
-    curl http://snob.s/hsd:rn:ngs:engineers/$1
-}
-dbi(){
-    curl http://db8.farm.s:8081/v2/c/$1/stats | jq '.'
-}
-alias jo='mcabber -f .mcabberrc.office'
-alias jh='mcabber -f .mcabberrc.home'
-alias sln='mcabber -f .mcabberrc.slack-ngs'
-alias slp='mcabber -f .mcabberrc.slack-postdevops'
-alias slg='mcabber -f .mcabberrc.slack-go'
-alias gt='gtypist --banner-colors=6,7,6,7 -c 0,7 --scoring=cpm'
-alias mo='mutt -F ~/.muttrc.www'
-alias my='mutt -F ~/.muttrc.yandex'
-alias mya='mutt -F ~/.muttrc.yahoo'
-export XLIB_SKIP_ARGB_VISUALS=1
-export SBCL_HOME='/usr/lib64/sbcl/'
 source ~/.profile
 #
 #автодополнение portage
@@ -139,37 +85,19 @@ source ~/.profile
 # promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
+zstyle ':completion:*' menu 'select=1'
 export EDITOR=emacsclient
 export BROWSER=chromium
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LC_ALL=en_US.UTF-8
 
 #disable CTRL-S
 stty -ixon
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
-
-# if the init scipt doesn't exist
-if ! zgen saved; then
-
-    # specify plugins here
-    zgen load seletskiy/zsh-smart-kill-word
-
-    # generate the init script from plugins above
-    zgen save
-fi
-
-bindkey '^W' smart-backward-kill-word
-bindkey '^S' smart-forward-kill-word
-
-# Adapted from code found at <https://gist.github.com/1712320>.
-
-setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 
 # Modify the colors and symbols in these variables as desired.
-GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
+GIT_PROMPT_SYMBOL="%{$fg[blue]%}±%{$reset_color%}"
 GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
@@ -228,17 +156,62 @@ export PATH=~/bin/:$PATH
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
     local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
+    [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX$(parse_git_state)$GIT_PROMPT_SYMBOL"
 }
 
 # Set the right-hand prompt
-RPS1='$(git_prompt_string)'
+# RPS1='$(git_prompt_string)'
 
-export XKB_DEFAULT_LAYOUT=us,ru
-export XKB_DEFAULT_VARIANT=,winkeys
-export XKB_DEFAULT_OPTIONS=grp:win_space_toggle,ctrl:nocaps,grp_led:caps
-export WLC_REPEAT_DELAY=200
-export WLC_REPEAT_RATE=60
+local returncode="%(?..%{$fg[red]%} %? ↵%{$reset_color%})"
 
-export ERL_LIBS=~/eltex/private_lib
-export RELX="relx -d"
+setopt promptsubst
+PROMPT=$'%{\e[1;32m%}%{$fg[cyan]%}%n%{$fg[blue]%}@%{$fg[green]%}%m %{\e[1;34m%}%~ %{\e[0m%}$(git_prompt_string)${returncode} %% '
+
+function peco-put-history()
+{
+    BUFFER=$(history -n -r 1 | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-put-history
+bindkey '^r' peco-put-history
+
+function peco-put-file()
+{
+    BUFFER=$(find . -type 'f' | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-put-file
+bindkey '^x^f' peco-put-file
+
+function peco-put-dir()
+{
+    BUFFER=$(find . -type 'd' | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-put-dir
+bindkey '^x^i' peco-put-dir
+
+function peco-cd()
+{
+    local dir
+    dir=$(find . -type 'd' | peco)
+    cd "$dir"
+    zle clear-screen
+}
+zle -N peco-cd
+bindkey '^x^o' peco-cd
+
+# export XKB_DEFAULT_LAYOUT=us,ru
+# export XKB_DEFAULT_VARIANT=,winkeys
+# export XKB_DEFAULT_OPTIONS=grp:win_space_toggle,ctrl:nocaps,grp_led:caps
+# export WLC_REPEAT_DELAY=200
+# export WLC_REPEAT_RATE=60
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/feofan/go/bin/gocomplete go
+source <(helm completion zsh)
+source <(kubectl completion zsh)
+true

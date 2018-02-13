@@ -34,6 +34,15 @@ emacs.font: Go Mono-12
 
 URxvt*scrollBar: false
 
+! xterm: do not jump to bottom when new output appears,
+!        but do so on key press
+xterm*scrollTtyOutput: false
+xterm*scrollKey: true
+
+urxvt.scrollTtyOutput:   false
+urxvt.scrollWithBuffer:  true
+urxvt.scrollTtyKeypress: true
+
 URxvt.perl-lib: /home/feofan/.config/urxvt/perl
 
 URxvt.perl-ext:  default,url-select
