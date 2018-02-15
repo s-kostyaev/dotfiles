@@ -229,6 +229,6 @@ bindkey '^x^o' peco-cd
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/feofan/go/bin/gocomplete go
-source <(helm completion zsh)
-source <(kubectl completion zsh)
+type helm > /dev/null && source <(helm completion zsh)
+type kubectl >/dev/null && source <(kubectl completion zsh)
 true
