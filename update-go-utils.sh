@@ -1,7 +1,6 @@
 #!/bin/bash
 
 PKGS='github.com/github/hub
-github.com/kisielk/errcheck
 github.com/seletskiy/go-makepkg
 github.com/nsf/gocode
 github.com/rogpeppe/godef
