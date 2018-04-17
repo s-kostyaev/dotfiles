@@ -4,9 +4,9 @@ setxkbmap -option
 setxkbmap -option ctrl:nocaps
 setxkbmap "us,ru" ",winkeys" "grp:win_space_toggle,grp_led:caps"
 # killall -9 xcape
-# ./reconfig-kbd
-# ./space2hyper
-./enter2control
+# ~/reconfig-kbd
+# ~/space2hyper
+# ~/enter2control
 
 xset r rate 200 60
 xset -b
