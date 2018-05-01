@@ -32,4 +32,4 @@ for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
 echo "installing gocomplete"
 gocomplete -install -y
 echo "updating linters"
-gometalinter --install --update
+gometalinter --install
