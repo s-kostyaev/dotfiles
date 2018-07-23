@@ -25,6 +25,7 @@ github.com/google/codesearch/cmd/...
 github.com/peco/peco/...
 github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
+github.com/golangci/golangci-lint/cmd/golangci-lint
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
