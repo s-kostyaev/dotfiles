@@ -2,7 +2,7 @@
 
 PKGS='github.com/github/hub
 github.com/seletskiy/go-makepkg
-github.com/nsf/gocode
+github.com/mdempsky/gocode
 github.com/rogpeppe/godef
 github.com/alecthomas/gometalinter
 golang.org/x/tools/cmd/goimports
