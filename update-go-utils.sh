@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# github.com/mdempsky/gocode
+
 PKGS='github.com/github/hub
 github.com/seletskiy/go-makepkg
-github.com/mdempsky/gocode
+github.com/stamblerre/gocode
 github.com/rogpeppe/godef
 github.com/alecthomas/gometalinter
 golang.org/x/tools/cmd/goimports
