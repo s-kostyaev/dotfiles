@@ -6,7 +6,6 @@ PKGS='github.com/github/hub
 github.com/seletskiy/go-makepkg
 github.com/stamblerre/gocode
 github.com/rogpeppe/godef
-github.com/alecthomas/gometalinter
 golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
 github.com/maruel/panicparse
@@ -34,5 +33,3 @@ for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
 
 echo "installing gocomplete"
 gocomplete -install -y
-echo "updating linters"
-gometalinter --install
