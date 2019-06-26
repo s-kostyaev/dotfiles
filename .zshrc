@@ -71,6 +71,8 @@ setopt NO_BEEP
 
 setopt AUTO_CD
 
+alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
+alias emacsclient='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient'
 alias et='emacsclient -t -a ""'
 alias eg='emacsclient -c -a ""'
 EM='emacsclient -c -a ""'
@@ -158,7 +160,6 @@ fi
 
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $HOME/go/bin/gocomplete go
 type helm > /dev/null && source <(helm completion zsh)
 type kubectl >/dev/null && source <(kubectl completion zsh)
 true
