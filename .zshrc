@@ -71,13 +71,11 @@ setopt NO_BEEP
 
 setopt AUTO_CD
 
-alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
-alias emacsclient='/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient'
 alias et='emacsclient -t -a ""'
 alias eg='emacsclient -c -a ""'
 EM='emacsclient -c -a ""'
 es(){
-    emacs /sudo:root@localhost:$1
+    emacs -nw /sudo:root@localhost:$1
 }
 source ~/.profile
 #
@@ -157,7 +155,6 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
-
 
 autoload -U +X bashcompinit && bashcompinit
 type helm > /dev/null && source <(helm completion zsh)

@@ -1,13 +1,17 @@
 #!/bin/bash
 
+source ~/.profile
 # github.com/mdempsky/gocode
 
-PKGS='golang.org/x/tools/cmd/gopls
-golang.org/x/tools/cmd/goimports
+echo "updating gopls"
+GO111MODULE=on go get -u golang.org/x/tools/gopls@latest
+echo "updating vale"
+GO111MODULE=on go get -u github.com/errata-ai/vale@latest
+
+PKGS='golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
 github.com/jstemmer/gotags
 github.com/derekparker/delve/cmd/dlv
-github.com/ValeLint/vale
 github.com/posener/complete/gocomplete
 github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/cmd/fillstruct
@@ -18,7 +22,7 @@ github.com/google/codesearch/cmd/...
 github.com/peco/peco/...
 github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
-github.com/isacikgoz/tldr
+github.com/isacikgoz/tldr/cmd/tldr
 honnef.co/go/tools/cmd/staticcheck
 '
 
