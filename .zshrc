@@ -55,7 +55,6 @@ setopt inc_append_history
 #ignore dublicate commands
 setopt hist_ignore_all_dups
 bindkey '^R' history-incremental-search-backward
-bindkey '^F' history-incremental-search-forward
 bindkey '\e[5~' history-search-backward
 bindkey '\e[6~' history-search-forward
 bindkey -M viins '^[.' insert-last-word
