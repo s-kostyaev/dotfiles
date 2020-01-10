@@ -4,9 +4,9 @@ source ~/.profile
 # github.com/mdempsky/gocode
 
 echo "updating gopls"
-GO111MODULE=on go get -u golang.org/x/tools/gopls@latest
+GO111MODULE=on go get golang.org/x/tools/gopls@latest
 echo "updating vale"
-GO111MODULE=on go get -u github.com/errata-ai/vale@latest
+GO111MODULE=on go get github.com/errata-ai/vale@latest
 
 PKGS='golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
