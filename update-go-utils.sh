@@ -7,6 +7,8 @@ echo "updating gopls"
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
 echo "updating vale"
 GO111MODULE=on go get github.com/errata-ai/vale@latest
+echo "updating tldr"
+GO111MODULE=on go get github.com/isacikgoz/tldr@latest
 
 PKGS='golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
@@ -22,7 +24,6 @@ github.com/google/codesearch/cmd/...
 github.com/peco/peco/...
 github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
-github.com/isacikgoz/tldr/cmd/tldr
 honnef.co/go/tools/cmd/staticcheck
 '
 
