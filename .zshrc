@@ -77,6 +77,7 @@ es(){
     /usr/local/bin/emacs --dump-file="/Users/feofan/.emacs.d/emacs.pdmp" -nw /sudo:root@localhost:$1
 }
 alias em='/usr/local/bin/emacs --dump-file="/Users/feofan/.emacs.d/emacs.pdmp"'
+alias emm='em -Q -l ~/.emacs.d/mini.el'
 source ~/.profile
 #
 #автодополнение portage
