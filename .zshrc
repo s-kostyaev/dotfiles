@@ -74,9 +74,9 @@ alias et='emacsclient -t -a ""'
 alias eg='emacsclient -c -a ""'
 EM='emacsclient -c -a ""'
 es(){
-    /usr/local/bin/emacs --dump-file="/Users/feofan/.emacs.d/emacs.pdmp" -nw /sudo:root@localhost:$1
+    emacs --dump-file="~/.emacs.d/emacs.pdmp" -nw /sudo:root@localhost:$1
 }
-alias em='/usr/local/bin/emacs --dump-file="/Users/feofan/.emacs.d/emacs.pdmp"'
+alias em='emacs --dump-file="~/.emacs.d/emacs.pdmp"'
 alias emm='emacs -Q -l ~/.emacs.d/mini.el'
 source ~/.profile
 #
