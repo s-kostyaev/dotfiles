@@ -9,6 +9,8 @@ echo "updating vale"
 GO111MODULE=on go get github.com/errata-ai/vale@latest
 echo "updating tldr"
 GO111MODULE=on go get github.com/isacikgoz/tldr@latest
+echo "updating hugo"
+GO111MODULE=on go get github.com/gohugoio/hugo@latest
 
 PKGS='golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
