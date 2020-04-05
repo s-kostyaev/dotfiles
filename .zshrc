@@ -87,8 +87,8 @@ source ~/.profile
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 zstyle ':completion:*' menu 'select=1'
-export EDITOR=emacsclient
-export BROWSER=chromium
+export EDITOR="emacsclient -c -a ''"
+export BROWSER=firefox
 # source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LC_ALL=en_US.UTF-8
 
