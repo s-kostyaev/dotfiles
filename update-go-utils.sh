@@ -27,6 +27,7 @@ github.com/peco/peco/...
 github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
 honnef.co/go/tools/cmd/staticcheck
+github.com/fullstorydev/grpcui/cmd/grpcui
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done

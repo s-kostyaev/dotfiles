@@ -162,4 +162,4 @@ type helm > /dev/null && source <(helm completion zsh)
 type kubectl >/dev/null && source <(kubectl completion zsh)
 true
 
-complete -o nospace -C /Users/feofan/go/bin/gocomplete go
+complete -o nospace -C $HOME/go/bin/gocomplete go
