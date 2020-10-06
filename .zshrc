@@ -71,10 +71,9 @@ setopt NO_BEEP
 setopt AUTO_CD
 
 alias et='emacsclient -t -a ""'
-alias eg='emacsclient -c -a ""'
 EM='emacsclient -c -a ""'
 es(){
-    emacs --dump-file="~/.emacs.d/emacs.pdmp" -nw /sudo:root@localhost:$1
+    emacs -nw /sudo:root@localhost:$1
 }
 alias em='emacs --dump-file="~/.emacs.d/emacs.pdmp"'
 alias emm='emacs -Q -l ~/.emacs.d/mini.el'
@@ -163,3 +162,28 @@ type kubectl >/dev/null && source <(kubectl completion zsh)
 true
 
 complete -o nospace -C $HOME/go/bin/gocomplete go
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/feofan/projects/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/feofan/projects/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/feofan/projects/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/feofan/projects/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+vterm_printf(){
+    if [ -n "$TMUX" ]; then
+        # Tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
