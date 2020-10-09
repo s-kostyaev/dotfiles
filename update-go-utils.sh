@@ -5,8 +5,6 @@ source ~/.profile
 
 echo "updating gopls"
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
-echo "updating vale"
-GO111MODULE=on go get github.com/errata-ai/vale@latest
 echo "updating tldr"
 GO111MODULE=on go get github.com/isacikgoz/tldr@latest
 echo "updating hugo"
@@ -27,7 +25,6 @@ github.com/peco/peco/...
 github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
 honnef.co/go/tools/cmd/staticcheck
-github.com/fullstorydev/grpcui/cmd/grpcui
 '
 
 for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
