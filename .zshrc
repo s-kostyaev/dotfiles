@@ -17,8 +17,10 @@ keyinfo=(
 #source /etc/zsh_command_not_found
 bindkey '\e[3~' delete-char # del
 
-autoload -U compinit # promptinit
-compinit
+autoload -Uz compinit && compinit
+
+# autoload -U compinit # promptinit
+# compinit
 # promptinit;
 
 # alias ls='ls --color=auto'

@@ -1,16 +1,11 @@
 #!/bin/bash
 
 source ~/.profile
-# github.com/mdempsky/gocode
 
-echo "updating gopls"
-GO111MODULE=on go get golang.org/x/tools/gopls@latest
-echo "updating tldr"
-GO111MODULE=on go get github.com/isacikgoz/tldr@latest
-echo "updating hugo"
-GO111MODULE=on go get github.com/gohugoio/hugo@latest
-
-PKGS='golang.org/x/tools/cmd/goimports
+PKGS='golang.org/x/tools/gopls
+github.com/isacikgoz/tldr
+github.com/gohugoio/hugo
+golang.org/x/tools/cmd/goimports
 github.com/josharian/impl
 github.com/jstemmer/gotags
 github.com/derekparker/delve/cmd/dlv
@@ -27,4 +22,4 @@ github.com/justjanne/powerline-go
 honnef.co/go/tools/cmd/staticcheck
 '
 
-for pkg in $PKGS; do echo updating $pkg; go get -u $pkg; done
+for pkg in $PKGS; do echo updating $pkg; GO111MODULE=on go get ${pkg}@latest; done

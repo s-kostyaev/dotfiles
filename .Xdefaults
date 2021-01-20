@@ -20,11 +20,11 @@ xterm*faceSize: 12
 ! *font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 ! *font: -fontforge-monaco-medium-r-normal--12-120-72-72-p-59-iso10646-1
 ! XTerm*font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
-Emacs.fontBackend: xft
+! Emacs.fontBackend: xft
 ! Emacs.font: -*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 ! emacs.font: DejaVu Sans Mono-10
 ! emacs.font: Fira Mono-10
-emacs.font: Go Mono-12
+! emacs.font: Go Mono-12
 ! emacs.font: -CYEL-Iosevka-light-normal-normal-*-18-*-*-*-d-0-iso10646-1
 ! emacs.font: Hack-12
 ! emacs.font: -xos4-xos4 Terminus-normal-normal-normal-*-18-*-*-*-c-100-iso10646-1
@@ -501,3 +501,15 @@ rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+o
 ! rofi.display-windowcd:
 ! "The display name of this browser" Set from: Default
 ! rofi.display-combi:
+Axiom.hyperdoc.ControlBackground: White
+Axiom.hyperdoc.ControlForeground: Black
+
+FriCAS.hyperdoc.Background: black
+FriCAS.hyperdoc.RmColor: white
+FriCAS.hyperdoc.RmFont: -*-fixed-medium-r-normal-*-13-*-*-*-*-*-*-1
+FriCAS.hyperdoc.FriCASColor: white
+FriCAS.hyperdoc.BoldColor: white
+FriCAS.hyperdoc.EmphasizeColor: white
+FriCAS.hyperdoc.TtColor: white
+FriCAS.hyperdoc.BorderColor: white
+FriCAS.hyperdoc.ActiveColor: white
