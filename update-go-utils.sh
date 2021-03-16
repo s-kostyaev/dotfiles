@@ -3,6 +3,7 @@
 source ~/.profile
 
 PKGS='golang.org/x/tools/gopls
+mvdan.cc/gofumpt
 github.com/isacikgoz/tldr
 github.com/gohugoio/hugo
 golang.org/x/tools/cmd/goimports
