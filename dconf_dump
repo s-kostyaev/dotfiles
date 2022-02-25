@@ -314,8 +314,8 @@ word-size=64
 [org/gnome/calendar]
 active-view='month'
 window-maximized=true
-window-position=(0, 36)
-window-size=(1920, 1001)
+window-position=(0, 0)
+window-size=(1920, 1048)
 
 [org/gnome/cheese]
 burst-delay=1000
@@ -329,10 +329,14 @@ video-y-resolution=480
 world-clocks=@aa{sv} []
 
 [org/gnome/control-center]
-last-panel='universal-access'
+last-panel='keyboard'
 
 [org/gnome/desktop/a11y/applications]
+screen-magnifier-enabled=false
 screen-reader-enabled=false
+
+[org/gnome/desktop/a11y/magnifier]
+mouse-tracking='proportional'
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -383,11 +387,14 @@ toolbar-style='text'
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['gnome-power-panel', 'firefox', 'org-gnome-software', 'opera', 'emacs', 'skypeforlinux', 'telegramdesktop', 'org-gnome-nautilus', 'gnome-network-panel', 'goldendict', 'gnome-control-center', 'org-gnome-evolution', 'org-gnome-evolution-alarm-notify', 'slack', 'deadbeef', 'org-gnome-fileroller', 'clementine', 'qstardict', 'vlc', 'cantata', 'org-gnome-baobab', 'us-zoom-zoom', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'zoom', 'transmission-gtk', 'org-keepassxc-keepassxc', 'syncthing-gtk', 'org-gnome-eog', 'org-gnome-evince', 'org-libreoffice-libreoffice', 'fotowall', 'org-gnome-epiphany', 'com-mattermost-desktop', 'chromium', 'io-dbeaver-dbeaver', 'org-gnome-terminal', 'org-onlyoffice-desktopeditors', 'org-clementine-player-clementine', 'mellowplayer', 'teams', 'bomi']
+application-children=['gnome-power-panel', 'firefox', 'org-gnome-software', 'opera', 'emacs', 'skypeforlinux', 'telegramdesktop', 'org-gnome-nautilus', 'gnome-network-panel', 'goldendict', 'gnome-control-center', 'org-gnome-evolution', 'org-gnome-evolution-alarm-notify', 'slack', 'deadbeef', 'org-gnome-fileroller', 'clementine', 'qstardict', 'vlc', 'cantata', 'org-gnome-baobab', 'us-zoom-zoom', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'zoom', 'transmission-gtk', 'org-keepassxc-keepassxc', 'syncthing-gtk', 'org-gnome-eog', 'org-gnome-evince', 'org-libreoffice-libreoffice', 'fotowall', 'org-gnome-epiphany', 'com-mattermost-desktop', 'chromium', 'io-dbeaver-dbeaver', 'org-gnome-terminal', 'org-onlyoffice-desktopeditors', 'org-clementine-player-clementine', 'mellowplayer', 'teams', 'bomi', 'discord', 'discord-canary', 'calibre-gui']
 show-banners=true
 
 [org/gnome/desktop/notifications/application/bomi]
 application-id='bomi.desktop'
+
+[org/gnome/desktop/notifications/application/calibre-gui]
+application-id='calibre-gui.desktop'
 
 [org/gnome/desktop/notifications/application/cantata]
 application-id='cantata.desktop'
@@ -404,6 +411,12 @@ application-id='com.mattermost.Desktop.desktop'
 
 [org/gnome/desktop/notifications/application/deadbeef]
 application-id='deadbeef.desktop'
+
+[org/gnome/desktop/notifications/application/discord-canary]
+application-id='discord-canary.desktop'
+
+[org/gnome/desktop/notifications/application/discord]
+application-id='discord.desktop'
 
 [org/gnome/desktop/notifications/application/emacs]
 application-id='emacs.desktop'
@@ -543,6 +556,10 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [org/gnome/desktop/session]
 idle-delay=uint32 0
 
+[org/gnome/desktop/sound]
+event-sounds=true
+theme-name='__custom'
+
 [org/gnome/desktop/wm/keybindings]
 close=['<Super>q']
 maximize=@as []
@@ -621,7 +638,7 @@ default-zoom-level=1.0
 document-directory=@ms 'file:///home/feofan/Documents/Deutsch'
 
 [org/gnome/evince/default]
-window-ratio=(1.6650326797385622, 1.1982323232323233)
+window-ratio=(1.6646956848937686, 1.1984938649942392)
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -641,7 +658,7 @@ reminders-past=@as []
 reminders-snoozed=@as []
 
 [org/gnome/evolution]
-version='3.42.3'
+version='3.42.4'
 
 [org/gnome/evolution/addressbook]
 completion-minimum-query-length=3
@@ -900,6 +917,9 @@ night-light-temperature=uint32 2817
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+next=['<Primary><Super>9']
+play=['<Primary><Super>8']
+previous=['<Primary><Super>7']
 screensaver=['<Primary><Super>l']
 www=@as []
 
@@ -939,8 +959,8 @@ app-picker-view=uint32 1
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['just-perfection-desktop@just-perfection', 'tray-icons@nicovell3']
-enabled-extensions=['SkypeNotification@chrisss404.gmail.com', 'pulseaudio-equalizer@s8dragon.vn', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'nightthemeswitcher@romainvigier.fr', 'extendedgestures@mpiannucci.github.com', 'mpris22playerindicator@redsoxfan.cz.cc', 'laine@knasher.gmail.com', 'MprisControl@zdyb.tk', 'mprisindicatorbutton@alexandrupetrini.github.io', 'MediaKeys_to_MPRIS2@ryan.ryandavies.co.nz', 'Media_Controls@katsarov.org', 'mprisindicatorbutton@JasonLG1979.github.io', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'tray-icons@zhangkaizhao.com', 'appindicatorsupport@rgcjonas.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['org.gnome.Epiphany.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'telegramdesktop.desktop', 'org.gnome.Evolution.desktop', 'com.mattermost.Desktop.desktop', 'io.dbeaver.DBeaver.desktop', 'chromium.desktop', 'slack.desktop', 'mellowplayer.desktop']
+enabled-extensions=['SkypeNotification@chrisss404.gmail.com', 'pulseaudio-equalizer@s8dragon.vn', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'nightthemeswitcher@romainvigier.fr', 'extendedgestures@mpiannucci.github.com', 'mpris22playerindicator@redsoxfan.cz.cc', 'laine@knasher.gmail.com', 'MprisControl@zdyb.tk', 'mprisindicatorbutton@alexandrupetrini.github.io', 'MediaKeys_to_MPRIS2@ryan.ryandavies.co.nz', 'Media_Controls@katsarov.org', 'mprisindicatorbutton@JasonLG1979.github.io', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'tray-icons@zhangkaizhao.com', 'appindicatorsupport@rgcjonas.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['org.gnome.Epiphany.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'telegramdesktop.desktop', 'org.gnome.Evolution.desktop', 'com.mattermost.Desktop.desktop', 'io.dbeaver.DBeaver.desktop', 'chromium.desktop', 'slack.desktop', 'mellowplayer.desktop', 'chrome-cnfillkccnhiojalgljmneplcphipcoe-Default.desktop', 'chrome-ddaomilgndehlmebfcjhaogcoiekaffn-Default.desktop']
 had-bluetooth-devices-setup=true
 welcome-dialog-last-shown-version='40.0'
 
@@ -1012,11 +1032,11 @@ current-workspace-only=false
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1644362944
+check-timestamp=int64 1645746134
 first-run=false
 install-timestamp=int64 1617625727
-online-updates-timestamp=int64 1644362966
-update-notification-timestamp=int64 1644362966
+online-updates-timestamp=int64 1645228735
+update-notification-timestamp=int64 1645573340
 
 [org/gnome/system/location]
 enabled=false
