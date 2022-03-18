@@ -1,9 +1,9 @@
 swipe:
   4:
     left:
-      command: 'ydotool key alt+Right' # History forward
+      command: 'ydotool key 56:1 106:1 106:0 56:0' # 'ydotool key alt+Right' # History forward - see /usr/include/linux/input-event-codes.h
     right:
-      command: 'ydotool key alt+Left' # History back
+      command: 'ydotool key 56:1 105:1 105:0 56:0' # 'ydotool key alt+Left' # History back
     # up:
     #   command: 'xdotool key ctrl+t' # Open new tab
     #   keypress:
