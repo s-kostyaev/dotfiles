@@ -12,15 +12,14 @@ github.com/jstemmer/gotags
 github.com/go-delve/delve/cmd/dlv
 github.com/posener/complete/gocomplete
 github.com/cweill/gotests/...
-github.com/davidrjenni/reftools/cmd/fillstruct
 github.com/kovetskiy/transline
 golang.org/x/tools/cmd/godoc
 github.com/fatih/gomodifytags
 github.com/google/codesearch/cmd/...
 github.com/peco/peco/...
-github.com/golang/dep/cmd/dep
 github.com/justjanne/powerline-go
 honnef.co/go/tools/cmd/staticcheck
+github.com/segmentio/golines
 '
 
 for pkg in $PKGS; do echo updating $pkg; GO111MODULE=on go install ${pkg}@latest; done
