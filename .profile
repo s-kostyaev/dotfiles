@@ -6,3 +6,4 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/:/usr/local/lib/
 export QT_QPA_PLATFORMTHEME=gtk2
 export DTK_PROGRAM=espeak
+export LSP_USE_PLISTS=true
