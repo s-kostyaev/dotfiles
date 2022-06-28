@@ -171,6 +171,8 @@ if [ -f '/home/feofan/projects/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/feofan/projects/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/feofan/projects/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
 
+[[ ! -r /home/feofan/.opam/opam-init/init.zsh ]] || source /home/feofan/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 vterm_printf(){
     if [ -n "$TMUX" ]; then
         # Tell tmux to pass the escape sequences through
