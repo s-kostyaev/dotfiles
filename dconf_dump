@@ -1,5 +1,5 @@
 [ca/desrt/dconf-editor]
-saved-pathbar-path='/org/gnome/desktop/wm/keybindings/move-to-workspace-9'
+saved-pathbar-path='swipe'
 saved-view='/org/gnome/desktop/wm/keybindings/'
 show-warning=false
 window-height=500
@@ -137,6 +137,12 @@ unhide-delay=0
 zoom-enabled=false
 zoom-percent=150
 
+[org/gnome/Console]
+theme='auto'
+
+[org/gnome/Disks]
+image-dir-uri='file:///home/feofan/Downloads'
+
 [org/gnome/Music]
 did-initial-state=true
 repeat='shuffle'
@@ -146,7 +152,7 @@ window-size=[1920, 1048]
 
 
 [org/gnome/Totem]
-active-plugins=['movie-properties', 'open-directory', 'save-file', 'screensaver', 'autoload-subtitles', 'recent', 'variable-rate', 'media-player-keys', 'apple-trailers', 'screenshot', 'vimeo', 'skipto', 'rotation']
+active-plugins=['skipto', 'movie-properties', 'autoload-subtitles', 'rotation', 'apple-trailers', 'open-directory', 'variable-rate', 'vimeo', 'screensaver', 'save-file', 'mpris', 'screenshot', 'recent']
 subtitle-encoding='UTF-8'
 
 [org/gnome/Weather]
@@ -319,7 +325,7 @@ window-size=(1920, 1048)
 
 [org/gnome/cheese]
 burst-delay=1000
-camera='Integrated Webcam_HD: Integrate'
+camera='Integrated Webcam_HD'
 photo-x-resolution=640
 photo-y-resolution=480
 video-x-resolution=640
@@ -329,7 +335,8 @@ video-y-resolution=480
 world-clocks=@aa{sv} []
 
 [org/gnome/control-center]
-last-panel='keyboard'
+last-panel='background'
+window-state=(1124, 640, false)
 
 [org/gnome/desktop/a11y/applications]
 screen-magnifier-enabled=false
@@ -355,8 +362,9 @@ translate=true
 [org/gnome/desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///usr/share/backgrounds/gnome/Loveles.jpg'
-primary-color='#ffffff'
+picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/blobs-d.svg'
+primary-color='#3465a4'
 secondary-color='#000000'
 
 [org/gnome/desktop/calendar]
@@ -370,24 +378,24 @@ sources=[('xkb', 'us'), ('xkb', 'ru'), ('xkb', 'de')]
 xkb-options=['lv3:ralt_switch', 'caps:ctrl_modifier']
 
 [org/gnome/desktop/interface]
+color-scheme='prefer-light'
 cursor-theme='Adwaita'
-document-font-name='PT Serif 12'
+document-font-name='Ubuntu 11'
 enable-animations=true
 enable-hot-corners=false
 font-antialiasing='rgba'
-font-hinting='medium'
-font-name='PT Serif 12'
-gtk-im-module='gtk-im-context-simple'
+font-hinting='slight'
+font-name='Ubuntu 11'
 gtk-key-theme='Emacs'
-gtk-theme='deepin'
-icon-theme='Faenza-Ambiance'
-monospace-font-name='Go Mono 12'
+gtk-theme='Adwaita'
+icon-theme='Adwaita'
+monospace-font-name='PT Mono 12'
 show-battery-percentage=true
 toolbar-style='text'
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['gnome-power-panel', 'firefox', 'org-gnome-software', 'opera', 'emacs', 'skypeforlinux', 'telegramdesktop', 'org-gnome-nautilus', 'gnome-network-panel', 'goldendict', 'gnome-control-center', 'org-gnome-evolution', 'org-gnome-evolution-alarm-notify', 'slack', 'deadbeef', 'org-gnome-fileroller', 'clementine', 'qstardict', 'vlc', 'cantata', 'org-gnome-baobab', 'us-zoom-zoom', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'zoom', 'transmission-gtk', 'org-keepassxc-keepassxc', 'syncthing-gtk', 'org-gnome-eog', 'org-gnome-evince', 'org-libreoffice-libreoffice', 'fotowall', 'org-gnome-epiphany', 'com-mattermost-desktop', 'chromium', 'io-dbeaver-dbeaver', 'org-gnome-terminal', 'org-onlyoffice-desktopeditors', 'org-clementine-player-clementine', 'mellowplayer', 'teams', 'bomi', 'discord', 'discord-canary', 'calibre-gui']
+application-children=['gnome-power-panel', 'firefox', 'org-gnome-software', 'opera', 'emacs', 'skypeforlinux', 'telegramdesktop', 'org-gnome-nautilus', 'gnome-network-panel', 'goldendict', 'gnome-control-center', 'org-gnome-evolution', 'org-gnome-evolution-alarm-notify', 'slack', 'deadbeef', 'org-gnome-fileroller', 'clementine', 'qstardict', 'vlc', 'cantata', 'org-gnome-baobab', 'us-zoom-zoom', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'zoom', 'transmission-gtk', 'org-keepassxc-keepassxc', 'syncthing-gtk', 'org-gnome-eog', 'org-gnome-evince', 'org-libreoffice-libreoffice', 'fotowall', 'org-gnome-epiphany', 'com-mattermost-desktop', 'chromium', 'io-dbeaver-dbeaver', 'org-gnome-terminal', 'org-onlyoffice-desktopeditors', 'org-clementine-player-clementine', 'mellowplayer', 'teams', 'bomi', 'discord', 'discord-canary', 'calibre-gui', 'org-gnome-shell-extensions-gsconnect', 'freelib', 'org-kde-falkon', 'com-microsoft-teams', 'org-gnome-console', 'emacsclient', 'org-gnome-settings', 'org-gnome-rhythmbox3', 'vuze', 'io-dbeaver-dbeavercommunity']
 show-banners=true
 
 [org/gnome/desktop/notifications/application/bomi]
@@ -409,6 +417,9 @@ application-id='clementine.desktop'
 [org/gnome/desktop/notifications/application/com-mattermost-desktop]
 application-id='com.mattermost.Desktop.desktop'
 
+[org/gnome/desktop/notifications/application/com-microsoft-teams]
+application-id='com.microsoft.Teams.desktop'
+
 [org/gnome/desktop/notifications/application/deadbeef]
 application-id='deadbeef.desktop'
 
@@ -420,6 +431,9 @@ application-id='discord.desktop'
 
 [org/gnome/desktop/notifications/application/emacs]
 application-id='emacs.desktop'
+
+[org/gnome/desktop/notifications/application/emacsclient]
+application-id='emacsclient.desktop'
 
 [org/gnome/desktop/notifications/application/firefox]
 application-id='firefox.desktop'
@@ -442,6 +456,9 @@ application-id='goldendict.desktop'
 [org/gnome/desktop/notifications/application/io-dbeaver-dbeaver]
 application-id='io.dbeaver.DBeaver.desktop'
 
+[org/gnome/desktop/notifications/application/io-dbeaver-dbeavercommunity]
+application-id='io.dbeaver.DBeaverCommunity.desktop'
+
 [org/gnome/desktop/notifications/application/mellowplayer]
 application-id='mellowplayer.desktop'
 
@@ -456,6 +473,9 @@ application-id='org.gnome.baobab.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
 application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-console]
+application-id='org.gnome.Console.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-eog]
 application-id='org.gnome.eog.desktop'
@@ -481,11 +501,23 @@ application-id='org.gnome.FileRoller.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-rhythmbox3]
+application-id='org.gnome.Rhythmbox3.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-settings]
+application-id='org.gnome.Settings.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect]
+application-id='org.gnome.Shell.Extensions.GSConnect.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-terminal]
 application-id='org.gnome.Terminal.desktop'
+
+[org/gnome/desktop/notifications/application/org-kde-falkon]
+application-id='org.kde.falkon.desktop'
 
 [org/gnome/desktop/notifications/application/org-keepassxc-keepassxc]
 application-id='org.keepassxc.KeePassXC.desktop'
@@ -523,18 +555,23 @@ application-id='us.zoom.Zoom.desktop'
 [org/gnome/desktop/notifications/application/vlc]
 application-id='vlc.desktop'
 
+[org/gnome/desktop/notifications/application/vuze]
+application-id='vuze.desktop'
+
 [org/gnome/desktop/notifications/application/zoom]
 application-id='Zoom.desktop'
 
 [org/gnome/desktop/peripherals/keyboard]
-numlock-state=false
+numlock-state=true
 
 [org/gnome/desktop/peripherals/mouse]
 accel-profile='default'
 natural-scroll=false
 
 [org/gnome/desktop/peripherals/touchpad]
+disable-while-typing=false
 natural-scroll=true
+send-events='enabled'
 speed=-0.17314487632508835
 tap-to-click=true
 two-finger-scrolling-enabled=true
@@ -600,7 +637,7 @@ unmaximize=@as []
 [org/gnome/desktop/wm/preferences]
 button-layout='close,minimize,maximize:appmenu'
 num-workspaces=9
-titlebar-font='PT Serif 12'
+titlebar-font='Ubuntu 11'
 
 [org/gnome/dictionary]
 database='!'
@@ -638,7 +675,7 @@ default-zoom-level=1.0
 document-directory=@ms 'file:///home/feofan/Documents/Deutsch'
 
 [org/gnome/evince/default]
-window-ratio=(1.6646956848937686, 1.1984938649942392)
+window-ratio=(1.3333333333333333, 1.1982323232323233)
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -647,18 +684,20 @@ network-monitor-gio-name=''
 [org/gnome/evolution-data-server/calendar]
 contacts-reminder-enabled=true
 notify-custom-snooze-minutes=[14, 4, 360, 8]
-notify-last-snooze-minutes=14
-notify-window-height=1008
+notify-last-snooze-minutes=5
+notify-window-height=1011
 notify-window-paned-position=442
-notify-window-width=1440
-notify-window-x=51
-notify-window-y=37
+notify-window-width=1920
+notify-window-x=0
+notify-window-y=0
 notify-with-tray=false
 reminders-past=@as []
 reminders-snoozed=@as []
 
 [org/gnome/evolution]
-version='3.42.4'
+default-mail-account='73a737ccbd2a98779b13d65f0df4e1882234c721'
+default-mail-identity='4d00738bce90d1c34db0da3a19c1fad3ec5da040'
+version='3.44.4'
 
 [org/gnome/evolution/addressbook]
 completion-minimum-query-length=3
@@ -675,7 +714,7 @@ day-end-minute=0
 editor-show-timezone=true
 memo-vpane-position=279
 prefer-new-item='event-new'
-primary-calendar='879cc0523f4fb1d077a6c3c1829148635f208893'
+primary-calendar='9a74cb0c848fe295d06f1b21332d36740fde8e67'
 primary-memos='system-memo-list'
 primary-tasks='system-task-list'
 recur-events-italic=false
@@ -698,16 +737,18 @@ browser-close-on-reply-policy='ask'
 composer-show-from-override=false
 composer-visually-wrap-long-lines=false
 forward-style-name='attached'
+headers-collapsed=false
 image-loading-policy='never'
 junk-check-custom-header=true
 junk-check-incoming=true
 junk-empty-on-exit-days=0
 junk-lookup-addressbook=true
-labels=['I_mportant:#EF2929', '_Work:#F57900', '_Personal:#4E9A06', '_To Do:#3465A4', '_Later:#75507B', 'Зеленая категория|#009e48|Зеленая_категория', 'Синяя категория|#00bcf2|Синяя_категория', 'Желтая категория|#fff100|Желтая_категория', 'Красная категория|#ff1a36|Красная_категория', 'Оранжевая категория|#ff8c00|Оранжевая_категория', 'Лиловая категория|#8e69df|Лиловая_категория']
+labels=['I_mportant:#EF2929', '_Work:#F57900', '_Personal:#4E9A06', '_To Do:#3465A4', '_Later:#75507B', 'Зеленая категория|#009e48|Зеленая_категория', 'Синяя категория|#00bcf2|Синяя_категория', 'Желтая категория|#fff100|Желтая_категория', 'Красная категория|#ff1a36|Красная_категория', 'Оранжевая категория|#ff8c00|Оранжевая_категория', 'Лиловая категория|#8e69df|Лиловая_категория', 'Yellow category|#fff100|Yellow_category']
 paned-size=1536585
 paned-size-sub=1158629
 prompt-on-composer-mode-switch=false
 prompt-on-empty-subject=true
+prompt-on-expunge=true
 reply-style-name='quoted'
 search-gravatar-for-photo=false
 send-recv-all-on-start=true
@@ -724,7 +765,7 @@ width=600
 [org/gnome/evolution/mail/composer-window]
 height=500
 maximized=true
-width=762
+width=770
 
 [org/gnome/evolution/mail/subscription-window]
 height=400
@@ -749,7 +790,7 @@ default-component-id='mail'
 file-chooser-folder='file:///home/feofan/Downloads'
 folder-bar-width=258
 folder-bar-width-sub=250
-menubar-visible=true
+menubar-visible=false
 menubar-visible-sub=true
 sidebar-visible=true
 sidebar-visible-sub=true
@@ -850,6 +891,10 @@ ignore-phase2-ca-cert=false
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
+[org/gnome/nm-applet/eap/77753602-3e9f-47b5-b5f2-02e2a5800999]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
 [org/gnome/nm-applet/eap/e0c9e113-167c-464f-b621-fcf996c31165]
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
@@ -866,7 +911,7 @@ user='feofan'
 maximized=true
 paned-position=339
 position=(0, 0)
-size=(1920, 1020)
+size=(1920, 1011)
 
 [org/gnome/rhythmbox/library]
 layout-filename='%tN - %tt'
@@ -883,7 +928,7 @@ play-order='linear'
 volume=1.0
 
 [org/gnome/rhythmbox/plugins]
-active-plugins=['audioscrobbler', 'generic-player', 'mmkeys', 'yandex-music', 'rb', 'dbus-media-server', 'mtpdevice', 'mpris', 'daap', 'notification', 'audiocd', 'power-manager', 'iradio', 'artsearch', 'android']
+active-plugins=['audioscrobbler', 'rb', 'artsearch', 'android', 'mtpdevice', 'dbus-media-server', 'generic-player', 'iradio', 'audiocd', 'notification', 'power-manager', 'mpris', 'yandex-music', 'daap']
 seen-plugins=['audioscrobbler', 'cd-recorder', 'yandex-music', 'rb', 'rbzeitgeist', 'webremote', 'ipod', 'dbus-media-server', 'grilo', 'pythonconsole', 'mtpdevice', 'mpris', 'daap', 'fmradio', 'notification', 'im-status', 'lyrics', 'soundcloud', 'rblirc', 'magnatune', 'replaygain', 'artsearch', 'listenbrainz']
 
 [org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
@@ -897,6 +942,9 @@ initial-stations-loaded=true
 
 [org/gnome/rhythmbox/plugins/iradio/source]
 show-browser=true
+
+[org/gnome/rhythmbox/plugins/yandex-music]
+token='AQAAAAAVq2acAAG8Xjhwzh94NkuYmOJAfXZ4Snw'
 
 [org/gnome/rhythmbox/podcast]
 download-location='file:///home/feofan/Music'
@@ -925,7 +973,7 @@ www=@as []
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>Return'
-command='/usr/bin/gnome-terminal'
+command='/usr/bin/kgx'
 name='Term'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
@@ -945,23 +993,25 @@ name='firefox'
 
 [org/gnome/settings-daemon/plugins/power]
 idle-dim=false
-power-button-action='suspend'
+power-button-action='hibernate'
 sleep-inactive-ac-timeout=3600
 sleep-inactive-ac-type='nothing'
-sleep-inactive-battery-timeout=1200
-sleep-inactive-battery-type='nothing'
+sleep-inactive-battery-timeout=1800
+sleep-inactive-battery-type='suspend'
 
 [org/gnome/settings-daemon/plugins/xsettings]
 overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'close,minimize,maximize:menu'>}
 
 [org/gnome/shell]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Books.desktop': <{'position': <4>}>, 'chrome-ahibbgmeofndbcifongmbgnkccljjlfa-Default.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.SoundRecorder.desktop': <{'position': <7>}>, 'org.gnome.gedit.desktop': <{'position': <8>}>, 'simple-scan.desktop': <{'position': <9>}>, 'org.gnome.Documents.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.Klotski.desktop': <{'position': <12>}>, 'org.gnome.Boxes.desktop': <{'position': <13>}>, 'org.gnome.Mahjongg.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'vlc.desktop': <{'position': <16>}>, 'bssh.desktop': <{'position': <17>}>, 'bvnc.desktop': <{'position': <18>}>, 'org.gnome.Cheese.desktop': <{'position': <19>}>, 'avahi-discover.desktop': <{'position': <20>}>, 'mpv.desktop': <{'position': <21>}>, 'org.gnome.eog.desktop': <{'position': <22>}>, 'org.gnome.five-or-more.desktop': <{'position': <23>}>}, {'org.gnome.Extensions.desktop': <{'position': <0>}>, 'org.gnome.Reversi.desktop': <{'position': <1>}>, 'pavucontrol.desktop': <{'position': <2>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <3>}>, 'org.gnome.Robots.desktop': <{'position': <4>}>, 'org.gnome.Mines.desktop': <{'position': <5>}>, 'org.gnome.World.Secrets.desktop': <{'position': <6>}>, 'gnome-nettool.desktop': <{'position': <7>}>, 'org.gnome.Sudoku.desktop': <{'position': <8>}>, 'org.gnome.Tali.desktop': <{'position': <9>}>, 'org.gnome.Tetravex.desktop': <{'position': <10>}>, 'org.gnome.LightsOff.desktop': <{'position': <11>}>, 'org.gnome.Hitori.desktop': <{'position': <12>}>, 'org.gnome.Nibbles.desktop': <{'position': <13>}>, 'org.gnome.Four-in-a-row.desktop': <{'position': <14>}>, 'org.gnome.Chess.desktop': <{'position': <15>}>, 'accerciser.desktop': <{'position': <16>}>, 'Alacritty.desktop': <{'position': <17>}>, 'wine-Programs-Battle.net-Battle.net.desktop': <{'position': <18>}>, 'cantata.desktop': <{'position': <19>}>, 'claws-mail.desktop': <{'position': <20>}>, 'org.clementine_player.Clementine.desktop': <{'position': <21>}>, 'cmake-gui.desktop': <{'position': <22>}>, 'io.dbeaver.DBeaverCommunity.desktop': <{'position': <23>}>}, {'deadbeef.desktop': <{'position': <0>}>, 'org.gnome.Devhelp.desktop': <{'position': <1>}>, 'dia.desktop': <{'position': <2>}>, 'com.discordapp.Discord.desktop': <{'position': <3>}>, 'emacs.desktop': <{'position': <4>}>, 'emacsclient.desktop': <{'position': <5>}>, 'FBReader.desktop': <{'position': <6>}>, 'flacon.desktop': <{'position': <7>}>, 'org.gottcode.FocusWriter.desktop': <{'position': <8>}>, 'foot.desktop': <{'position': <9>}>, 'footclient.desktop': <{'position': <10>}>, 'foot-server.desktop': <{'position': <11>}>, 'freelib.desktop': <{'position': <12>}>, 'gog_com-FTL_Advanced_Edition_1.desktop': <{'position': <13>}>, 'gammastep-indicator.desktop': <{'position': <14>}>, 'org.gnome.GHex.desktop': <{'position': <15>}>, 'gimp.desktop': <{'position': <16>}>, 'gparted.desktop': <{'position': <17>}>, 'lstopo.desktop': <{'position': <18>}>, 'htop.desktop': <{'position': <19>}>, 'org.inkscape.Inkscape.desktop': <{'position': <20>}>, 'ipython.desktop': <{'position': <21>}>, 'chrome-ljenhbpabhmmknaenmialiemjkanpgfh-Default.desktop': <{'position': <22>}>, 'jupyter-notebook.desktop': <{'position': <23>}>}, {'org.keepassxc.KeePassXC.desktop': <{'position': <0>}>, 'org.libreoffice.LibreOffice.desktop': <{'position': <1>}>, 'org.libreoffice.LibreOffice.base.desktop': <{'position': <2>}>, 'org.libreoffice.LibreOffice.calc.desktop': <{'position': <3>}>, 'org.libreoffice.LibreOffice.draw.desktop': <{'position': <4>}>, 'org.libreoffice.LibreOffice.impress.desktop': <{'position': <5>}>, 'org.libreoffice.LibreOffice.math.desktop': <{'position': <6>}>, 'org.libreoffice.LibreOffice.writer.desktop': <{'position': <7>}>, 'gtk-lshw.desktop': <{'position': <8>}>, 'org.gnome.MultiWriter.desktop': <{'position': <9>}>, 'org.onlyoffice.desktopeditors.desktop': <{'position': <10>}>, 'opera.desktop': <{'position': <11>}>, 'org.gnome.Polari.desktop': <{'position': <12>}>, 'assistant.desktop': <{'position': <13>}>, 'designer.desktop': <{'position': <14>}>, 'linguist.desktop': <{'position': <15>}>, 'qdbusviewer.desktop': <{'position': <16>}>, 'qv4l2.desktop': <{'position': <17>}>, 'qvidcap.desktop': <{'position': <18>}>, 'org.gnome.Quadrapassel.desktop': <{'position': <19>}>, 'ranger.desktop': <{'position': <20>}>, 'org.gnome.Recipes.desktop': <{'position': <21>}>, 'scribus.desktop': <{'position': <22>}>, 'shotwell.desktop': <{'position': <23>}>}, {'skypeforlinux.desktop': <{'position': <0>}>, 'stoken-gui.desktop': <{'position': <1>}>, 'stoken-gui-small.desktop': <{'position': <2>}>, 'wine-Programs-StarCraft II-StarCraft II.desktop': <{'position': <3>}>, 'stardict.desktop': <{'position': <4>}>, 'chrome-ijbenoipjemnkicfpmmcpljlmammlngg-Default.desktop': <{'position': <5>}>, 'org.gnome.SwellFoop.desktop': <{'position': <6>}>, 'org.gnome.Sysprof3.desktop': <{'position': <7>}>, 'org.gnome.Taquin.desktop': <{'position': <8>}>, 'org.gnome.Todo.desktop': <{'position': <9>}>, 'torbrowser.desktop': <{'position': <10>}>, 'torbrowser-settings.desktop': <{'position': <11>}>, 'transmission-gtk.desktop': <{'position': <12>}>, 'org.gnome.Usage.desktop': <{'position': <13>}>, 'uxterm.desktop': <{'position': <14>}>, 'vim.desktop': <{'position': <15>}>, 'xdvi.desktop': <{'position': <16>}>, 'net.sourceforge.maxima.xmaxima.desktop': <{'position': <17>}>, 'xterm.desktop': <{'position': <18>}>, 'org.gnome.Console.desktop': <{'position': <19>}>}]
 app-picker-view=uint32 1
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['just-perfection-desktop@just-perfection', 'tray-icons@nicovell3']
-enabled-extensions=['SkypeNotification@chrisss404.gmail.com', 'pulseaudio-equalizer@s8dragon.vn', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'nightthemeswitcher@romainvigier.fr', 'extendedgestures@mpiannucci.github.com', 'mpris22playerindicator@redsoxfan.cz.cc', 'laine@knasher.gmail.com', 'MprisControl@zdyb.tk', 'mprisindicatorbutton@alexandrupetrini.github.io', 'MediaKeys_to_MPRIS2@ryan.ryandavies.co.nz', 'Media_Controls@katsarov.org', 'mprisindicatorbutton@JasonLG1979.github.io', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'tray-icons@zhangkaizhao.com', 'appindicatorsupport@rgcjonas.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['org.gnome.Epiphany.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'telegramdesktop.desktop', 'org.gnome.Evolution.desktop', 'com.mattermost.Desktop.desktop', 'io.dbeaver.DBeaver.desktop', 'chromium.desktop', 'slack.desktop', 'mellowplayer.desktop', 'chrome-cnfillkccnhiojalgljmneplcphipcoe-Default.desktop', 'chrome-ddaomilgndehlmebfcjhaogcoiekaffn-Default.desktop']
+enabled-extensions=['SkypeNotification@chrisss404.gmail.com', 'pulseaudio-equalizer@s8dragon.vn', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'extendedgestures@mpiannucci.github.com', 'mpris22playerindicator@redsoxfan.cz.cc', 'laine@knasher.gmail.com', 'MprisControl@zdyb.tk', 'mprisindicatorbutton@alexandrupetrini.github.io', 'MediaKeys_to_MPRIS2@ryan.ryandavies.co.nz', 'Media_Controls@katsarov.org', 'mprisindicatorbutton@JasonLG1979.github.io', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'tray-icons@zhangkaizhao.com', 'appindicatorsupport@rgcjonas.gmail.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'hibernate-status@dromi', 'gsconnect@andyholmes.github.io', 'nightthemeswitcher@romainvigier.fr', 'user-theme-x@tuberry.github.io']
+favorite-apps=['org.gnome.Epiphany.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Console.desktop', 'telegramdesktop.desktop', 'org.gnome.Evolution.desktop', 'com.mattermost.Desktop.desktop', 'chromium.desktop', 'mellowplayer.desktop', 'chrome-cnfillkccnhiojalgljmneplcphipcoe-Default.desktop']
 had-bluetooth-devices-setup=true
+remember-mount-password=false
 welcome-dialog-last-shown-version='40.0'
 
 [org/gnome/shell/extensions/extendedgestures]
@@ -976,6 +1026,9 @@ up-three-swipes=false
 id='09e9d00d-757d-4378-9cf5-7b3d6afeb6e4'
 name='feofanlaptop'
 
+[org/gnome/shell/extensions/hibernate-status-button]
+hibernate-works-check=false
+
 [org/gnome/shell/extensions/just-perfection]
 theme=false
 
@@ -986,9 +1039,10 @@ sound-menu=true
 settings-version=1
 
 [org/gnome/shell/extensions/nightthemeswitcher/gtk-variants]
-day='deepin'
+day='Adwaita'
+enabled=true
 manual=true
-night='deepin-dark'
+night='Adwaita-dark'
 
 [org/gnome/shell/extensions/nightthemeswitcher/shell-variants]
 day=''
@@ -996,8 +1050,9 @@ manual=false
 night=''
 
 [org/gnome/shell/extensions/nightthemeswitcher/time]
-manual-time-source=false
+manual-time-source=true
 nightthemeswitcher-ondemand-keybinding=['<Shift><Super>t']
+ondemand-button-placement='panel'
 time-source='nightlight'
 
 [org/gnome/shell/extensions/skype-integration]
@@ -1005,6 +1060,15 @@ panel-button-position=1
 
 [org/gnome/shell/extensions/user-theme]
 name=''
+x-color='prefer-light'
+x-color-night='prefer-dark'
+x-cursor='Adwaita'
+x-gtk='Adwaita'
+x-gtk-night='Adwaita-dark'
+x-icons='Adwaita'
+x-night=true
+x-shell=''
+x-shell-night='Default'
 
 [org/gnome/shell/keybindings]
 switch-to-application-1=@as []
@@ -1023,7 +1087,7 @@ dynamic-workspaces=false
 
 [org/gnome/shell/weather]
 automatic-location=true
-locations=[<(uint32 2, <('Tyumen', 'USTR', false, [(0.99801117090908409, 1.1405768549684991)], @a(dd) [])>)>, <(uint32 2, <('Тюмень, Тюменская область, Россия', '', false, [(0.99751734745052478, 1.143928480544274)], @a(dd) [])>)>]
+locations=[<(uint32 2, <('Novosibirsk', 'UNNT', false, [(0.96138552382244569, 1.4468779499032993)], @a(dd) [])>)>, <(uint32 2, <('Tyumen', 'USTR', false, [(0.99801117090908409, 1.1405768549684991)], @a(dd) [])>)>, <(uint32 2, <('Тюмень, Тюменская область, Россия', '', false, [(0.99751734745052478, 1.143928480544274)], @a(dd) [])>)>]
 
 [org/gnome/shell/window-switcher]
 current-workspace-only=false
@@ -1032,11 +1096,11 @@ current-workspace-only=false
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1645746134
+check-timestamp=int64 1661211151
 first-run=false
 install-timestamp=int64 1617625727
-online-updates-timestamp=int64 1645228735
-update-notification-timestamp=int64 1645573340
+online-updates-timestamp=int64 1659049920
+update-notification-timestamp=int64 1659049920
 
 [org/gnome/system/location]
 enabled=false
@@ -1073,6 +1137,19 @@ use-theme-colors=false
 [org/gnome/tweaks]
 show-extensions-notice=false
 
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=181
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-size=(1400, 862)
+
 [org/gtk/settings/color-chooser]
 custom-colors=[(0.93725490196078431, 0.93725490196078431, 0.93725490196078431, 1.0)]
 selected-color=(true, 0.0, 0.0, 0.0, 1.0)
@@ -1088,7 +1165,7 @@ sort-column='modified'
 sort-directories-first=false
 sort-order='descending'
 type-format='category'
-window-position=(51, 37)
+window-position=(291, 42)
 window-size=(1338, 982)
 
 [org/pantheon/desktop/gala/behavior]
@@ -1143,3 +1220,6 @@ transparent-background-type='checkered'
 
 [system/locale]
 region='ru_RU.UTF-8'
+
+[system/proxy]
+mode='none'
