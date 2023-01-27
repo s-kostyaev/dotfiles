@@ -598,6 +598,7 @@ event-sounds=true
 theme-name='__custom'
 
 [org/gnome/desktop/wm/keybindings]
+activate-window-menu=@as []
 close=['<Super>q']
 maximize=@as []
 minimize=@as []
