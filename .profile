@@ -1,5 +1,5 @@
 GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin:$HOME/.local/bin
+PATH=$PATH:$GOPATH/bin:$HOME/.local/bin:$HOME/.cabal/bin
 export TERM=xterm-256color
 export EDITOR="emacs -Q -l ~/.emacs.d/mini.el -nw"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/
