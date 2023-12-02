@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 
-GDK_BACKEND=wayland PATH=/usr/bin /usr/bin/emacsclient -c -a ''
+#GDK_BACKEND=wayland PATH=/usr/bin /usr/bin/emacsclient -c -a ''
+PATH="/opt/homebrew/bin:$PATH" /opt/homebrew/bin/emacsclient -c -a ''
