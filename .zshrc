@@ -210,4 +210,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/Users/sergeykostyaev/go/bin:$PATH"
 eval "$(direnv hook zsh)"

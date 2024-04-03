@@ -21,6 +21,7 @@ github.com/peco/peco/...
 github.com/justjanne/powerline-go
 honnef.co/go/tools/cmd/staticcheck
 github.com/segmentio/golines
+github.com/sqls-server/sqls
 '
 
 for pkg in $PKGS; do echo updating $pkg; GO111MODULE=on go install ${pkg}@latest; done
