@@ -43,6 +43,8 @@ export LESS_TERMCAP_ue=$'\E[0m'           # конец подчеркнутог�
 ccopy(){ cp $1 /tmp/ccopy.$1; }
 alias cpaste="ls /tmp/ccopy.* | sed 's|/tmp/ccopy.||' | xargs -I % mv /tmp/ccopy.% ./%" 
 alias -g ERR='2>>( sed -ue "s/.*/$fg_bold[red]&$reset_color/" 1>&2 )'
+alias git_prune_locals_main="git branch --merged main | grep -v '^[ *]*main$' | xargs -r git branch -d"
+alias git_prune_locals_master="git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
 
 
 # HISTORY
