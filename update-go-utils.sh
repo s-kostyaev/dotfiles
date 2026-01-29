@@ -3,6 +3,7 @@
 source ~/.profile
 
 PKGS='golang.org/x/tools/gopls
+github.com/sammcj/mcp-devtools
 github.com/mostlygeek/llama-swap
 github.com/mhersson/mpls
 golang.org/x/vuln/cmd/govulncheck
