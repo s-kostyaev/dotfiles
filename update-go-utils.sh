@@ -3,6 +3,7 @@
 source ~/.profile
 
 PKGS='golang.org/x/tools/gopls
+github.com/muqsitnawaz/mq
 github.com/sammcj/mcp-devtools
 github.com/mostlygeek/llama-swap
 github.com/mhersson/mpls
