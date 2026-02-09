@@ -214,3 +214,15 @@ unset __conda_setup
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/Users/sergeykostyaev/go/bin:$PATH"
 eval "$(direnv hook zsh)"
+
+# Added by microsandbox installer
+export PATH="$HOME/.local/bin:$PATH"
+export DYLD_LIBRARY_PATH="$HOME/.local/lib:$DYLD_LIBRARY_PATH"
+
+# bun completions
+[ -s "/Users/sergeykostyaev/.bun/_bun" ] && source "/Users/sergeykostyaev/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+eval $(opam env)
