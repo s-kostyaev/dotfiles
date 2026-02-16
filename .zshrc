@@ -26,7 +26,7 @@ autoload -Uz compinit && compinit
 # alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 
-alias gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+alias gih='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
 case $TERM in (xterm*|rxvt)
 precmd () { print -Pn "\e]0;%n@%m: %~\a" }
