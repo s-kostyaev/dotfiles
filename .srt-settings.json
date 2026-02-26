@@ -17,7 +17,7 @@
       "~/dotfiles/.srt-settings.json",
       "~/.ssh",
       "~/.aws",
-      "~/.gnupg/"
+      "~/.gnupg/",
       ".env",
       ".env.*",
       ".env*.local",
@@ -59,7 +59,7 @@
       "~/dotfiles/.srt-settings.json",
       "~/.ssh",
       "~/.aws",
-      "~/.gnupg/"
+      "~/.gnupg/",
       ".env",
       ".env.*",
       ".env*.local",
