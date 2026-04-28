@@ -53,7 +53,7 @@
       "backup.sql",
       "*.dump"
     ],
-    "allowWrite": [".", "src/", "test/", "/tmp"],
+    "allowWrite": [".", "src/", "test/", "/tmp", "/private/tmp", "~/.emacs.d/ellama/deep-research"],
     "denyWrite": [
       "~/.srt-settings.json",
       "~/dotfiles/.srt-settings.json",
