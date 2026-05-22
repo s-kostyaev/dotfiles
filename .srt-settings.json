@@ -8,8 +8,12 @@
     ],
     "deniedDomains": [],
     "httpProxyPort": 8888,
-    "allowUnixSockets": ["/var/run/docker.sock"],
-    "allowLocalBinding": false
+    "allowUnixSockets": [
+      "/var/run/docker.sock",
+      "/var/folders/4k/*",
+      "/private/var/folders/4k/*"
+    ],
+    "allowLocalBinding": true
   },
   "filesystem": {
     "denyRead": [
@@ -53,7 +57,7 @@
       "backup.sql",
       "*.dump"
     ],
-    "allowWrite": [".", "src/", "test/", "/tmp", "/private/tmp", "~/.emacs.d/ellama/deep-research"],
+    "allowWrite": [".", "src/", "test/", "/tmp", "/private/tmp", "~/.emacs.d/ellama/deep-research", "~/.npm", "~/Library/Application Support/Google/Chrome for Testing", "/private/var/folders/4k", "/var/folders/4k"],
     "denyWrite": [
       "~/.srt-settings.json",
       "~/dotfiles/.srt-settings.json",
@@ -110,7 +114,10 @@
     ]
   },
   "ignoreViolations": {
-    "npm": ["/private/tmp"]
+    "npm": [
+      "/private/tmp",
+      "/tmp"
+    ]
   },
   "enableWeakerNestedSandbox": false,
   "enableWeakerNetworkIsolation": false
