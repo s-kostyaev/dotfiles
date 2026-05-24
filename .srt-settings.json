@@ -120,5 +120,5 @@
     ]
   },
   "enableWeakerNestedSandbox": false,
-  "enableWeakerNetworkIsolation": false
+  "enableWeakerNetworkIsolation": true
 }
