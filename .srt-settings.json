@@ -57,7 +57,7 @@
       "backup.sql",
       "*.dump"
     ],
-    "allowWrite": [".", "src/", "test/", "/tmp", "/private/tmp", "~/.emacs.d/ellama/deep-research", "~/.npm", "~/Library/Application Support/Google/Chrome for Testing", "/private/var/folders/4k", "/var/folders/4k"],
+    "allowWrite": [".", "src/", "test/", "/tmp", "/private/tmp", "~/.emacs.d/ellama/deep-research", "~/.npm", "~/Library/Application Support/Google/Chrome for Testing", "/private/var/folders/4k", "/var/folders/4k", "~/.emacs.d/ellama/code-review"],
     "denyWrite": [
       "~/.srt-settings.json",
       "~/dotfiles/.srt-settings.json",
